@@ -9,7 +9,10 @@
       </e>
       <e p="Making.md" t="Include" />
       <e p="Models" t="Include">
+        <e p="ApplicationDbContext.cs" t="Include" />
+        <e p="AuthenticateDevelopers.cs" t="Include" />
         <e p="ErrorViewModel.cs" t="Include" />
+        <e p="InitDevelopers.cs" t="Include" />
       </e>
       <e p="NoResume.csproj" t="IncludeRecursive" />
       <e p="NoResume.sln" t="IncludeFlat" />
@@ -28,6 +31,7 @@
           <e p="Error.cshtml" t="Include" />
           <e p="_CookieConsentPartial.cshtml" t="Include" />
           <e p="_Layout.cshtml" t="Include" />
+          <e p="_LayoutPrivate.cshtml" t="Include" />
           <e p="_LayoutPublic.cshtml" t="Include" />
           <e p="_ValidationScriptsPartial.cshtml" t="Include" />
         </e>

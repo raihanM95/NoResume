@@ -9,3 +9,11 @@ future overview of managing relevant processes.
     - ``` $ dotnet new mvc -o NoResume ```
 + Then I have created two markdown files, named as Making.md and README.md
 + I have added materialize css to the design library
++ After making Register, Login and ApplicationDbContext models I have added this nuget packages:
+    - ``` dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 2.2.0 ```
+    - ``` dotnet add package Microsoft.AspNetCore.Identity --version 2.2.0 ```
+    - ``` dotnet add package Microsoft.EntityFrameworkCore.Design --version 2.2.6 ```
+    - ``` dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 2.2.6 ```
+    - ``` dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 2.2.6 ```
+    - ``` dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.2.3 ```
+    - ``` dotnet add package Microsoft.AspNetCore.StaticFiles --version 2.2.0 ```

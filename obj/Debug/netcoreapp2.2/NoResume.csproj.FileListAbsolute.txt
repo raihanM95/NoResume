@@ -30,3 +30,4 @@
 /home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/NoResume.dll
 /home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/NoResume.pdb
 /home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/NoResume.csproj.CopyComplete
+/home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_LayoutPrivate.g.cshtml.cs
