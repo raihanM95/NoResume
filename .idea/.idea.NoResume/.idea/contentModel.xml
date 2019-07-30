@@ -105,6 +105,7 @@
             <e p="jquery.validate.unobtrusive.js" t="Include" />
             <e p="jquery.validate.unobtrusive.min.js" t="Include" />
           </e>
+          <e p="materialize" t="Include" />
         </e>
       </e>
     </e>
