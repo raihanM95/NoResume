@@ -28,6 +28,7 @@
           <e p="Error.cshtml" t="Include" />
           <e p="_CookieConsentPartial.cshtml" t="Include" />
           <e p="_Layout.cshtml" t="Include" />
+          <e p="_LayoutPublic.cshtml" t="Include" />
           <e p="_ValidationScriptsPartial.cshtml" t="Include" />
         </e>
         <e p="_ViewImports.cshtml" t="Include" />
@@ -105,7 +106,16 @@
             <e p="jquery.validate.unobtrusive.js" t="Include" />
             <e p="jquery.validate.unobtrusive.min.js" t="Include" />
           </e>
-          <e p="materialize" t="Include" />
+          <e p="materialize" t="Include">
+            <e p="css" t="Include">
+              <e p="materialize.css" t="Include" />
+              <e p="materialize.min.css" t="Include" />
+            </e>
+            <e p="js" t="Include">
+              <e p="materialize.js" t="Include" />
+              <e p="materialize.min.js" t="Include" />
+            </e>
+          </e>
         </e>
       </e>
     </e>

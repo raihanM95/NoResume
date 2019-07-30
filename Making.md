@@ -8,3 +8,4 @@ future overview of managing relevant processes.
 + Firstly, I've created the project using a command. The command is:
     - ``` $ dotnet new mvc -o NoResume ```
 + Then I have created two markdown files, named as Making.md and README.md
++ I have added materialize css to the design library
