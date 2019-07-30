@@ -1,0 +1,36 @@
+@model InitDevelopers
+
+@{
+    Layout = "_LayoutPublic";
+}
+
+<br/><br/>
+<div class="row">
+    <form method="post" class="col s12">
+        <div asp-validation-summary="All" class="red-text text-darken-1"></div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input required="" aria-required="true" asp-for="DevEmail" class="validate">
+                <label asp-for="DevEmail">Email</label>
+                <span class="red-text text-darken-1" asp-validation-for="DevEmail"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input required="" aria-required="true" asp-for="DevPassword" class="validate">
+                <label asp-for="DevPassword">Password</label>
+                <span class="red-text text-darken-1" asp-validation-for="DevPassword"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input required="" aria-required="true" asp-for="DevConfirmPassword" class="validate">
+                <label asp-for="DevConfirmPassword">Confirm Password</label>
+                <span class="red-text text-darken-1" asp-validation-for="DevConfirmPassword"></span>
+            </div>
+        </div>
+        <div class="row">
+            <button type="submit" class="btn teal">getInitiated( );</button>
+        </div>
+    </form>
+</div>

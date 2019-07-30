@@ -5,9 +5,15 @@
     <e p="$USER_HOME$/.Rider2019.1/system/resharper-host/local/Transient/ReSharperHost/v191/SolutionCaches/_NoResume.1057313277.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Controllers" t="Include">
+        <e p="AccountController.cs" t="Include" />
         <e p="HomeController.cs" t="Include" />
       </e>
       <e p="Making.md" t="Include" />
+      <e p="Migrations" t="Include">
+        <e p="20190730181910_InitialAuth.Designer.cs" t="Include" />
+        <e p="20190730181910_InitialAuth.cs" t="Include" />
+        <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
+      </e>
       <e p="Models" t="Include">
         <e p="ApplicationDbContext.cs" t="Include" />
         <e p="AuthenticateDevelopers.cs" t="Include" />
@@ -15,6 +21,7 @@
         <e p="InitDevelopers.cs" t="Include" />
       </e>
       <e p="NoResume.csproj" t="IncludeRecursive" />
+      <e p="NoResume.db" t="Include" />
       <e p="NoResume.sln" t="IncludeFlat" />
       <e p="Program.cs" t="Include" />
       <e p="Properties" t="Include">
@@ -23,6 +30,10 @@
       <e p="README.md" t="Include" />
       <e p="Startup.cs" t="Include" />
       <e p="Views" t="Include">
+        <e p="Account" t="Include">
+          <e p="Login.cshtml" t="Include" />
+          <e p="Register.cshtml" t="Include" />
+        </e>
         <e p="Home" t="Include">
           <e p="Index.cshtml" t="Include" />
           <e p="Privacy.cshtml" t="Include" />
