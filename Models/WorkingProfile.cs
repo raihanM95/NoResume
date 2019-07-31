@@ -25,7 +25,5 @@ namespace NoResume.Models
         
         [Display(Name = "Do you wish to make UVA private?")]
         public bool PrivacyForUhunt { get; set; }
-
-        public ShortBio ShortBio { get; set; }
     }
 }
