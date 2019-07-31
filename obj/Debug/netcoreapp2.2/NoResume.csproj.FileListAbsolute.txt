@@ -33,3 +33,8 @@
 /home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_LayoutPrivate.g.cshtml.cs
 /home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/Razor/Views/Account/Login.g.cshtml.cs
 /home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/Razor/Views/Account/Register.g.cshtml.cs
+/home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/Razor/Views/Audits/Create.g.cshtml.cs
+/home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/Razor/Views/Audits/Delete.g.cshtml.cs
+/home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/Razor/Views/Audits/Details.g.cshtml.cs
+/home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/Razor/Views/Audits/Edit.g.cshtml.cs
+/home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/Razor/Views/Audits/Index.g.cshtml.cs
