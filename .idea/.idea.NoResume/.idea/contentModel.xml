@@ -60,6 +60,7 @@
         <e p="Shared" t="Include">
           <e p="Error.cshtml" t="Include" />
           <e p="_CookieConsentPartial.cshtml" t="Include" />
+          <e p="_Editor.cshtml" t="Include" />
           <e p="_Layout.cshtml" t="Include" />
           <e p="_LayoutPrivate.cshtml" t="Include" />
           <e p="_LayoutPublic.cshtml" t="Include" />
@@ -104,6 +105,10 @@
       <e p="wwwroot" t="Include">
         <e p="css" t="Include">
           <e p="site.css" t="Include" />
+        </e>
+        <e p="editor" t="Include">
+          <e p="editor.css" t="Include" />
+          <e p="editor.min.js" t="Include" />
         </e>
         <e p="favicon.ico" t="Include" />
         <e p="js" t="Include">

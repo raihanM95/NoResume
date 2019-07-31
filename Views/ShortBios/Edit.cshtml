@@ -5,41 +5,50 @@
     Layout = "_LayoutPrivate";
 }
 
-<h1>Edit</h1>
-
-<h4>ShortBio</h4>
+<h5>Your ShortBio</h5>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col s12">
         <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-validation-summary="ModelOnly" class="red-text text-darken-2"></div>
             <input type="hidden" asp-for="DeveloperId" />
-            <div class="form-group">
-                <label asp-for="ShortDescription" class="control-label"></label>
-                <input asp-for="ShortDescription" class="form-control" />
-                <span asp-validation-for="ShortDescription" class="text-danger"></span>
+            
+            <div class="row">
+                <div class="input-field col s8">
+                    <label asp-for="CurrentCity" class="control-label"></label>
+                    <input asp-for="CurrentCity" class="form-control" />
+                    <span asp-validation-for="CurrentCity" class="text-danger"></span>
+                </div>
+                
+                <div class="input-field col s4">
+                    <p>
+                      <label>
+                        <input type="checkbox" asp-for="IsAvailableForJob" class="filled-in" />
+                        <span>@Html.DisplayNameFor(model => model.IsAvailableForJob)</span>
+                      </label>
+                    </p>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="CurrentCity" class="control-label"></label>
-                <input asp-for="CurrentCity" class="form-control" />
-                <span asp-validation-for="CurrentCity" class="text-danger"></span>
+            
+            <div class="row">
+                <div class="input-field col s12">
+                    <label asp-for="ShortDescription" class="control-label"></label>
+                    <textarea asp-for="ShortDescription" class="form-control" ></textarea>
+                    <span asp-validation-for="ShortDescription" class="purple-text text-darken-3"></span>
+                </div>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsAvailableForJob" /> @Html.DisplayNameFor(model => model.IsAvailableForJob)
-                </label>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            
+            <div class="center-align">
+                <input type="submit" value="Update" class="btn blue darken-3" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        await Html.RenderPartialAsync("_Editor");
+    }
 }

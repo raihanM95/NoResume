@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.Mail;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -60,36 +61,28 @@ namespace NoResume.Controllers
                 if (userCreationResult.Succeeded)
                 {
                     await _signInManager.SignInAsync(userObject, isPersistent:false);
+                    var shortBio = new ShortBio
+                    {
+                        DeveloperId = initDevelopers.DevId
+                    };
+
+                    var social = new SocialProfile
+                    {
+                        DeveloperId = initDevelopers.DevId
+                    };
+
+                    var workingProfile = new WorkingProfile
+                    {
+                        DeveloperId = initDevelopers.DevId
+                    };
+
+                    _context.Add(shortBio);
+                    _context.Add(social);
+                    _context.Add(workingProfile);
+                    await _context.SaveChangesAsync();
+                    
                     if (!string.IsNullOrEmpty(returnUrl))
                     {
-                        var shortBio = new ShortBio
-                        {
-                            DeveloperId = initDevelopers.DevId
-                        };
-
-                        var social = new SocialProfile
-                        {
-                            DeveloperId = initDevelopers.DevId
-                        };
-
-                        var workingProfile = new WorkingProfile
-                        {
-                            DeveloperId = initDevelopers.DevId
-                        };
-
-                        try
-                        {
-                            _context.Add(shortBio);
-                            _context.Add(social);
-                            _context.Add(workingProfile);
-                            await _context.SaveChangesAsync();
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine(e);
-                            throw;
-                        }
-                        
                         return Redirect(returnUrl);
                     }
                     return RedirectToAction("Edit", "ShortBios", new { id = initDevelopers.DevId });
@@ -120,7 +113,8 @@ namespace NoResume.Controllers
                     {
                         return Redirect(returnUrl);
                     }
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Edit", "ShortBios", new { id = User.FindFirst(ClaimTypes.NameIdentifier).Value });
+                    
                 }
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
             }
@@ -128,6 +122,7 @@ namespace NoResume.Controllers
             return View(model);
             
         }
+        
         
         [HttpPost]
         public async Task<IActionResult> Logout()

@@ -53,3 +53,4 @@
 /home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/Razor/Views/WorkingProfiles/Details.g.cshtml.cs
 /home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/Razor/Views/WorkingProfiles/Edit.g.cshtml.cs
 /home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/Razor/Views/WorkingProfiles/Index.g.cshtml.cs
+/home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_Editor.g.cshtml.cs

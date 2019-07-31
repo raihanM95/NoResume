@@ -19,6 +19,7 @@
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css'
             integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
     <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/editor/editor.css">
 </head>
 <body>
     <header>
@@ -87,14 +88,33 @@
         </main>
     </div>
     
-    <footer class="page-footer grey darken-4">
-        <div class="footer-copyright">
+<footer class="page-footer grey darken-3">
+    <div class="page-footer grey darken-3">
         <div class="container">
-        © 2014 Copyright Text
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="footer-copyright grey darken-4">
+        <div class="container">
+            © 2014 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
         </div>
-      </div>
-    </footer>
+    </div>
+</footer>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -106,6 +126,7 @@
     </environment>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/_privateLayout.js" asp-append-version="true"></script>
+    <script src="~/editor/editor.min.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
 </body>
