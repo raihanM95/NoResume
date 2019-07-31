@@ -8,6 +8,9 @@
         <e p="AccountController.cs" t="Include" />
         <e p="AuditsController.cs" t="Include" />
         <e p="HomeController.cs" t="Include" />
+        <e p="ShortBiosController.cs" t="Include" />
+        <e p="SocialProfilesController.cs" t="Include" />
+        <e p="WorkingProfilesController.cs" t="Include" />
       </e>
       <e p="Making.md" t="Include" />
       <e p="Migrations" t="Include">
@@ -15,6 +18,8 @@
         <e p="20190730181910_InitialAuth.cs" t="Include" />
         <e p="20190731075751_AuditImplemented.Designer.cs" t="Include" />
         <e p="20190731075751_AuditImplemented.cs" t="Include" />
+        <e p="20190731085131_ImplementedOtherThreeModels.Designer.cs" t="Include" />
+        <e p="20190731085131_ImplementedOtherThreeModels.cs" t="Include" />
         <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
@@ -59,6 +64,27 @@
           <e p="_LayoutPrivate.cshtml" t="Include" />
           <e p="_LayoutPublic.cshtml" t="Include" />
           <e p="_ValidationScriptsPartial.cshtml" t="Include" />
+        </e>
+        <e p="ShortBios" t="Include">
+          <e p="Create.cshtml" t="Include" />
+          <e p="Delete.cshtml" t="Include" />
+          <e p="Details.cshtml" t="Include" />
+          <e p="Edit.cshtml" t="Include" />
+          <e p="Index.cshtml" t="Include" />
+        </e>
+        <e p="SocialProfiles" t="Include">
+          <e p="Create.cshtml" t="Include" />
+          <e p="Delete.cshtml" t="Include" />
+          <e p="Details.cshtml" t="Include" />
+          <e p="Edit.cshtml" t="Include" />
+          <e p="Index.cshtml" t="Include" />
+        </e>
+        <e p="WorkingProfiles" t="Include">
+          <e p="Create.cshtml" t="Include" />
+          <e p="Delete.cshtml" t="Include" />
+          <e p="Details.cshtml" t="Include" />
+          <e p="Edit.cshtml" t="Include" />
+          <e p="Index.cshtml" t="Include" />
         </e>
         <e p="_ViewImports.cshtml" t="Include" />
         <e p="_ViewStart.cshtml" t="Include" />

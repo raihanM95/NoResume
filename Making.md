@@ -19,4 +19,9 @@ future overview of managing relevant processes.
     - ``` dotnet add package Microsoft.AspNetCore.StaticFiles --version 2.2.0 ```
 + For Code generation I have used this commands
     - ```  dotnet aspnet-codegenerator controller -name AuditsController -m AuditLogging -dc ApplicationDbContext --relativeFolderPath Controllers --layout _LayoutPrivate --referenceScriptLibraries ```
+    - ```  dotnet aspnet-codegenerator controller -name SocialProfilesController -m SocialProfile -dc ApplicationDbContext --relativeFolderPath Controllers --layout _LayoutPrivate --referenceScriptLibraries ```
+    - ```  dotnet aspnet-codegenerator controller -name ShortBiosController -m ShortBio -dc ApplicationDbContext --relativeFolderPath Controllers --layout _LayoutPrivate --referenceScriptLibraries ```
+    - ```  dotnet aspnet-codegenerator controller -name WorkingProfilesController -m WorkingProfile -dc ApplicationDbContext --relativeFolderPath Controllers --layout _LayoutPrivate --referenceScriptLibraries ```
+    - ```  dotnet ef migrations add ImplementedOtherThreeModels ```
+    - ```  dotnet ef database update ```
     

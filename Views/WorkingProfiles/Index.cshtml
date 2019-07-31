@@ -1,0 +1,66 @@
+@model IEnumerable<NoResume.Models.WorkingProfile>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_LayoutPrivate";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GithubUsername)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrivacyForGithub)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodeforcesUsername)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrivacyForCodeforces)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UhuntUsername)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrivacyForUhunt)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GithubUsername)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrivacyForGithub)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeforcesUsername)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrivacyForCodeforces)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UhuntUsername)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrivacyForUhunt)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DeveloperId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DeveloperId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DeveloperId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
