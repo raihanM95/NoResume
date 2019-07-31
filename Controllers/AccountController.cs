@@ -114,7 +114,7 @@ namespace NoResume.Controllers
                         return Redirect(returnUrl);
                     }
                     
-                    return RedirectToAction("Edit", "ShortBios", new { id = _getCurrentlyLoggedInUser(model.DevEmail) });
+                    return RedirectToAction("Edit", "ShortBios", new { id = _getCurrentlyLoggedInUser() });
                 }
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
             }
@@ -122,9 +122,9 @@ namespace NoResume.Controllers
             return View(model);
         }
 
-        private string _getCurrentlyLoggedInUser(string emailUsedForLogin)
+        private string _getCurrentlyLoggedInUser()
         {
-            return _userManager.FindByEmailAsync(emailUsedForLogin).Result.Id;
+            return _userManager.GetUserId(HttpContext.User);
         }
         
         
