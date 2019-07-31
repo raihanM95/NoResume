@@ -85,6 +85,7 @@ namespace NoResume.Controllers
             }
 
             var shortBio = await _context.ShortBios.FindAsync(id);
+            ViewBag.loggedInUserName = _userManager.GetUserName(HttpContext.User);
             if (shortBio == null)
             {
                 return NotFound();
@@ -123,7 +124,7 @@ namespace NoResume.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Edit", "ShortBios", new { id = _getCurrentlyLoggedInUser()});
             }
             return View(shortBio);
         }

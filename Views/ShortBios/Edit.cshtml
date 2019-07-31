@@ -9,7 +9,7 @@
 <hr />
 <div class="row">
     <div class="col s12">
-        <form asp-action="Edit">
+        <form asp-action="Edit" id="BioEditorForm">
             <div asp-validation-summary="ModelOnly" class="red-text text-darken-2"></div>
             <input type="hidden" asp-for="DeveloperId" />
             
@@ -40,6 +40,21 @@
             
             <div class="center-align">
                 <input type="submit" value="Update" class="btn blue darken-3" />
+                
+                <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+                
+                  <div id="modal1" class="modal bottom-sheet">
+                    <div class="modal-content">
+                        <h4>@ViewBag.loggedInUserName</h4>
+                        <p>@Html.DisplayFor(model => model.CurrentCity)</p>
+                        <p>@Html.DisplayFor(model => model.ShortDescription)</p>
+                        
+                        <p>Job Availability:  @Html.DisplayTextFor(model => model.IsAvailableForJob)</p>
+                    </div>
+                    <div class="modal-footer">
+                      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                    </div>
+                  </div>
             </div>
         </form>
     </div>
@@ -50,5 +65,6 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
         await Html.RenderPartialAsync("_Editor");
+        await Html.RenderPartialAsync("_BioAjaxiFy");
     }
 }

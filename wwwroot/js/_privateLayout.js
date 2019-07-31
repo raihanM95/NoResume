@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    $('.modal').modal();
     $('.dropdown-trigger').dropdown({
         inDuration: 300,
         outDuration: 225,
