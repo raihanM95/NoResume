@@ -21,6 +21,5 @@ namespace NoResume.Models
         public bool IsAvailableForJob { get; set; }
         
         public WorkingProfile Profile { get; set; }
-        public SocialProfile SocialProfile { get; set; }
     }
 }
