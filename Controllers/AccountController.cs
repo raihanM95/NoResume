@@ -62,9 +62,37 @@ namespace NoResume.Controllers
                     await _signInManager.SignInAsync(userObject, isPersistent:false);
                     if (!string.IsNullOrEmpty(returnUrl))
                     {
+                        var shortBio = new ShortBio
+                        {
+                            DeveloperId = initDevelopers.DevId
+                        };
+
+                        var social = new SocialProfile
+                        {
+                            DeveloperId = initDevelopers.DevId
+                        };
+
+                        var workingProfile = new WorkingProfile
+                        {
+                            DeveloperId = initDevelopers.DevId
+                        };
+
+                        try
+                        {
+                            _context.Add(shortBio);
+                            _context.Add(social);
+                            _context.Add(workingProfile);
+                            await _context.SaveChangesAsync();
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e);
+                            throw;
+                        }
+                        
                         return Redirect(returnUrl);
                     }
-                    return RedirectToAction("Privacy", "Home");
+                    return RedirectToAction("Edit", "ShortBios", new { id = initDevelopers.DevId });
                 }
                 
                 foreach (var error in userCreationResult.Errors)
