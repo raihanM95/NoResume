@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace NoResume.Models
 {
@@ -19,7 +20,5 @@ namespace NoResume.Models
         
         [Display(Name = "Are you available for a job? ")]
         public bool IsAvailableForJob { get; set; }
-        
-        public WorkingProfile Profile { get; set; }
     }
 }
