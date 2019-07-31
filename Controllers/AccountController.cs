@@ -113,14 +113,18 @@ namespace NoResume.Controllers
                     {
                         return Redirect(returnUrl);
                     }
-                    return RedirectToAction("Edit", "ShortBios", new { id = User.FindFirst(ClaimTypes.NameIdentifier).Value });
                     
+                    return RedirectToAction("Edit", "ShortBios", new { id = _getCurrentlyLoggedInUser(model.DevEmail) });
                 }
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
             }
 
             return View(model);
-            
+        }
+
+        private string _getCurrentlyLoggedInUser(string emailUsedForLogin)
+        {
+            return _userManager.FindByEmailAsync(emailUsedForLogin).Result.Id;
         }
         
         
