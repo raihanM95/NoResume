@@ -62,7 +62,7 @@ namespace NoResume.Controllers
                     await _signInManager.SignInAsync(userObject, isPersistent:false);
                     if (!string.IsNullOrEmpty(returnUrl))
                     {
-                        return RedirectToAction(returnUrl);
+                        return Redirect(returnUrl);
                     }
                     return RedirectToAction("Privacy", "Home");
                 }

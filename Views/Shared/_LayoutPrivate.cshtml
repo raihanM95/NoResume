@@ -35,6 +35,19 @@
                             <i class="fab fa-github"></i>
                         </a>
                     </li>
+                    <li>
+                      <!-- Dropdown Trigger -->
+                      <a class='dropdown-trigger btn blue darken-3'  href='#' data-target='dropdown1'>
+                          <i class="material-icons right">keyboard_arrow_down</i>
+                          Trigger
+                      </a>
+                    
+                      <!-- Dropdown Structure -->
+                      <ul id='dropdown1' class='dropdown-content'>
+                        <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+                        <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+                      </ul>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -67,6 +80,7 @@
         <script src="~/lib/materialize/js/materialize.min.js"></script>
     </environment>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/_privateLayout.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
 </body>

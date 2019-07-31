@@ -5,7 +5,6 @@ namespace NoResume.Models
     public class InitDevelopers
     {
         [Key]
-        [Required]
         public string DevId { get; set; }
         
         [Required]
