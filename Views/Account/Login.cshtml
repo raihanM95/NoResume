@@ -4,7 +4,9 @@
     Layout = "_LayoutPublic";
 }
 
-<br/><br/>
+<br/>
+<p>Don't have account? Let's get <a asp-controller="Account" asp-route-returnUrl="@ViewBag.returnUrl" asp-action="Register">initiated</a></p>
+
 <div class="row">
     <form method="post" class="col s12">
         <div asp-validation-summary="All" class="red-text text-darken-1"></div>

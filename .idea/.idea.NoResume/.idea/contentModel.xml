@@ -13,6 +13,8 @@
       <e p="Migrations" t="Include">
         <e p="20190730181910_InitialAuth.Designer.cs" t="Include" />
         <e p="20190730181910_InitialAuth.cs" t="Include" />
+        <e p="20190731075751_AuditImplemented.Designer.cs" t="Include" />
+        <e p="20190731075751_AuditImplemented.cs" t="Include" />
         <e p="ApplicationDbContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">

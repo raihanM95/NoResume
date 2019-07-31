@@ -27,8 +27,9 @@ namespace NoResume.Controllers
          * HttpGet : When request comes to Account/Register
          * this page's View will be shown
          */
-        public IActionResult Register()
+        public IActionResult Register(string returnUrl)
         {
+            ViewBag.returnUrl = returnUrl;
             return View();
         }
         
@@ -36,8 +37,9 @@ namespace NoResume.Controllers
          * HttpGet : When request comes to Account/Login
          * this page's View will be shown
          */
-        public IActionResult Login()
+        public IActionResult Login(string returnUrl)
         {
+            ViewBag.returnUrl = returnUrl;
             return View();
         }
         
@@ -46,20 +48,25 @@ namespace NoResume.Controllers
          * this will get generated
          */
         [HttpPost]
-        public async Task<IActionResult> Register(InitDevelopers initDevelopers)
+        public async Task<IActionResult> Register(InitDevelopers initDevelopers, String returnUrl)
         {
             if (ModelState.IsValid)
             {
                 MailAddress mailAddress = new MailAddress(initDevelopers.DevEmail);
-                var guidedUserId = Guid.NewGuid().ToString().Replace("-", "");
-                var userObject = new IdentityUser{ Id = guidedUserId, UserName = mailAddress.User, Email = initDevelopers.DevEmail};
+                initDevelopers.DevId = Guid.NewGuid().ToString().Replace("-", "");
+                var userObject = new IdentityUser{ Id = initDevelopers.DevId, UserName = mailAddress.User, Email = initDevelopers.DevEmail};
                 var userCreationResult = await _userManager.CreateAsync(userObject, initDevelopers.DevPassword);
 
                 if (userCreationResult.Succeeded)
                 {
                     await _signInManager.SignInAsync(userObject, isPersistent:false);
+                    if (!string.IsNullOrEmpty(returnUrl))
+                    {
+                        return RedirectToAction(returnUrl);
+                    }
                     return RedirectToAction("Privacy", "Home");
                 }
+                
                 foreach (var error in userCreationResult.Errors)
                 {
                     ModelState.AddModelError("", error.Description);

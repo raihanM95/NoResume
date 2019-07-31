@@ -17,3 +17,6 @@ future overview of managing relevant processes.
     - ``` dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 2.2.6 ```
     - ``` dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.2.3 ```
     - ``` dotnet add package Microsoft.AspNetCore.StaticFiles --version 2.2.0 ```
++ For Code generation I have used this commands
+    - ```  dotnet aspnet-codegenerator controller -name AuditsController -m AuditLogging -dc ApplicationDbContext --relativeFolderPath Controllers --layout _LayoutPrivate --referenceScriptLibraries ```
+    
