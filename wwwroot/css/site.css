@@ -4,6 +4,10 @@
   padding-left: 15px;
 }
 
+#mainContainer{
+  padding-bottom: 400px;
+}
+
 @media only screen and (max-width: 1024px) {
   #page-logo{
     font-family: 'Poiret One', cursive;
@@ -12,4 +16,17 @@
   #page-logo-icon{
     display: none;
   }
+  #mainContainer{
+    padding-bottom: 150px;
+  }
 }
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
+

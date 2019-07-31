@@ -6,4 +6,7 @@ $(document).ready(function(){
         belowOrigin: true,
         alignment: 'left'
     });
+    $("#logoutbtn").click(function(){
+        $("#logoutform").submit();
+    });
 });

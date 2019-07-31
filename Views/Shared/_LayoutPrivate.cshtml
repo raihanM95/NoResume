@@ -1,3 +1,6 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager;
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,17 +39,24 @@
                         </a>
                     </li>
                     <li>
-                      <!-- Dropdown Trigger -->
-                      <a class='dropdown-trigger btn blue darken-3'  href='#' data-target='dropdown1'>
-                          <i class="material-icons right">keyboard_arrow_down</i>
-                          Trigger
-                      </a>
-                    
-                      <!-- Dropdown Structure -->
-                      <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-                        <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
-                      </ul>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <!-- Dropdown Trigger -->
+                            <a class='dropdown-trigger btn blue darken-3' href='#' data-target='dropdown1'>
+                                <i class="material-icons right">keyboard_arrow_down</i>
+                                Trigger
+                            </a>
+                            
+                            <form id="logoutform" method="post" asp-action="Logout" asp-controller="Account"></form>
+                            
+                            <!-- Dropdown Structure -->
+                            <ul id='dropdown1' class='dropdown-content'>
+                                <li>
+                                    <a id="logoutbtn" class="grey-text text-darken-4"><i class="material-icons purple-text">remove_circle_outline</i>Logout</a>
+                                </li>
+                                <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+                            </ul>
+                        }
                     </li>
                 </ul>
             </div>
@@ -57,18 +67,33 @@
                     <i class="grey-text text-darken-4 fab fa-github"></i> GitHub
                 </a>
             </li>
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <li>
+                    <div class="row">
+                        <div class="center-align">
+                            <form method="post" asp-action="Logout" asp-controller="Account">
+                                <button class="btn btn-small blue" type="submit"><b>Logout </b> @User.Identity.Name </button>
+                            </form>
+                        </div>
+                    </div>
+                </li>    
+            }
         </ul>
     </header>
-    <div class="container">
+    <div id="mainContainer" class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
     
-    <footer class="border-top footer text-muted">
+    <footer class="page-footer grey darken-4">
+        <div class="footer-copyright">
         <div class="container">
-            &copy; 2019 - no_resume - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        © 2014 Copyright Text
+        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
         </div>
+      </div>
     </footer>
 
     <environment include="Development">
