@@ -4,21 +4,9 @@
             $("#BioEditorForm").submit(function(e){
                 e.preventDefault();
                 
-                /*
-                var DeveloperId = $('#DeveloperId').val();
-                var ShortBioCountry = $('#CurrentCity').val();
-                var ShortBioAvailability = false;
-                var ShortBioDescription = $('#ShortDescription').val();
-                
-                if ($('#IsAvailableForJob').is(":checked"))
-                {
-                  ShortBioAvailability = true;
-                }
-                alert(ShortBioDescription + DeveloperId + ShortBioCountry + ShortBioAvailability);                
-                 */
-                
                 $.post('', $('#BioEditorForm').serialize(), function (response) {
-                     alert('Posted using jQuery' + response);
+                    M.toast({html: 'Data updated Successfully'}); 
+                    $('#BioEditorForm').trigger("reset");
                 });
             });
         });

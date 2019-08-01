@@ -7,6 +7,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using NoResume.Models;
 
 namespace NoResume.Controllers
@@ -104,6 +105,7 @@ namespace NoResume.Controllers
             {
                 MailAddress address = new MailAddress(model.DevEmail);
                 var user = new IdentityUser{ UserName = address.User, Email = model.DevEmail };
+                await _signInManager.SignOutAsync();
 
                 var result = await 
                     _signInManager.PasswordSignInAsync(user.UserName, model.DevPassword, isPersistent: true, lockoutOnFailure:false);
@@ -114,20 +116,20 @@ namespace NoResume.Controllers
                         return Redirect(returnUrl);
                     }
                     
-                    return RedirectToAction("Edit", "ShortBios", new { id = _getCurrentlyLoggedInUser() });
+                    return RedirectToAction("Edit", "ShortBios" ,  new { id = _getCurrentlyLoggedInUser(user.Email) });
                 }
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
             }
 
             return View(model);
         }
-
-        private string _getCurrentlyLoggedInUser()
+        
+        private string _getCurrentlyLoggedInUser(string emailUsedForLogin)
         {
-            return _userManager.GetUserId(HttpContext.User);
+            return _userManager.FindByEmailAsync(emailUsedForLogin).Result.Id;
         }
-        
-        
+
+
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
