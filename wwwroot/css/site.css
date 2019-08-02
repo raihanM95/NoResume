@@ -52,3 +52,7 @@ main {
   flex: 1 0 auto;
 }
 
+#dropdown1{
+  width: 200px !important;
+}
+

@@ -75,6 +75,7 @@ namespace NoResume.Controllers
             return View(shortBio);
         }
 
+        
         // GET: ShortBios/Edit/5
         [Authorize]
         
@@ -82,13 +83,15 @@ namespace NoResume.Controllers
         {
             if (id == null || id !=_getCurrentlyLoggedInUser())
             {
-                return NotFound();
+                // Route user to authorized page if request id is invalid
+                id = _getCurrentlyLoggedInUser();
             }
-
+            
             var shortBio = await _context.ShortBios.FindAsync(id);
             
             TextInfo caseTitle = new CultureInfo("en-US",false).TextInfo;
             ViewBag.loggedInUserName = caseTitle.ToTitleCase(_userManager.GetUserName(HttpContext.User));
+            ViewBag.loggedInUserId = _userManager.GetUserId(HttpContext.User);
             
             if (shortBio == null)
             {

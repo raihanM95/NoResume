@@ -34,12 +34,6 @@
                 </a>
                 <ul class="right hide-on-med-and-down ">
                     <li>
-                        <a class="tooltipped" data-position="bottom" data-tooltip="GitHub" target="_blank"
-                           href="https://github.com/shunjid/NoResume.git">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </li>
-                    <li>
                         @if (SignInManager.IsSignedIn(User))
                         {
                             <!-- Dropdown Trigger -->
@@ -55,9 +49,16 @@
                                 <li>
                                     <a id="logoutbtn" class="grey-text text-darken-4"><i class="material-icons purple-text">remove_circle_outline</i>Logout</a>
                                 </li>
-                                <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+                                <li><a class="grey-text text-darken-4" asp-action="Edit" asp-controller="WorkingProfiles" asp-route-id="@ViewBag.loggedInUserId"><i class="material-icons red-text">code</i>Working Profile</a></li>
+                                <li><a class="grey-text text-darken-4" asp-action="Edit" asp-controller="ShortBios" asp-route-id="@ViewBag.loggedInUserId"><i class="material-icons orange-text">face</i>Biography</a></li>
                             </ul>
                         }
+                    </li>
+                    <li>
+                        <a class="tooltipped" data-position="bottom" data-tooltip="GitHub" target="_blank"
+                           href="https://github.com/shunjid/NoResume.git">
+                            <i class="fab fa-github"></i>
+                        </a>
                     </li>
                 </ul>
             </div>
