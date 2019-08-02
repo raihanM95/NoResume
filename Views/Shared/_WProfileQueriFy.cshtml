@@ -1,0 +1,23 @@
+<environment include="Development">
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#formWorkingProfile").submit(function(e){
+                e.preventDefault();
+                
+                $.post('', $('#formWorkingProfile').serialize(), function (response) {
+                    if(response != null || response !== "" || response !== "null"){
+                        M.toast({
+                        html: 'Data updated Successfully',
+                        classes: 'green darken-1 rounded'
+                        });    
+                    }else{
+                        M.toast({
+                        html: 'Something went wrong !',
+                        classes: 'red darken-4 rounded'
+                        }); 
+                    }
+                });
+            });
+        });
+    </script>
+</environment>

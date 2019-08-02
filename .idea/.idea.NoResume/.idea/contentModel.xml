@@ -66,6 +66,7 @@
           <e p="_LayoutPrivate.cshtml" t="Include" />
           <e p="_LayoutPublic.cshtml" t="Include" />
           <e p="_ValidationScriptsPartial.cshtml" t="Include" />
+          <e p="_WProfileQueriFy.cshtml" t="Include" />
         </e>
         <e p="ShortBios" t="Include">
           <e p="Create.cshtml" t="Include" />

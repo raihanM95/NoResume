@@ -95,16 +95,14 @@ namespace NoResume.Controllers
             return View(workingProfile);
         }
 
-        // POST: WorkingProfiles/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("DeveloperId,GithubUsername,PrivacyForGithub,CodeforcesUsername,PrivacyForCodeforces,UhuntUsername,PrivacyForUhunt")] WorkingProfile workingProfile)
+        public JsonResult Edit(string id, [Bind("DeveloperId,GithubUsername,PrivacyForGithub,CodeforcesUsername,PrivacyForCodeforces,UhuntUsername,PrivacyForUhunt")] WorkingProfile workingProfile)
         {
             if (id != workingProfile.DeveloperId)
             {
-                return NotFound();
+                return null;
             }
 
             if (ModelState.IsValid)
@@ -112,22 +110,22 @@ namespace NoResume.Controllers
                 try
                 {
                     _context.Update(workingProfile);
-                    await _context.SaveChangesAsync();
+                    _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!WorkingProfileExists(workingProfile.DeveloperId))
                     {
-                        return NotFound();
+                        return null;
                     }
                     else
                     {
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return Json(workingProfile);
             }
-            return View(workingProfile);
+            return null;
         }
 
         // GET: WorkingProfiles/Delete/5
