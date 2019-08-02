@@ -18,7 +18,7 @@ namespace NoResume.Models
         [Display(Name = "Your Current State/Country")]
         public string CurrentCity { get; set; }
         
-        [Display(Name = "Are you available for a job? ")]
+        [Display(Name = "Ready for Job? ")]
         public bool IsAvailableForJob { get; set; }
     }
 }

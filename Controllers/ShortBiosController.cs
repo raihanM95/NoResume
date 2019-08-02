@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,11 +15,19 @@ namespace NoResume.Controllers
     public class ShortBiosController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public ShortBiosController(ApplicationDbContext context)
+        public ShortBiosController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
+        
+        private string _getCurrentlyLoggedInUser()
+        {
+            return _userManager.GetUserId(HttpContext.User);
+        }
+        
 
         // GET: ShortBios
         public async Task<IActionResult> Index()
@@ -64,19 +75,29 @@ namespace NoResume.Controllers
             return View(shortBio);
         }
 
+        
         // GET: ShortBios/Edit/5
+        [Authorize]
+        
         public async Task<IActionResult> Edit(string id)
         {
-            if (id == null)
+            if (id == null || id !=_getCurrentlyLoggedInUser())
             {
-                return NotFound();
+                // Route user to authorized page if request id is invalid
+                id = _getCurrentlyLoggedInUser();
             }
-
+            
             var shortBio = await _context.ShortBios.FindAsync(id);
+            
+            TextInfo caseTitle = new CultureInfo("en-US",false).TextInfo;
+            ViewBag.loggedInUserName = caseTitle.ToTitleCase(_userManager.GetUserName(HttpContext.User));
+            ViewBag.loggedInUserId = _userManager.GetUserId(HttpContext.User);
+            
             if (shortBio == null)
             {
                 return NotFound();
             }
+
             return View(shortBio);
         }
 
@@ -85,11 +106,11 @@ namespace NoResume.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("DeveloperId,ShortDescription,CurrentCity,IsAvailableForJob")] ShortBio shortBio)
+        public JsonResult Edit(string id, [Bind("DeveloperId,ShortDescription,CurrentCity,IsAvailableForJob")] ShortBio shortBio)
         {
             if (id != shortBio.DeveloperId)
             {
-                return NotFound();
+                return null;
             }
 
             if (ModelState.IsValid)
@@ -97,24 +118,25 @@ namespace NoResume.Controllers
                 try
                 {
                     _context.Update(shortBio);
-                    await _context.SaveChangesAsync();
+                    _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!ShortBioExists(shortBio.DeveloperId))
                     {
-                        return NotFound();
+                        return null;
                     }
                     else
                     {
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return Json(shortBio);
             }
-            return View(shortBio);
+            return null;
         }
-
+        
+        
         // GET: ShortBios/Delete/5
         public async Task<IActionResult> Delete(string id)
         {

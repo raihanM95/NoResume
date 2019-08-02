@@ -4,12 +4,58 @@
   padding-left: 15px;
 }
 
-@media only screen and (max-width: 1024px) {
-  #page-logo{
-    font-family: 'Poiret One', cursive;
-    font-weight: bold;
+#mainContainer{
+  padding-bottom: 10px;
+}
+
+
+
+/* Galaxy S5 */
+@media screen
+and (device-width: 320px)
+and (device-height: 640px)
+and (-webkit-device-pixel-ratio: 3)
+and (orientation: portrait) {
+  #mainContainer{
+    padding-bottom: 10px;
   }
-  #page-logo-icon{
-    display: none;
+}
+
+/* Pixel */
+@media screen
+and (device-width: 411px)
+and (device-height: 731px)
+and (-webkit-device-pixel-ratio: 3)
+and (orientation: portrait) {
+  #mainContainer{
+    padding-bottom: 10px;
   }
+}
+
+/* iPad Pro */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (-webkit-min-device-pixel-ratio: 1) {
+  #mainContainer{
+    padding-top: 30px;
+    padding-bottom: 150px;
+  }
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
+
+#dropdown1{
+  width: 200px !important;
+}
+
+#preload{
+  display: none;
 }

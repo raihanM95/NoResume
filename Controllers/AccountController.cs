@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.Mail;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using NoResume.Models;
 
 namespace NoResume.Controllers
@@ -60,11 +62,31 @@ namespace NoResume.Controllers
                 if (userCreationResult.Succeeded)
                 {
                     await _signInManager.SignInAsync(userObject, isPersistent:false);
+                    var shortBio = new ShortBio
+                    {
+                        DeveloperId = initDevelopers.DevId
+                    };
+
+                    var social = new SocialProfile
+                    {
+                        DeveloperId = initDevelopers.DevId
+                    };
+
+                    var workingProfile = new WorkingProfile
+                    {
+                        DeveloperId = initDevelopers.DevId
+                    };
+
+                    _context.Add(shortBio);
+                    _context.Add(social);
+                    _context.Add(workingProfile);
+                    await _context.SaveChangesAsync();
+                    
                     if (!string.IsNullOrEmpty(returnUrl))
                     {
-                        return RedirectToAction(returnUrl);
+                        return Redirect(returnUrl);
                     }
-                    return RedirectToAction("Privacy", "Home");
+                    return RedirectToAction("Edit", "ShortBios", new { id = initDevelopers.DevId });
                 }
                 
                 foreach (var error in userCreationResult.Errors)
@@ -83,6 +105,7 @@ namespace NoResume.Controllers
             {
                 MailAddress address = new MailAddress(model.DevEmail);
                 var user = new IdentityUser{ UserName = address.User, Email = model.DevEmail };
+                await _signInManager.SignOutAsync();
 
                 var result = await 
                     _signInManager.PasswordSignInAsync(user.UserName, model.DevPassword, isPersistent: true, lockoutOnFailure:false);
@@ -92,15 +115,21 @@ namespace NoResume.Controllers
                     {
                         return Redirect(returnUrl);
                     }
-                    return RedirectToAction("Index", "Home");
+                    
+                    return RedirectToAction("Edit", "ShortBios" ,  new { id = _getCurrentlyLoggedInUser(user.Email) });
                 }
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
             }
 
             return View(model);
-            
         }
         
+        private string _getCurrentlyLoggedInUser(string emailUsedForLogin)
+        {
+            return _userManager.FindByEmailAsync(emailUsedForLogin).Result.Id;
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
