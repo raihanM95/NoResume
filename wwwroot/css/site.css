@@ -56,3 +56,6 @@ main {
   width: 200px !important;
 }
 
+#preload{
+  display: none;
+}
