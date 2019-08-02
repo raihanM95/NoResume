@@ -6,7 +6,9 @@
                 
                 $.post('', $('#BioEditorForm').serialize(), function (response) {
                     M.toast({html: 'Data updated Successfully'}); 
-                    $('#BioEditorForm').trigger("reset");
+                    $('#DevCurrentCity').text(response.currentCity);
+                    $('#DevShortDescription').html(response.shortDescription);
+                    true == response.isAvailableForJob ? $("#DevJobAvailability").text("Yes"):$("#DevJobAvailability").text("No");
                 });
             });
         });

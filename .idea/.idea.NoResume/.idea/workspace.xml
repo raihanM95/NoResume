@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7a0b00a3-46fd-4ad4-aa23-86c335ef9b41" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.NoResume/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NoResume/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/AccountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/ShortBiosController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ShortBiosController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NoResume.db" beforeDir="false" afterPath="$PROJECT_DIR$/NoResume.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/Shared/_BioAjaxiFy.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Shared/_BioAjaxiFy.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/ShortBios/Edit.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/ShortBios/Edit.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/NoResume.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/NoResume.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/NoResume.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/NoResume.Views.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/NoResume.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/NoResume.dll" afterDir="false" />
@@ -16,6 +17,7 @@
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_BioAjaxiFy.g.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_BioAjaxiFy.g.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/ShortBios/Edit.g.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/ShortBios/Edit.g.cshtml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/NoResume.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/NoResume.csproj.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/NoResume.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/NoResume.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
@@ -27,36 +29,66 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Controllers/AccountController.cs">
+        <entry file="file://$PROJECT_DIR$/Views/Shared/_BioAjaxiFy.cshtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
-              <caret line="118" column="119" selection-start-line="118" selection-start-column="119" selection-end-line="118" selection-end-column="119" />
+            <state relative-caret-position="150">
+              <caret line="10" column="130" selection-start-line="10" selection-start-column="130" selection-end-line="10" selection-end-column="130" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Views/ShortBios/Edit.cshtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
               <folding>
-                <marker date="1564677403088" expanded="true" signature="6:303" ph="..." />
-                <marker date="1564677403088" expanded="true" signature="335:4999" ph="{...}" />
-                <marker date="1564677403088" expanded="true" signature="385:4997" ph="{...}" />
-                <marker date="1564677403088" expanded="true" signature="727:863" ph="{...}" />
-                <marker date="1564677403088" expanded="true" signature="881:997" ph="/* HttpGet : When request comes to Account/Register ... */" />
-                <marker date="1564677403088" expanded="true" signature="1053:1143" ph="{...}" />
-                <marker date="1564677403088" expanded="true" signature="1161:1274" ph="/* HttpGet : When request comes to Account/Login ... */" />
-                <marker date="1564677403088" expanded="true" signature="1327:1417" ph="{...}" />
-                <marker date="1564677403088" expanded="true" signature="1435:1559" ph="/* HttpPost : When request comes to calculate some sort form data, ... */" />
-                <marker date="1564677403088" expanded="true" signature="1677:3524" ph="{...}" />
-                <marker date="1564677403088" expanded="true" signature="1723:3473" ph="{...}" />
-                <marker date="1564677403088" expanded="true" signature="2209:3272" ph="{...}" />
-                <marker date="1564677403088" expanded="true" signature="2382:2464" ph="{...}" />
-                <marker date="1564677403088" expanded="true" signature="2538:2620" ph="{...}" />
-                <marker date="1564677403088" expanded="true" signature="2703:2785" ph="{...}" />
-                <marker date="1564677403088" expanded="true" signature="3057:3153" ph="{...}" />
-                <marker date="1564677403088" expanded="true" signature="3354:3459" ph="{...}" />
-                <marker date="1564677403088" expanded="true" signature="3656:4614" ph="{...}" />
-                <marker date="1564677403088" expanded="true" signature="3702:4571" ph="{...}" />
-                <marker date="1564677403088" expanded="true" signature="4145:4476" ph="{...}" />
-                <marker date="1564677403088" expanded="true" signature="4221:4317" ph="{...}" />
-                <marker date="1564677403088" expanded="true" signature="4698:4797" ph="{...}" />
-                <marker date="1564677403088" expanded="true" signature="4868:4991" ph="{...}" />
+                <marker date="1564729386690" expanded="true" signature="33:100" ph="@..." />
+                <marker date="1564729386690" expanded="true" signature="743:845" ph="@..." />
+                <marker date="1564729386690" expanded="true" signature="2601:2806" ph="@{...}" />
+                <marker date="1564729386690" expanded="true" signature="2624:2804" ph="@..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Controllers/ShortBiosController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="130" column="16" selection-start-line="130" selection-start-column="16" selection-end-line="130" selection-end-column="16" />
+              <folding>
+                <marker date="1564729281204" expanded="false" signature="6:337" ph="..." />
+                <marker date="1564729281204" expanded="true" signature="369:5160" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="421:5158" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="653:745" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="805:886" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="971:1056" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="1153:1514" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="1191:1254" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="1405:1468" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="1586:1633" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="1643:1855" ph="/* POST: ShortBios/Create ... */" />
+                <marker date="1564729281204" expanded="true" signature="2045:2311" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="2091:2266" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="2431:2985" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="2505:2568" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="2876:2939" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="2995:3207" ph="/* POST: ShortBios/Edit/5 ... */" />
+                <marker date="1564729281204" expanded="true" signature="3391:4126" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="3445:3502" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="3539:4091" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="3573:3705" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="3758:4038" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="3839:3920" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="3945:4020" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="4238:4599" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="4276:4339" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="4490:4553" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="4780:5015" ph="{...}" />
+                <marker date="1564729281204" expanded="true" signature="5063:5152" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -145,10 +177,10 @@
         <option value="$PROJECT_DIR$/Models/UserHelper.cs" />
         <option value="$PROJECT_DIR$/wwwroot/js/_privateLayout.js" />
         <option value="$PROJECT_DIR$/Views/Shared/_LayoutPublic.cshtml" />
-        <option value="$PROJECT_DIR$/Views/Shared/_BioAjaxiFy.cshtml" />
+        <option value="$PROJECT_DIR$/Controllers/AccountController.cs" />
         <option value="$PROJECT_DIR$/Controllers/ShortBiosController.cs" />
         <option value="$PROJECT_DIR$/Views/ShortBios/Edit.cshtml" />
-        <option value="$PROJECT_DIR$/Controllers/AccountController.cs" />
+        <option value="$PROJECT_DIR$/Views/Shared/_BioAjaxiFy.cshtml" />
       </list>
     </option>
   </component>
@@ -163,31 +195,11 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AssemblyExplorer" />
       <pane id="SolutionExplorer">
-        <subPane>
-          <expand>
-            <path>
-              <item name="" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="NoResume" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="NoResume" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="NoResume" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="NoResume" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="NoResume" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Controllers" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
         <option name="show-all-files" value="false" />
       </pane>
       <pane id="FileSystemExplorer" />
-      <pane id="AssemblyExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -273,12 +285,13 @@
       <workItem from="1564577203660" duration="196000" />
       <workItem from="1564579855944" duration="5837000" />
       <workItem from="1564590130415" duration="8171000" />
-      <workItem from="1564664899406" duration="6451000" />
+      <workItem from="1564664899406" duration="9874000" />
+      <workItem from="1564723110815" duration="6456000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47539000" />
+    <option name="totallyTimeSpent" value="57418000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -293,7 +306,7 @@
     <frame x="0" y="25" width="1331" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17821011" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18132296" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -310,7 +323,7 @@
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Unit Tests" order="12" />
       <window_info anchor="bottom" id="REST Client" order="13" />
-      <window_info anchor="bottom" id="Terminal" order="14" sideWeight="0.49805447" weight="0.3583062" />
+      <window_info anchor="bottom" id="Terminal" order="14" sideWeight="0.49805447" weight="0.35714287" />
       <window_info anchor="bottom" id="Event Log" order="15" sideWeight="0.5019455" side_tool="true" weight="0.3029316" />
       <window_info anchor="bottom" id="Build" order="16" weight="0.32899022" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -776,67 +789,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Views/Shared/_BioAjaxiFy.cshtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Views/ShortBios/Edit.cshtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="47" column="58" lean-forward="true" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="58" />
-          <folding>
-            <marker date="1564673953087" expanded="true" signature="33:100" ph="@..." />
-            <marker date="1564673953087" expanded="true" signature="2553:2758" ph="@{...}" />
-            <marker date="1564673953087" expanded="true" signature="2576:2756" ph="@..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/ShortBiosController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="84" column="13" lean-forward="true" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
-          <folding>
-            <marker date="1564673948855" expanded="false" signature="6:309" ph="..." />
-            <marker date="1564673948855" expanded="true" signature="341:5099" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="393:5097" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="625:717" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="777:858" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="943:1028" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="1125:1486" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="1163:1226" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="1377:1440" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="1558:1605" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="1615:1827" ph="/* POST: ShortBios/Create ... */" />
-            <marker date="1564673948855" expanded="true" signature="2017:2283" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="2063:2238" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="2403:2834" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="2477:2540" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="2725:2788" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="2844:3056" ph="/* POST: ShortBios/Edit/5 ... */" />
-            <marker date="1564673948855" expanded="true" signature="3255:4082" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="3309:3372" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="3409:4037" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="3443:3581" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="3634:3920" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="3715:3802" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="3827:3902" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="4177:4538" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="4215:4278" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="4429:4492" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="4719:4954" ph="{...}" />
-            <marker date="1564673948855" expanded="true" signature="5002:5091" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Controllers/AccountController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="118" column="119" selection-start-line="118" selection-start-column="119" selection-end-line="118" selection-end-column="119" />
+        <state relative-caret-position="373">
+          <caret line="123" column="31" selection-start-line="123" selection-start-column="31" selection-end-line="123" selection-end-column="31" />
           <folding>
             <marker date="1564677403088" expanded="true" signature="6:303" ph="..." />
             <marker date="1564677403088" expanded="true" signature="335:4999" ph="{...}" />
@@ -862,6 +818,64 @@
             <marker date="1564677403088" expanded="true" signature="4698:4797" ph="{...}" />
             <marker date="1564677403088" expanded="true" signature="4868:4991" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/ShortBiosController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="130" column="16" selection-start-line="130" selection-start-column="16" selection-end-line="130" selection-end-column="16" />
+          <folding>
+            <marker date="1564729281204" expanded="false" signature="6:337" ph="..." />
+            <marker date="1564729281204" expanded="true" signature="369:5160" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="421:5158" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="653:745" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="805:886" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="971:1056" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="1153:1514" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="1191:1254" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="1405:1468" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="1586:1633" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="1643:1855" ph="/* POST: ShortBios/Create ... */" />
+            <marker date="1564729281204" expanded="true" signature="2045:2311" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="2091:2266" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="2431:2985" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="2505:2568" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="2876:2939" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="2995:3207" ph="/* POST: ShortBios/Edit/5 ... */" />
+            <marker date="1564729281204" expanded="true" signature="3391:4126" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="3445:3502" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="3539:4091" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="3573:3705" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="3758:4038" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="3839:3920" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="3945:4020" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="4238:4599" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="4276:4339" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="4490:4553" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="4780:5015" ph="{...}" />
+            <marker date="1564729281204" expanded="true" signature="5063:5152" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/ShortBios/Edit.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+          <folding>
+            <marker date="1564729386690" expanded="true" signature="33:100" ph="@..." />
+            <marker date="1564729386690" expanded="true" signature="743:845" ph="@..." />
+            <marker date="1564729386690" expanded="true" signature="2601:2806" ph="@{...}" />
+            <marker date="1564729386690" expanded="true" signature="2624:2804" ph="@..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Shared/_BioAjaxiFy.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="130" selection-start-line="10" selection-start-column="130" selection-end-line="10" selection-end-column="130" />
         </state>
       </provider>
     </entry>

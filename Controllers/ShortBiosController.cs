@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -85,7 +86,10 @@ namespace NoResume.Controllers
             }
 
             var shortBio = await _context.ShortBios.FindAsync(id);
-            ViewBag.loggedInUserName = _userManager.GetUserName(HttpContext.User);
+            
+            TextInfo caseTitle = new CultureInfo("en-US",false).TextInfo;
+            ViewBag.loggedInUserName = caseTitle.ToTitleCase(_userManager.GetUserName(HttpContext.User));
+            
             if (shortBio == null)
             {
                 return NotFound();
@@ -99,11 +103,11 @@ namespace NoResume.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("DeveloperId,ShortDescription,CurrentCity,IsAvailableForJob")] ShortBio shortBio)
+        public JsonResult Edit(string id, [Bind("DeveloperId,ShortDescription,CurrentCity,IsAvailableForJob")] ShortBio shortBio)
         {
             if (id != shortBio.DeveloperId)
             {
-                return NotFound();
+                return null;
             }
 
             if (ModelState.IsValid)
@@ -111,24 +115,25 @@ namespace NoResume.Controllers
                 try
                 {
                     _context.Update(shortBio);
-                    await _context.SaveChangesAsync();
+                    _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!ShortBioExists(shortBio.DeveloperId))
                     {
-                        return NotFound();
+                        return null;
                     }
                     else
                     {
                         throw;
                     }
                 }
-                return RedirectToAction("Edit", "ShortBios", new { id = _getCurrentlyLoggedInUser()});
+                return Json(shortBio);
             }
-            return View(shortBio);
+            return null;
         }
-
+        
+        
         // GET: ShortBios/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
