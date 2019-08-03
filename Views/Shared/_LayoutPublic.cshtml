@@ -18,37 +18,40 @@
     <link rel="stylesheet" href="~/css/site.css">
 </head>
 <body>
-    <header>
-        <nav id="navbarMaterialize" class="teal darken-2">
-            <div class="nav-wrapper">
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="brand-logo" id="page-logo">
-                    <i class="material-icons" id="page-logo-icon">layers_clear</i> noResume
-                </a>
+<header>
+    <nav id="navbarMaterialize" class="teal darken-2">
+        <div class="nav-wrapper">
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="brand-logo" id="page-logo">
+                <i class="material-icons" id="page-logo-icon">layers_clear</i> noResume
+            </a>
     
-                <a href="#" class="sidenav-trigger" data-target="mobile-nav">
-                    <i class="material-icons">menu</i>
-                </a>
-                <ul class="right hide-on-med-and-down ">
-                    <li>
-                        <a class="tooltipped" data-position="bottom" data-tooltip="GitHub" target="_blank"
-                           href="https://github.com/shunjid/NoResume.git">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" asp-action="Login" asp-controller="Account">Login</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <ul class="sidenav" id="mobile-nav">
-            <li>
-                <a target="_blank" class="title" href="https://github.com/shunjid/NoResume.git">
-                    <i class="grey-text text-darken-4 fab fa-github"></i> GitHub
-                </a>
-            </li>
-        </ul>
-    </header>
+            <a href="#" class="sidenav-trigger" data-target="mobile-nav">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down ">
+                <li>
+                    <a class="tooltipped" data-position="bottom" data-tooltip="GitHub" target="_blank"
+                       href="https://github.com/shunjid/NoResume.git">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="" asp-action="Login" asp-controller="Account">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <ul class="sidenav" id="mobile-nav">
+        <li>
+            <a target="_blank" class="title" href="https://github.com/shunjid/NoResume.git">
+                <i class="grey-text text-darken-4 fab fa-github"></i> GitHub
+            </a>
+        </li>
+    </ul>
+</header>
+    <div id="intLoader" class="progress">
+      <div class="indeterminate"></div>
+    </div>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
