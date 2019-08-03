@@ -1,12 +1,12 @@
 <environment include="Development">
     <script type="text/javascript">
         $(document).ready(function(){
-            $('#preload').hide();
-            
+            var loaderIntermediate = $('#intLoader');
+            loaderIntermediate.css("display", "none");
+
             $("#formWorkingProfile").submit(function(e){
                 e.preventDefault();
-                
-                $('#preload').show();
+                loaderIntermediate.css("display", "block");
                 
                 var isGithubPermittable = false;
                 var isCFPermittable = false;
@@ -37,8 +37,7 @@
                     } 
                 });
                 
-                $('#preload').hide();
-                
+                loaderIntermediate.css("display", "none");
                 if(isGithubPermittable === false || isCFPermittable === false){
                     M.toast({
                     html: 'Invalid Username',

@@ -8,8 +8,6 @@
   padding-bottom: 10px;
 }
 
-
-
 /* Galaxy S5 */
 @media screen
 and (device-width: 320px)
@@ -56,6 +54,6 @@ main {
   width: 200px !important;
 }
 
-#preload{
+#intLoader{
   display: none;
 }
