@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
+using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -13,11 +16,24 @@ namespace NoResume.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly List<Object> _objectList;
 
         public HomeController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
             _userManager = userManager;
+            _objectList = new List<object>();
+        }
+        
+        private void AddJson(Object obj)
+        {
+            _objectList.Add(obj);
+        }
+
+        private string TitleCase(string str)
+        {
+            TextInfo caseTitle = new CultureInfo("en-US",false).TextInfo;
+            return caseTitle.ToTitleCase(str);
         }
         
         public IActionResult Index()
@@ -29,23 +45,65 @@ namespace NoResume.Controllers
         [ValidateAntiForgeryToken]
         public JsonResult Index(IFormCollection formFields)
         {
-            List<Object> objectList = new List<object>();
-            var developerId = _userManager.FindByNameAsync(formFields["developerUsername"]).Result.Id;
-            var shortBios = _context.ShortBios.FindAsync(developerId);
-            var workingProfile = _context.WorkingProfiles.FindAsync(developerId);
+            var developerId = "";
+            var shortBios = new ShortBio();
+            WorkingProfile workingProfile;
+            var uHuntApi = ""; 
+            var codeForcesApi = "";
+
+            try
+            {
+                developerId = _userManager.FindByNameAsync(formFields["developerUsername"]).Result.Id;
+                shortBios = _context.ShortBios.Single(x => x.DeveloperId == developerId);
+                workingProfile = _context.WorkingProfiles.Single(x => x.DeveloperId == developerId);
+            }
+            catch (Exception e)
+            {
+                return Json(null);
+            }
             
-            objectList.Add(developerId);
-            objectList.Add(shortBios);
-            objectList.Add(workingProfile);
+            using (WebClient webClient = new WebClient())
+            {
+                if (workingProfile.CodeforcesUsername != null && workingProfile.CodeforcesUsername.Trim() != "")
+                {
+                    codeForcesApi = webClient.DownloadString("https://codeforces.com/api/user.info?handles="+workingProfile.CodeforcesUsername);
+                }
+                if (workingProfile.UhuntUsername != null && workingProfile.UhuntUsername.Trim() != "")
+                {
+                    uHuntApi = webClient.DownloadString("https://uhunt.onlinejudge.org/api/uname2uid/"+workingProfile.UhuntUsername);
+                }
+            }
+
+            ViewBag.DevUname = TitleCase(formFields["developerUsername"].ToString());
+            _objectList.Add(shortBios);
+            _objectList.Add(codeForcesApi);
+            _objectList.Add(uHuntApi);
             
-            return Json(objectList);
+            return Json(_objectList);
         }
         
         [HttpGet("Home/Dev/{username}")]
         public async Task<IActionResult> Dev(string username)
         {
             var developerId = _userManager.FindByNameAsync(username).Result.Id;
-            return Ok(developerId);
+            var shortBios = _context.ShortBios.FindAsync(developerId);
+            var workingProfile = _context.WorkingProfiles.Single(x => x.DeveloperId == developerId);
+            
+            var uHuntAPI = "";
+            var codeForcesAPI = "";
+            
+            using (WebClient webClient = new WebClient())
+            {
+                if (workingProfile.CodeforcesUsername != null && workingProfile.CodeforcesUsername.Trim() != "")
+                {
+                    codeForcesAPI = new WebClient().DownloadString("https://codeforces.com/api/user.info?handles="+workingProfile.CodeforcesUsername);
+                }
+                if (workingProfile.UhuntUsername != null && workingProfile.UhuntUsername.Trim() != "")
+                {
+                    uHuntAPI = new WebClient().DownloadString("https://uhunt.onlinejudge.org/api/uname2uid/"+workingProfile.UhuntUsername);
+                }
+            }
+            return Ok(shortBios);
         }
 
         public IActionResult Privacy()

@@ -1,3 +1,47 @@
 <environment include="Development">
-    
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var _DevUsername = $('#_DeveloperName');
+            $("#resume").hide();
+            
+            $("#formDevUname").submit(function(e){
+                e.preventDefault();
+                $("#resume").hide();
+                
+                try {
+                    $.post('', $('#formDevUname').serialize(), function (response) {
+                        if(response === null || response === "" || response === "null"){
+                            showErrorToast("Invalid Username");
+                        }
+                        else{
+                         _DevUsername.text(toTitleCase($('#developerUsername').val()));
+                          $("#resume").show();   
+                        }
+                    });  
+                }
+                catch (e) {
+                  M.toast({
+                  html: 'Invalid Username',
+                  classes: 'red darken-1 rounded'
+                  });
+                }
+            });        
+        });
+        
+     function showErrorToast(message) {
+       M.toast({
+         html: message,
+         classes: 'red darken-1 rounded'
+       });
+     }   
+        
+    function toTitleCase(str) {
+        return str.replace(
+            /\w\S*/g,
+            function(txt) {
+                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            }
+        );
+    }
+    </script>
 </environment>
