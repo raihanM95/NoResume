@@ -1,5 +1,3 @@
-using System;
-
 namespace NoResume.Models
 {
     public class ErrorViewModel
