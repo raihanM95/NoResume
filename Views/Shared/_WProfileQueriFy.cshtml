@@ -63,3 +63,70 @@
         
     </script>
 </environment>
+
+
+<environment exclude="Development">
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var loaderIntermediate = $('#intLoader');
+            loaderIntermediate.css("display", "none");
+
+            $("#formWorkingProfile").submit(function(e){
+                e.preventDefault();
+                loaderIntermediate.css("display", "block");
+                
+                var isGithubPermittable = false;
+                var isCFPermittable = false;
+                
+                $.ajaxSetup({
+                    async: false
+                });
+                
+                $.ajax({ 
+                    url: "https://api.github.com/users/"+$('#GithubUsername').val(),
+                    async: false, 
+                    dataType: 'json', 
+                    success: function(json, textStatus, xhr){ 
+                        if(xhr.status === 200){
+                            isGithubPermittable = true;
+                        }
+                    } 
+                });
+                
+                $.ajax({ 
+                    url: "https://codeforces.com/api/user.info?handles="+$('#CodeforcesUsername').val(),
+                    async: false, 
+                    dataType: 'json', 
+                    success: function(json){ 
+                        if(json.status === "OK"){
+                            isCFPermittable = true;
+                        }
+                    } 
+                });
+                
+                loaderIntermediate.css("display", "none");
+                if(isGithubPermittable === false || isCFPermittable === false){
+                    M.toast({
+                    html: 'Invalid Username',
+                    classes: 'red darken-1 rounded'
+                    });
+                }else{
+                    $.post('', $('#formWorkingProfile').serialize(), function (response) {
+                        if(response != null || response !== "" || response !== "null"){
+                            M.toast({
+                            html: 'Data updated Successfully',
+                            classes: 'green darken-1 rounded'
+                            });    
+                        }else{
+                            M.toast({
+                            html: 'Something went wrong !',
+                            classes: 'red darken-4 rounded'
+                            }); 
+                        }
+                    });    
+                }
+            });
+        });
+        
+    </script>
+</environment>

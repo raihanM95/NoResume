@@ -67,3 +67,74 @@
     }
     </script>
 </environment>
+
+
+<environment exclude="Development">
+    <script type="text/javascript">
+        $(document).ready(function(){
+            
+            $("#resume").hide();
+            $("#intLoader").hide();
+            
+            $("#formDevUname").submit(function(e){
+                e.preventDefault();
+                $("#resume").hide();
+                $("#intLoader").show();
+                
+                try {
+                    $.post('', $('#formDevUname').serialize(), function (response) {
+                        if(response === null || response === "" || response === "null"){
+                            showErrorToast("Invalid Username");
+                        }
+                        else{
+                         _initBioCardDev(response[0]);
+                          $("#resume").show();   
+                        }
+                        $("#intLoader").hide();
+                    });  
+                }
+                catch (e) {
+                  showErrorToast("Invalid Username");
+                  $("#intLoader").hide();
+                }
+            });        
+        });
+        
+    function _initBioCardDev(response) {
+      var _DevUsername = $('#_DeveloperName');
+      var _DevCurrentCity = "";
+      ""!==response.currentCity?_DevCurrentCity=response.currentCity:_DevCurrentCity="CodeStagram";
+      _DevUsername.text(toTitleCase($('#developerUsername').val())+"("+_DevCurrentCity+")");
+      
+      if(response.shortDescription !== ""){
+          $('#_DeveloperDescription').html(response.shortDescription);
+      }else{
+          $('#_DeveloperDescription').html("Hey, there. I am focusing on Programming !");
+      }
+      
+      if(response.isAvailableForJob){
+          $('#_DeveloperJobConfirmation').text("Available");
+      }else{
+          $('#_DeveloperJobConfirmation').text("Not Available");
+      }
+      
+      console.log(response);
+    }   
+        
+     function showErrorToast(message) {
+       M.toast({
+         html: message,
+         classes: 'red darken-1 rounded'
+       });
+     }   
+        
+    function toTitleCase(str) {
+        return str.replace(
+            /\w\S*/g,
+            function(txt) {
+                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            }
+        );
+    }
+    </script>
+</environment>

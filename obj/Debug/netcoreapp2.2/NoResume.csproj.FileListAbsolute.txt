@@ -1,3 +1,4 @@
+/home/shunjid/Documents/Project/NoResume/bin/Debug/netcoreapp2.2/NoResume.db
 /home/shunjid/Documents/Project/NoResume/bin/Debug/netcoreapp2.2/NoResume.dll.config
 /home/shunjid/Documents/Project/NoResume/bin/Debug/netcoreapp2.2/NoResume.deps.json
 /home/shunjid/Documents/Project/NoResume/bin/Debug/netcoreapp2.2/NoResume.runtimeconfig.json
@@ -28,6 +29,7 @@
 /home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_BioAjaxiFy.g.cshtml.cs
 /home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_CookieConsentPartial.g.cshtml.cs
 /home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_Editor.g.cshtml.cs
+/home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_initHome.g.cshtml.cs
 /home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_Layout.g.cshtml.cs
 /home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_LayoutPrivate.g.cshtml.cs
 /home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_LayoutPublic.g.cshtml.cs
@@ -56,4 +58,3 @@
 /home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/NoResume.dll
 /home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/NoResume.pdb
 /home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/NoResume.csproj.CopyComplete
-/home/shunjid/Documents/Project/NoResume/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_initHome.g.cshtml.cs
