@@ -1,13 +1,31 @@
 <environment include="Development">
     <script type="text/javascript">
         $(document).ready(function(){
-            
+            /*
+            ** Initially hide div #resume
+            ** Show when controller response successfully
+             */
             $("#resume").hide();
+            
+            
+            /*
+            ** Initially hide preloader #intLoader
+            ** Show when user post a form and hide again after result arrives
+             */
             $("#intLoader").hide();
+            
+            
+            /*
+            ** On form submit, post the searched user name and
+            ** Send it to /Home/Index(IFormCollection formFields)
+             */
             
             $("#formDevUname").submit(function(e){
                 e.preventDefault();
-                $("#resume").hide();
+                
+                // Hide resume div again after a form is re-submitted
+                $("#resume").fadeOut();
+                // Show preloader on form post
                 $("#intLoader").show();
                 
                 try {
@@ -17,9 +35,11 @@
                         }
                         else{
                          _initBioCardDev(response[0]);
-                          $("#resume").show();   
+                          $("#resume").fadeIn();   
                         }
+                        
                         $("#intLoader").hide();
+                        console.log(response);
                     });  
                 }
                 catch (e) {
@@ -28,7 +48,7 @@
                 }
             });        
         });
-        
+                
     function _initBioCardDev(response) {
       var _DevUsername = $('#_DeveloperName');
       var _DevCurrentCity = "";
@@ -46,8 +66,6 @@
       }else{
           $('#_DeveloperJobConfirmation').text("Not Available");
       }
-      
-      console.log(response);
     }   
         
      function showErrorToast(message) {

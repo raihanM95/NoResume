@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+    <e p="$APPLICATION_CONFIG_DIR$/javascript/extLibs/http_www.gstatic.com_charts_loader.js" t="IncludeRecursive" />
     <e p="$USER_HOME$/.Rider2019.1/system/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/.Rider2019.1/system/resharper-host/local/Transient/ReSharperHost/v191/SolutionCaches/_.19.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
@@ -105,6 +106,11 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="wwwroot" t="Include">
+        <e p="chartjs" t="Include">
+          <e p="chart.min.css" t="Include" />
+          <e p="chart.min.js" t="Include" />
+          <e p="gstatic.min.js" t="Include" />
+        </e>
         <e p="css" t="Include">
           <e p="site.css" t="Include" />
         </e>

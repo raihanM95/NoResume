@@ -16,13 +16,13 @@ namespace NoResume.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly List<Object> _objectList;
+        private readonly HashSet<Object> _objectList;
 
         public HomeController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
             _userManager = userManager;
-            _objectList = new List<object>();
+            _objectList = new HashSet<object>();
         }
         
         private void AddJson(Object obj)
@@ -46,40 +46,22 @@ namespace NoResume.Controllers
         public JsonResult Index(IFormCollection formFields)
         {
             var developerId = "";
-            var shortBios = new ShortBio();
+            ShortBio shortBios;
             WorkingProfile workingProfile;
-            var uHuntApi = ""; 
-            var codeForcesApi = "";
-
+            
             try
             {
                 developerId = _userManager.FindByNameAsync(formFields["developerUsername"]).Result.Id;
                 shortBios = _context.ShortBios.Single(x => x.DeveloperId == developerId);
                 workingProfile = _context.WorkingProfiles.Single(x => x.DeveloperId == developerId);
+                _objectList.Add(shortBios);
+                _objectList.Add(workingProfile);
+                return Json(_objectList);
             }
             catch (Exception e)
             {
                 return Json(null);
             }
-            
-            using (WebClient webClient = new WebClient())
-            {
-                if (workingProfile.CodeforcesUsername != null && workingProfile.CodeforcesUsername.Trim() != "")
-                {
-                    codeForcesApi = webClient.DownloadString("https://codeforces.com/api/user.info?handles="+workingProfile.CodeforcesUsername);
-                }
-                if (workingProfile.UhuntUsername != null && workingProfile.UhuntUsername.Trim() != "")
-                {
-                    uHuntApi = webClient.DownloadString("https://uhunt.onlinejudge.org/api/uname2uid/"+workingProfile.UhuntUsername);
-                }
-            }
-
-            ViewBag.DevUname = TitleCase(formFields["developerUsername"].ToString());
-            _objectList.Add(shortBios);
-            _objectList.Add(codeForcesApi);
-            _objectList.Add(uHuntApi);
-            
-            return Json(_objectList);
         }
         
         [HttpGet("Home/Dev/{username}")]
