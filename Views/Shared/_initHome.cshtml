@@ -4,6 +4,9 @@
     <script type="text/javascript">
     var colorArray = ['#00bfa5','#0288d1','#00695c','#ffcc80','#ec407a','#4a148c','#f4511e','#6d4c41','#424242','#ef5350','#66bb6a','#ffe082'];
     Chart.defaults.global.defaultFontColor = "#fff";
+    Chart.defaults.global.defaultFontFamily = "'Quicksand'";
+    
+    
     var requestToCodeForces;
     var cf_api_url = 'https://codeforces.com/api/';
     var cf_handle;
@@ -22,6 +25,9 @@
             cfDIV.hide();
             gitDIV.hide();
             uhDIV.hide();
+            
+            var cfPreload = $('#CForcesPreloader');
+            cfPreload.hide();
             /*
             ** Initially hide div #resume
             ** Show when controller response successfully
@@ -57,6 +63,7 @@
                         else{
                          _initBioCardDev(response[0]);
                           $("#resume").fadeIn();
+                          cfPreload.show();
                           
                           var WorkingProfile = response[1];
                           
@@ -71,7 +78,7 @@
                                     
                                     // Set Pie Chart : VERDICT
                                     var verdictDataArray = $.map(cf_verdicts,function(v){ return v; });
-                                    CodeForcesCreateCharts(Object.keys(cf_verdicts), verdictDataArray, 'doughnut', $('#verdicts_codeForces_pie'), 'Verdicts of '+cf_handle);
+                                    CodeForcesCreateCharts(Object.keys(cf_verdicts), verdictDataArray, 'pie', $('#verdicts_codeForces_pie'), 'Verdicts of '+cf_handle);
                                     
                                     // Set Doughnut Chart : Languages
                                     var languageDataArray = $.map(cf_languages,function(v){ return v; });
@@ -79,6 +86,7 @@
                                     
                                     cfDIV.show();
                                 }
+                                cfPreload.hide();
                               })
                           }
                           
