@@ -6,6 +6,7 @@
     var cf_problems_attempt_solved = {};
     var cf_verdicts = {};
     var cf_languages = {};
+    var cf_tags = {};
     
     
         $(document).ready(function(){
@@ -150,11 +151,29 @@
            if(submission.verdict === 'OK'){
                cf_problems_attempt_solved[problemId].solved++;
            }
+           
+           // Counting Tags, levels, Problem Rating at MIN[SOLVED]
+           if(submission.verdict === 'OK' && cf_problems_attempt_solved[problemId].solved === 1){
+               /*
+               ** Counting Tags
+               ** solved is counted @@1 because
+               ** if someone solves a problem so many times then we can take only one tag
+               **/
+               submission.problem.tags.forEach(function(currentValue) {
+                 if(cf_tags[currentValue] === undefined){
+                     cf_tags[currentValue] = 1;
+                 }else{
+                     cf_tags[currentValue]++;
+                 }
+               });
+           }
+           
          } 
          // console.log(cf_problems_attempt_solved);
          // console.log(cf_verdicts);
          // console.log(cf_languages);
          // console.log(cf_problems_attempt_solved);
+         // console.log(cf_tags);
      }
                 
     function _initBioCardDev(response) {
