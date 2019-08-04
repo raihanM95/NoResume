@@ -17,6 +17,13 @@ and (orientation: portrait) {
   #mainContainer{
     padding-bottom: 10px;
   }
+
+  .chart-container {
+    position: relative;
+    margin: auto;
+    height: 80vh;
+    width: 80vw;
+  }
 }
 
 /* Pixel */
@@ -61,3 +68,5 @@ main {
 #resume {
   display: none;
 }
+
+

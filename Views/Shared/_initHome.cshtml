@@ -1,5 +1,9 @@
 <environment include="Development">
+    <script src="~/chartjs/chart.min.js" asp-append-version="true"></script>
+    
     <script type="text/javascript">
+    var colorArray = ['#00bfa5','#0288d1','#00695c','#ffcc80','#ec407a','#4a148c','#f4511e','#6d4c41','#424242','#ef5350','#66bb6a','#ffe082'];
+    Chart.defaults.global.defaultFontColor = "#fff";
     var requestToCodeForces;
     var cf_api_url = 'https://codeforces.com/api/';
     var cf_handle;
@@ -64,6 +68,16 @@
                                     showErrorToast("No Submissions on CodeForces");
                                 }else{
                                     CodeForcesDataProcessor(data);
+                                    
+                                    // Set Pie Chart : VERDICT
+                                    var verdictDataArray = $.map(cf_verdicts,function(v){ return v; });
+                                    CodeForcesCreateCharts(Object.keys(cf_verdicts), verdictDataArray, 'doughnut', $('#verdicts_codeForces_pie'), 'Verdicts of '+cf_handle);
+                                    
+                                    // Set Doughnut Chart : Languages
+                                    var languageDataArray = $.map(cf_languages,function(v){ return v; });
+                                    CodeForcesCreateCharts(Object.keys(cf_languages), languageDataArray, 'doughnut', $('#languages_codeForces_pie'), 'Languages used by '+cf_handle);
+                                    
+                                    cfDIV.show();
                                 }
                               })
                           }
@@ -194,6 +208,29 @@
          // console.log(cf_tags);
          // console.log(cf_attempt_level_quality);
          // console.log(cf_attempt_rating_quality);
+     }
+     
+     function CodeForcesCreateCharts(keys, dataArray, chartType, context, titleText) {
+       var pieChart = new Chart(context, {
+           type: chartType,
+           data: {
+               labels: keys,
+               datasets: [{
+                   label: 'Value',
+                   data: dataArray,
+                   backgroundColor: colorArray,
+                   borderColor: colorArray,
+                   borderWidth: 1
+               }]
+           },
+           options: {
+             title: {
+               display: true,
+               text: titleText,
+               fontSize: 25
+             } 
+           }
+       });
      }
                 
     function _initBioCardDev(response) {
