@@ -7,6 +7,7 @@
     var cf_verdicts = {};
     var cf_languages = {};
     var cf_tags = {};
+    var cf_attempt_level_quality = {};
     
     
         $(document).ready(function(){
@@ -166,6 +167,14 @@
                      cf_tags[currentValue]++;
                  }
                });
+               
+               // Level of quality problems being tried : A, B, B1 
+               if(cf_attempt_level_quality[submission.problem.index] === undefined){
+                   cf_attempt_level_quality[submission.problem.index] = 1;
+               }else{
+                   cf_attempt_level_quality[submission.problem.index]++;
+               }
+               
            }
            
          } 
@@ -174,6 +183,7 @@
          // console.log(cf_languages);
          // console.log(cf_problems_attempt_solved);
          // console.log(cf_tags);
+         // console.log(cf_attempt_level_quality);
      }
                 
     function _initBioCardDev(response) {
