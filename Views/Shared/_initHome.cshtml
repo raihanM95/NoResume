@@ -142,16 +142,19 @@
            
            
            /*
-           ** #Counting Solved
+           ** #Counting Solved : HOW_MANY_WAYS
            ** It means number of times a problem is solved according to VERDICT == OK
            ** 
            ** It will increment cf_problems_attempt_solved[problemID].solved
            */
-           
+           if(submission.verdict === 'OK'){
+               cf_problems_attempt_solved[problemId].solved++;
+           }
          } 
          // console.log(cf_problems_attempt_solved);
          // console.log(cf_verdicts);
-         console.log(cf_languages);
+         // console.log(cf_languages);
+         // console.log(cf_problems_attempt_solved);
      }
                 
     function _initBioCardDev(response) {
