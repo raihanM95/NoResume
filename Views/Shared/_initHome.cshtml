@@ -5,6 +5,7 @@
     var cf_handle;
     var cf_problems_attempt_solved = {};
     var cf_verdicts = {};
+    var cf_languages = {};
     
     
         $(document).ready(function(){
@@ -127,9 +128,30 @@
                cf_verdicts[submission.verdict]++;
            }
            
+           /*
+           ** #Language COUNTER 
+           * 
+           ** Counting number of each type of languages
+           ** Example: C++, Java, Kotlin
+           */
+           if(cf_languages[submission.programmingLanguage] === undefined){
+               cf_languages[submission.programmingLanguage] = 1;
+           } else{
+               cf_languages[submission.programmingLanguage]++;
+           }
+           
+           
+           /*
+           ** #Counting Solved
+           ** It means number of times a problem is solved according to VERDICT == OK
+           ** 
+           ** It will increment cf_problems_attempt_solved[problemID].solved
+           */
+           
          } 
          // console.log(cf_problems_attempt_solved);
-         console.log(cf_verdicts);
+         // console.log(cf_verdicts);
+         console.log(cf_languages);
      }
                 
     function _initBioCardDev(response) {
