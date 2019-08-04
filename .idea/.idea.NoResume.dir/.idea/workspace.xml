@@ -4,6 +4,12 @@
     <list default="true" id="10a3dff2-0221-43cc-95cb-872dadd9e1b8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Home/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/Shared/_initHome.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Shared/_initHome.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/NoResume.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/NoResume.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/NoResume.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/NoResume.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Home/Index.g.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Home/Index.g.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_initHome.g.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_initHome.g.cshtml.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,17 +22,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Views/Shared/_initHome.cshtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wwwroot/css/site.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="25" column="3" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
+            <state relative-caret-position="295">
+              <caret line="96" column="199" selection-start-line="96" selection-start-column="199" selection-end-line="96" selection-end-column="199" />
             </state>
           </provider>
         </entry>
@@ -34,12 +31,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Views/Home/Index.cshtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
+            <state relative-caret-position="283">
+              <caret line="151" column="33" lean-forward="true" selection-start-line="151" selection-start-column="33" selection-end-line="151" selection-end-column="33" />
               <folding>
-                <marker date="1564942744035" expanded="true" signature="0:71" ph="@..." />
-                <marker date="1564942744035" expanded="true" signature="3941:4024" ph="@{...}" />
-                <marker date="1564942744035" expanded="true" signature="3964:4022" ph="@..." />
+                <marker date="1564946427917" expanded="true" signature="0:71" ph="@..." />
+                <marker date="1564946427917" expanded="true" signature="5200:5283" ph="@{...}" />
+                <marker date="1564946427917" expanded="true" signature="5223:5281" ph="@..." />
               </folding>
             </state>
           </provider>
@@ -113,8 +110,8 @@
         <option value="$PROJECT_DIR$/wwwroot/chartjs/gstatic.min.js" />
         <option value="$PROJECT_DIR$/Controllers/HomeController.cs" />
         <option value="$PROJECT_DIR$/Views/Shared/_WProfileQueriFy.cshtml" />
-        <option value="$PROJECT_DIR$/Views/Shared/_LayoutPublic.cshtml" />
         <option value="$PROJECT_DIR$/wwwroot/css/site.css" />
+        <option value="$PROJECT_DIR$/Views/Shared/_LayoutPublic.cshtml" />
         <option value="$PROJECT_DIR$/Views/Home/Index.cshtml" />
         <option value="$PROJECT_DIR$/Views/Shared/_initHome.cshtml" />
       </list>
@@ -258,12 +255,12 @@
       <workItem from="1564835751034" duration="7212000" />
       <workItem from="1564851195511" duration="2240000" />
       <workItem from="1564913952660" duration="1783000" />
-      <workItem from="1564918102278" duration="22258000" />
+      <workItem from="1564918102278" duration="25766000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40498000" />
+    <option name="totallyTimeSpent" value="44006000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -283,7 +280,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32899022" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.45439738" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.18566775" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -295,7 +292,7 @@
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Unit Tests" order="12" />
       <window_info anchor="bottom" id="REST Client" order="13" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="14" visible="true" weight="0.257329" />
+      <window_info anchor="bottom" id="Terminal" order="14" weight="0.257329" />
       <window_info anchor="bottom" id="Event Log" order="15" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="16" weight="0.38925081" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -712,13 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wwwroot/chartjs/chart.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="33" lean-forward="true" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wwwroot/chartjs/gstatic.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
@@ -772,8 +762,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Views/Shared/_LayoutPublic.cshtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="18" column="56" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
+        <state relative-caret-position="120">
+          <caret line="14" column="108" selection-start-line="14" selection-start-column="108" selection-end-line="14" selection-end-column="108" />
         </state>
       </provider>
     </entry>
@@ -784,22 +774,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wwwroot/chartjs/chart.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="6" column="69402" selection-start-line="6" selection-start-column="69399" selection-end-line="6" selection-end-column="69402" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Views/Home/Index.cshtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
+        <state relative-caret-position="283">
+          <caret line="151" column="33" lean-forward="true" selection-start-line="151" selection-start-column="33" selection-end-line="151" selection-end-column="33" />
           <folding>
-            <marker date="1564942744035" expanded="true" signature="0:71" ph="@..." />
-            <marker date="1564942744035" expanded="true" signature="3941:4024" ph="@{...}" />
-            <marker date="1564942744035" expanded="true" signature="3964:4022" ph="@..." />
+            <marker date="1564946427917" expanded="true" signature="0:71" ph="@..." />
+            <marker date="1564946427917" expanded="true" signature="5200:5283" ph="@{...}" />
+            <marker date="1564946427917" expanded="true" signature="5223:5281" ph="@..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Views/Shared/_initHome.cshtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
+        <state relative-caret-position="295">
+          <caret line="96" column="199" selection-start-line="96" selection-start-column="199" selection-end-line="96" selection-end-column="199" />
         </state>
       </provider>
     </entry>

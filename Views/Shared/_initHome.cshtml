@@ -2,7 +2,7 @@
     <script src="~/chartjs/chart.min.js" asp-append-version="true"></script>
     
     <script type="text/javascript">
-    var colorArray = ['#00bfa5','#0288d1','#00695c','#ffcc80','#ec407a','#4a148c','#f4511e','#6d4c41','#424242','#ef5350','#66bb6a','#ffe082'];
+    var colorArray=["#00bfa5","#0288d1","#00695c","#ffcc80","#ec407a","#4a148c","#f4511e","#6d4c41","#424242","#ef5350","#66bb6a","#ffe082", "#f44336","#E91E63","#9C27B0","#673AB7","#2196F3","#009688","#8BC34A","#CDDC39","#FFC107","#FF9800","#FF5722","#795548","#607D8B","#E65100","#827717","#004D40","#1A237E","#6200EA","#3F51B5","#F50057","#304FFE","#b71c1c"];
     Chart.defaults.global.defaultFontColor = "#fff";
     Chart.defaults.global.defaultFontFamily = "'Quicksand'";
     
@@ -80,9 +80,22 @@
                                     var verdictDataArray = $.map(cf_verdicts,function(v){ return v; });
                                     CodeForcesCreateCharts(Object.keys(cf_verdicts), verdictDataArray, 'pie', $('#verdicts_codeForces_pie'), 'Verdicts of '+cf_handle);
                                     
-                                    // Set Doughnut Chart : Languages
+                                    // Set Pie Chart : Languages
                                     var languageDataArray = $.map(cf_languages,function(v){ return v; });
-                                    CodeForcesCreateCharts(Object.keys(cf_languages), languageDataArray, 'doughnut', $('#languages_codeForces_pie'), 'Languages used by '+cf_handle);
+                                    CodeForcesCreateCharts(Object.keys(cf_languages), languageDataArray, 'pie', $('#languages_codeForces_pie'), 'Languages used by '+cf_handle);
+                                    
+                                    // Set Doughnut Chart : Tags
+                                    var tagsDataArray = $.map(cf_tags,function(v){ return v; });
+                                    CodeForcesCreateCharts(Object.keys(cf_tags), tagsDataArray, 'doughnut', $('#tags_codeForces_doughnut'), 'Tags of problems solved by '+cf_handle);
+                                    
+                                    // Set Bar Chart : Tags
+                                    var levelsDataArray = $.map(cf_attempt_level_quality,function(v){ return v; });
+                                    CodeForcesCreateBarCharts(Object.keys(cf_attempt_level_quality), levelsDataArray, $('#levels_codeForces_bar'), 'Level of problems solved by '+cf_handle);
+                                    
+                                    // Set Bar Chart : Tags
+                                    var ratingsDataArray = $.map(cf_attempt_rating_quality,function(v){ return v; });
+                                    CodeForcesCreateBarCharts(Object.keys(cf_attempt_rating_quality), ratingsDataArray, $('#problem_rating_codeForces_bar'), 'Rating of problems solved by '+cf_handle);
+                                    
                                     
                                     cfDIV.show();
                                 }
@@ -239,6 +252,42 @@
              } 
            }
        });
+     }
+     
+     function CodeForcesCreateBarCharts(keys, dataArray, context, titleText) {
+        var myChart = new Chart(context, {
+          type: 'bar',
+          data: {
+            labels: keys,
+            datasets: [{
+              data: dataArray,
+              backgroundColor: colorArray,
+              borderColor: colorArray,
+              borderWidth: 1
+            }]
+          },
+          options: {
+            title: {
+               display: true,
+               text: titleText,
+               fontSize: 25
+             },  
+            responsive: true,
+            scales: {
+              xAxes: [{
+                ticks: {
+                  maxRotation: 90,
+                  minRotation: 80
+                }
+              }],
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
+          }
+        });   
      }
                 
     function _initBioCardDev(response) {
