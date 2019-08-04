@@ -12,43 +12,47 @@
         <link rel="stylesheet" href="~/lib/materialize/css/materialize.min.css"/>
     </environment>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One|Quicksand&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css'
             integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
     <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/chartjs/chart.min.css" >
 </head>
 <body>
-    <header>
-        <nav id="navbarMaterialize" class="teal darken-2">
-            <div class="nav-wrapper">
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="brand-logo" id="page-logo">
-                    <i class="material-icons" id="page-logo-icon">layers_clear</i> noResume
-                </a>
+<header>
+    <nav id="navbarMaterialize" class="teal darken-2">
+        <div class="nav-wrapper">
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="brand-logo" id="page-logo">
+                <i class="material-icons" id="page-logo-icon">layers_clear</i> noResume
+            </a>
     
-                <a href="#" class="sidenav-trigger" data-target="mobile-nav">
-                    <i class="material-icons">menu</i>
-                </a>
-                <ul class="right hide-on-med-and-down ">
-                    <li>
-                        <a class="tooltipped" data-position="bottom" data-tooltip="GitHub" target="_blank"
-                           href="https://github.com/shunjid/NoResume.git">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="" asp-action="Login" asp-controller="Account">Login</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <ul class="sidenav" id="mobile-nav">
-            <li>
-                <a target="_blank" class="title" href="https://github.com/shunjid/NoResume.git">
-                    <i class="grey-text text-darken-4 fab fa-github"></i> GitHub
-                </a>
-            </li>
-        </ul>
-    </header>
+            <a href="#" class="sidenav-trigger" data-target="mobile-nav">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down ">
+                <li>
+                    <a class="tooltipped" data-position="bottom" data-tooltip="GitHub" target="_blank"
+                       href="https://github.com/shunjid/NoResume.git">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="" asp-action="Login" asp-controller="Account">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <ul class="sidenav" id="mobile-nav">
+        <li>
+            <a target="_blank" class="title" href="https://github.com/shunjid/NoResume.git">
+                <i class="grey-text text-darken-4 fab fa-github"></i> GitHub
+            </a>
+        </li>
+    </ul>
+</header>
+    <div id="intLoader" class="progress">
+      <div class="indeterminate"></div>
+    </div>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
