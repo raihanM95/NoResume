@@ -118,10 +118,18 @@
            /*
            ** #VERDICTS COUNTER
            ** 
+           ** Counting number of each type of verdicts 
+           ** Example: OK , COMPILATION_ERROR , MEMORY_LIMIT_EXCEEDED
             */
+           if(cf_verdicts[submission.verdict] === undefined){
+               cf_verdicts[submission.verdict] = 1;
+           } else{
+               cf_verdicts[submission.verdict]++;
+           }
            
          } 
-         console.log(cf_problems_attempt_solved);
+         // console.log(cf_problems_attempt_solved);
+         console.log(cf_verdicts);
      }
                 
     function _initBioCardDev(response) {
