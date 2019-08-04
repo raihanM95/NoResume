@@ -1,6 +1,19 @@
 <environment include="Development">
     <script type="text/javascript">
+    var requestToCodeForces;
+    var cf_api_url = 'https://codeforces.com/api/';
+    var cf_handle;
+    var cf_problems_attempt_solved = {};
+    var cf_verdicts = {};
+    
+    
         $(document).ready(function(){
+            var cfDIV = $("#CForcesResume");
+            var gitDIV = $("#GithubResume");
+            var uhDIV = $("#UHuntResume");
+            cfDIV.hide();
+            gitDIV.hide();
+            uhDIV.hide();
             /*
             ** Initially hide div #resume
             ** Show when controller response successfully
@@ -35,11 +48,35 @@
                         }
                         else{
                          _initBioCardDev(response[0]);
-                          $("#resume").fadeIn();   
+                          $("#resume").fadeIn();
+                          
+                          var WorkingProfile = response[1];
+                          
+                          // CodeForces Resume Maker
+                          if(WorkingProfile.codeforcesUsername != null){
+                              cf_handle = WorkingProfile.codeforcesUsername;
+                              requestToCodeForces = $.get(cf_api_url + 'user.status', { handle : cf_handle }, function(data, status) {
+                                if(data.result.length < 1){
+                                    showErrorToast("No Submissions on CodeForces");
+                                }else{
+                                    CodeForcesDataProcessor(data);
+                                }
+                              })
+                          }
+                          
+                          // GitHub Resume Maker
+                          if(WorkingProfile.githubUsername != null){
+                                
+                          }
+                          
+                          // UVA Resume Maker
+                          if(WorkingProfile.uhuntUsername != null){
+                                  
+                          }
+                         
                         }
                         
                         $("#intLoader").hide();
-                        console.log(response);
                     });  
                 }
                 catch (e) {
@@ -48,6 +85,44 @@
                 }
             });        
         });
+     
+     function CodeForcesDataProcessor(data){
+         
+         for(var i = 0; i < data.result.length ; i++) {
+           var submission = data.result[i];
+           
+           /*
+           ** #problemId : Concatenates contestId (1110) and submissionID (A)
+           ** Example    : 1110-A
+           **
+           ** cf_problems_attempt_solved[problemId] is checked firstly if it is defined or, not
+           ** if cf_problems_attempt_solved[problemId] is not defined then attempt is set to 1
+           ** and solved is set to 0
+           **
+           ** else it will be counting till the problem is solved
+           ** the goal is to count how many attempts was taken before solved 
+           */
+           var problemId = submission.problem.contestId + '-' + submission.problem.index;
+           
+           if(cf_problems_attempt_solved[problemId] === undefined){
+               cf_problems_attempt_solved[problemId] = {
+                 attempts : 1,
+                 solved : 0  
+               };
+           } else{
+              if(cf_problems_attempt_solved[problemId].solved === 0){
+                  cf_problems_attempt_solved[problemId].attempts++; 
+              } 
+           }
+           
+           /*
+           ** #VERDICTS COUNTER
+           ** 
+            */
+           
+         } 
+         console.log(cf_problems_attempt_solved);
+     }
                 
     function _initBioCardDev(response) {
       var _DevUsername = $('#_DeveloperName');
