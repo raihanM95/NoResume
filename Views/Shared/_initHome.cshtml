@@ -482,9 +482,7 @@
                                         var ratingsDataArray = $.map(cf_attempt_rating_quality,function(v){ return v; });
                                         CodeForcesCreateBarCharts(Object.keys(cf_attempt_rating_quality), ratingsDataArray, $('#problem_rating_codeForces_bar'), 'Rating of problems solved by '+cf_handle);
                                         
-                                        // Effort Summary
                                         CodeForcesEffortSummary();
-                                        
                                         cfDIV.show();
                                     }
                                     cfPreload.hide();
@@ -515,7 +513,7 @@
          
          function CodeForcesDataProcessor(data){
              
-             for(var i = 0; i < data.result.length ; i++) {
+             for(var i = data.result.length - 1; i >= 0 ; i--) {
                var submission = data.result[i];
                
                /*
@@ -679,32 +677,60 @@
          }
          
          function CodeForcesEffortSummary() {
-           var numberOfTimesTried = 0;
-           var numberOfProblemsSolved = 0;
-           
-           var OneSubmissionTry = 0;
-           var maximumAttemptsBeforeSolvingAProblem = 0;
-           var problemsThatAreNotSolved = [];
-           
-           var maximumTimesAProblemBeenAccepted = 0;
-           var maximumAcceptedProblemInfo = '';
-           
-           for(var submissions in cf_problems_attempt_solved){
-               
-               // For Each Submission : numberOfTimesTried increments to 1 
-               numberOfTimesTried += 1;
-               
-               if(cf_problems_attempt_solved[submissions].solved > 0){
-                   numberOfProblemsSolved += 1;
-               }
-           }
-           
-           console.log('Yo');
-           console.log(numberOfTimesTried);
-           console.log(numberOfProblemsSolved);
-           
-         }
-         
+            var numberOfProblemsTried = 0;
+            var numberOfProblemsSolved = 0;
+            
+            var maximumAttemptsBeforeSolvingAProblem = 0;
+            var maximumProblemBeenAttempted = '';
+            
+            var OneSubmissionTry = 0;
+            var problemsThatAreNotSolved = [];
+            
+            var maximumNumberAProblemAccepted = 0;
+            var maximumAcceptedProblemInfo = '';
+            
+            for(var submissions in cf_problems_attempt_solved){
+                
+                // For Each Submission : numberOfTimesTried increments to 1 
+                numberOfProblemsTried += 1;
+                
+                // For Each Submission : count total number of problems been solved
+                if(cf_problems_attempt_solved[submissions].solved > 0){
+                    numberOfProblemsSolved += 1;
+                }
+                
+                // Count Max Attempt Comparing With Each Attempt
+                if(cf_problems_attempt_solved[submissions].attempts > maximumAttemptsBeforeSolvingAProblem){
+                    maximumAttemptsBeforeSolvingAProblem = cf_problems_attempt_solved[submissions].attempts;
+                    maximumProblemBeenAttempted = submissions;
+                }
+                
+                // Count Max Accepted Comparing With Each Solved
+                if(cf_problems_attempt_solved[submissions].solved > maximumNumberAProblemAccepted){
+                    maximumNumberAProblemAccepted = cf_problems_attempt_solved[submissions].solved;
+                    maximumAcceptedProblemInfo = submissions;
+                }
+                
+                // One Submission Solved
+                if(cf_problems_attempt_solved[submissions].solved === 1 && cf_problems_attempt_solved[submissions].attempts === 1){
+                    OneSubmissionTry+=1;
+                }
+            }
+            
+            /*console.log(cf_problems_attempt_solved);
+            console.log(numberOfProblemsTried);
+            console.log(numberOfProblemsSolved);
+            console.log(maximumAttemptsBeforeSolvingAProblem);
+            console.log(maximumProblemBeenAttempted);
+            console.log(maximumNumberAProblemAccepted);
+            console.log(maximumAcceptedProblemInfo);
+            console.log(OneSubmissionTry);*/
+            $('#DevTriedProblems').text(numberOfProblemsTried);
+            $('#DevSolvedProblems').text(numberOfProblemsSolved);
+            $('#DevMaxAttemptedProblems').text(maximumAttemptsBeforeSolvingAProblem + "(" + maximumProblemBeenAttempted + ")");
+            $('#DevMaxAcceptedProblems').text(maximumNumberAProblemAccepted + "(" + maximumAcceptedProblemInfo + ")");
+            $('#DevAcceptedAtFirstTry').text(OneSubmissionTry);
+          }
                     
         function _initBioCardDev(response) {
           var _DevUsername = $('#_DeveloperName');
