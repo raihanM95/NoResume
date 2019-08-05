@@ -426,6 +426,8 @@
                                         var ratingsDataArray = $.map(cf_attempt_rating_quality,function(v){ return v; });
                                         CodeForcesCreateBarCharts(Object.keys(cf_attempt_rating_quality), ratingsDataArray, $('#problem_rating_codeForces_bar'), 'Rating of problems solved by '+cf_handle);
                                         
+                                        // Effort Summary
+                                        CodeForcesEffortSummary();
                                         
                                         cfDIV.show();
                                     }
@@ -619,6 +621,34 @@
               }
             });   
          }
+         
+         function CodeForcesEffortSummary() {
+           var numberOfTimesTried = 0;
+           var numberOfProblemsSolved = 0;
+           
+           var OneSubmissionTry = 0;
+           var maximumAttemptsBeforeSolvingAProblem = 0;
+           var problemsThatAreNotSolved = [];
+           
+           var maximumTimesAProblemBeenAccepted = 0;
+           var maximumAcceptedProblemInfo = '';
+           
+           for(var submissions in cf_problems_attempt_solved){
+               
+               // For Each Submission : numberOfTimesTried increments to 1 
+               numberOfTimesTried += 1;
+               
+               if(cf_problems_attempt_solved[submissions].solved > 0){
+                   numberOfProblemsSolved += 1;
+               }
+           }
+           
+           console.log('Yo');
+           console.log(numberOfTimesTried);
+           console.log(numberOfProblemsSolved);
+           
+         }
+         
                     
         function _initBioCardDev(response) {
           var _DevUsername = $('#_DeveloperName');
