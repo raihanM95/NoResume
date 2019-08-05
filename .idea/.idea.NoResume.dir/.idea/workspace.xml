@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10a3dff2-0221-43cc-95cb-872dadd9e1b8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.NoResume.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NoResume.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Home/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/Shared/_initHome.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Shared/_initHome.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/NoResume.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/NoResume.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/NoResume.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/NoResume.Views.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Home/Index.g.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Home/Index.g.cshtml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_initHome.g.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_initHome.g.cshtml.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,24 +18,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Views/Shared/_initHome.cshtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="645" column="29" selection-start-line="645" selection-start-column="29" selection-end-line="645" selection-end-column="29" />
+            <state relative-caret-position="283">
+              <caret line="345" column="57" selection-start-line="345" selection-start-column="57" selection-end-line="345" selection-end-column="57" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Views/Home/Index.cshtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="97" column="12" selection-start-line="97" selection-start-column="12" selection-end-line="107" selection-end-column="12" />
+            <state relative-caret-position="178">
+              <caret line="97" column="9" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
               <folding>
-                <marker date="1564946610545" expanded="true" signature="0:71" ph="@..." />
-                <marker date="1564946610545" expanded="true" signature="5181:5264" ph="@{...}" />
-                <marker date="1564946610545" expanded="true" signature="5204:5262" ph="@..." />
+                <marker date="1564976077630" expanded="true" signature="0:71" ph="@..." />
+                <marker date="1564976077630" expanded="true" signature="6225:6308" ph="@{...}" />
+                <marker date="1564976077630" expanded="true" signature="6248:6306" ph="@..." />
               </folding>
             </state>
           </provider>
@@ -54,6 +53,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>preload</find>
+      <find>CodeForcesEffortSummary</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -112,8 +112,8 @@
         <option value="$PROJECT_DIR$/Views/Shared/_WProfileQueriFy.cshtml" />
         <option value="$PROJECT_DIR$/wwwroot/css/site.css" />
         <option value="$PROJECT_DIR$/Views/Shared/_LayoutPublic.cshtml" />
-        <option value="$PROJECT_DIR$/Views/Home/Index.cshtml" />
         <option value="$PROJECT_DIR$/Views/Shared/_initHome.cshtml" />
+        <option value="$PROJECT_DIR$/Views/Home/Index.cshtml" />
       </list>
     </option>
   </component>
@@ -219,12 +219,12 @@
       <workItem from="1564851195511" duration="2240000" />
       <workItem from="1564913952660" duration="1783000" />
       <workItem from="1564918102278" duration="26302000" />
-      <workItem from="1564967807458" duration="1337000" />
+      <workItem from="1564967807458" duration="7501000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45879000" />
+    <option name="totallyTimeSpent" value="52043000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -748,22 +748,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Views/Home/Index.cshtml">
+    <entry file="file://$PROJECT_DIR$/Views/Shared/_initHome.cshtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="97" column="12" selection-start-line="97" selection-start-column="12" selection-end-line="107" selection-end-column="12" />
-          <folding>
-            <marker date="1564946610545" expanded="true" signature="0:71" ph="@..." />
-            <marker date="1564946610545" expanded="true" signature="5181:5264" ph="@{...}" />
-            <marker date="1564946610545" expanded="true" signature="5204:5262" ph="@..." />
-          </folding>
+        <state relative-caret-position="283">
+          <caret line="345" column="57" selection-start-line="345" selection-start-column="57" selection-end-line="345" selection-end-column="57" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Views/Shared/_initHome.cshtml">
+    <entry file="file://$PROJECT_DIR$/Views/Home/Index.cshtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="645" column="29" selection-start-line="645" selection-start-column="29" selection-end-line="645" selection-end-column="29" />
+        <state relative-caret-position="178">
+          <caret line="97" column="9" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
+          <folding>
+            <marker date="1564976077630" expanded="true" signature="0:71" ph="@..." />
+            <marker date="1564976077630" expanded="true" signature="6225:6308" ph="@{...}" />
+            <marker date="1564976077630" expanded="true" signature="6248:6306" ph="@..." />
+          </folding>
         </state>
       </provider>
     </entry>
