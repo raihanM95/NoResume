@@ -1,79 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="10a3dff2-0221-43cc-95cb-872dadd9e1b8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.NoResume.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NoResume.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/ShortBiosController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ShortBiosController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/ShortBios/Create.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/ShortBios/Delete.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/ShortBios/Index.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/NoResume.Views.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/NoResume.Views.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/NoResume.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/NoResume.deps.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/NoResume.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/NoResume.dll.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/NoResume.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/NoResume.runtimeconfig.dev.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/netcoreapp2.2/NoResume.runtimeconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.RazorAssemblyInfo.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.RazorAssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.RazorCoreGenerate.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.RazorTargetAssemblyInfo.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.RazorTargetAssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.TagHelpers.input.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.TagHelpers.output.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.Views.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.Views.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.csproj.CopyComplete" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.csproj.CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.csproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Account/Login.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Account/Register.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Audits/Create.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Audits/Delete.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Audits/Details.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Audits/Edit.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Audits/Index.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Home/Index.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Home/Privacy.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Shared/Error.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_BioAjaxiFy.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_CookieConsentPartial.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_Editor.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_Layout.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_LayoutPrivate.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_LayoutPublic.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_ValidationScriptsPartial.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_WProfileQueriFy.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_initHome.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/ShortBios/Create.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/ShortBios/Delete.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/ShortBios/Details.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/ShortBios/Edit.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/ShortBios/Index.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/SocialProfiles/Create.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/SocialProfiles/Delete.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/SocialProfiles/Details.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/SocialProfiles/Edit.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/SocialProfiles/Index.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/WorkingProfiles/Create.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/WorkingProfiles/Delete.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/WorkingProfiles/Details.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/WorkingProfiles/Edit.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/WorkingProfiles/Index.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/_ViewImports.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/Razor/Views/_ViewStart.g.cshtml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/NoResume.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/NoResume.csproj.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/NoResume.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/NoResume.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/NoResume.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/NoResume.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.packagespec.json" afterDir="false" />
-    </list>
+    <list default="true" id="10a3dff2-0221-43cc-95cb-872dadd9e1b8" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,36 +9,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Controllers/ShortBiosController.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-75">
-              <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
-              <folding>
-                <marker date="1565326411206" expanded="false" signature="6:247" ph="..." />
-                <marker date="1565326411206" expanded="true" signature="279:2952" ph="{...}" />
-                <marker date="1565326411206" expanded="true" signature="331:2950" ph="{...}" />
-                <marker date="1565326411206" expanded="true" signature="563:655" ph="{...}" />
-                <marker date="1565326411206" expanded="true" signature="715:796" ph="{...}" />
-                <marker date="1565326411206" expanded="true" signature="924:1658" ph="{...}" />
-                <marker date="1565326411206" expanded="true" signature="998:1150" ph="{...}" />
-                <marker date="1565326411206" expanded="true" signature="1549:1612" ph="{...}" />
-                <marker date="1565326411206" expanded="true" signature="1668:1880" ph="/* POST: ShortBios/Edit/5 ... */" />
-                <marker date="1565326411206" expanded="true" signature="2064:2799" ph="{...}" />
-                <marker date="1565326411206" expanded="true" signature="2118:2175" ph="{...}" />
-                <marker date="1565326411206" expanded="true" signature="2212:2764" ph="{...}" />
-                <marker date="1565326411206" expanded="true" signature="2246:2378" ph="{...}" />
-                <marker date="1565326411206" expanded="true" signature="2431:2711" ph="{...}" />
-                <marker date="1565326411206" expanded="true" signature="2512:2593" ph="{...}" />
-                <marker date="1565326411206" expanded="true" signature="2618:2693" ph="{...}" />
-                <marker date="1565326411206" expanded="true" signature="2855:2944" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -165,7 +64,6 @@
         <option value="$PROJECT_DIR$/Models/ShortBio.cs" />
         <option value="$PROJECT_DIR$/Models/ErrorViewModel.cs" />
         <option value="$PROJECT_DIR$/Migrations/ApplicationDbContextModelSnapshot.cs" />
-        <option value="$PROJECT_DIR$/Controllers/WorkingProfilesController.cs" />
         <option value="$PROJECT_DIR$/Controllers/AccountController.cs" />
         <option value="$PROJECT_DIR$/Controllers/AuditsController.cs" />
         <option value="$PROJECT_DIR$/Controllers/SocialProfilesController.cs" />
@@ -185,6 +83,7 @@
         <option value="$PROJECT_DIR$/Views/Shared/_initHome.cshtml" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Controllers/ShortBiosController.cs" />
+        <option value="$PROJECT_DIR$/Controllers/WorkingProfilesController.cs" />
       </list>
     </option>
   </component>
@@ -226,12 +125,6 @@
               <item name="" type="784c90a0:SolutionExplorerRootNode" />
               <item name="NoResume" type="24d0babc:SolutionExplorerModelNode" />
               <item name="Views" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="NoResume" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Views" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="ShortBios" type="24d0babc:SolutionExplorerModelNode" />
             </path>
           </expand>
           <select />
@@ -319,12 +212,12 @@
       <workItem from="1565177269774" duration="175000" />
       <workItem from="1565177481621" duration="914000" />
       <workItem from="1565251392749" duration="1230000" />
-      <workItem from="1565326175888" duration="249000" />
+      <workItem from="1565326175888" duration="529000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55860000" />
+    <option name="totallyTimeSpent" value="56140000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -798,35 +691,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/WorkingProfilesController.cs">
+    <entry file="file://$PROJECT_DIR$/Views/ShortBios/Edit.cshtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="16" column="108" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="108" />
+        <state>
+          <folding>
+            <marker date="1565240898016" expanded="true" signature="33:100" ph="@..." />
+            <marker date="1565240898016" expanded="true" signature="743:845" ph="@..." />
+            <marker date="1565240898016" expanded="true" signature="2601:2806" ph="@{...}" />
+            <marker date="1565240898016" expanded="true" signature="2624:2804" ph="@..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Controllers/ShortBiosController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-75">
-          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+        <state relative-caret-position="1185">
+          <caret line="90" column="1" lean-forward="true" selection-start-line="90" selection-start-column="1" selection-end-line="90" selection-end-column="1" />
           <folding>
-            <marker date="1565326411206" expanded="false" signature="6:247" ph="..." />
-            <marker date="1565326411206" expanded="true" signature="279:2952" ph="{...}" />
-            <marker date="1565326411206" expanded="true" signature="331:2950" ph="{...}" />
-            <marker date="1565326411206" expanded="true" signature="563:655" ph="{...}" />
-            <marker date="1565326411206" expanded="true" signature="715:796" ph="{...}" />
-            <marker date="1565326411206" expanded="true" signature="924:1658" ph="{...}" />
-            <marker date="1565326411206" expanded="true" signature="998:1150" ph="{...}" />
-            <marker date="1565326411206" expanded="true" signature="1549:1612" ph="{...}" />
-            <marker date="1565326411206" expanded="true" signature="1668:1880" ph="/* POST: ShortBios/Edit/5 ... */" />
-            <marker date="1565326411206" expanded="true" signature="2064:2799" ph="{...}" />
-            <marker date="1565326411206" expanded="true" signature="2118:2175" ph="{...}" />
-            <marker date="1565326411206" expanded="true" signature="2212:2764" ph="{...}" />
-            <marker date="1565326411206" expanded="true" signature="2246:2378" ph="{...}" />
-            <marker date="1565326411206" expanded="true" signature="2431:2711" ph="{...}" />
-            <marker date="1565326411206" expanded="true" signature="2512:2593" ph="{...}" />
-            <marker date="1565326411206" expanded="true" signature="2618:2693" ph="{...}" />
-            <marker date="1565326411206" expanded="true" signature="2855:2944" ph="{...}" />
+            <marker date="1565326476832" expanded="true" signature="6:247" ph="..." />
+            <marker date="1565326476832" expanded="true" signature="279:2765" ph="{...}" />
+            <marker date="1565326476832" expanded="true" signature="331:2763" ph="{...}" />
+            <marker date="1565326476832" expanded="true" signature="563:655" ph="{...}" />
+            <marker date="1565326476832" expanded="true" signature="715:796" ph="{...}" />
+            <marker date="1565326476832" expanded="true" signature="924:1658" ph="{...}" />
+            <marker date="1565326476832" expanded="true" signature="998:1150" ph="{...}" />
+            <marker date="1565326476832" expanded="true" signature="1549:1612" ph="{...}" />
+            <marker date="1565326476832" expanded="true" signature="1877:2612" ph="{...}" />
+            <marker date="1565326476832" expanded="true" signature="1931:1988" ph="{...}" />
+            <marker date="1565326476832" expanded="true" signature="2025:2577" ph="{...}" />
+            <marker date="1565326476832" expanded="true" signature="2059:2191" ph="{...}" />
+            <marker date="1565326476832" expanded="true" signature="2244:2524" ph="{...}" />
+            <marker date="1565326476832" expanded="true" signature="2325:2406" ph="{...}" />
+            <marker date="1565326476832" expanded="true" signature="2431:2506" ph="{...}" />
+            <marker date="1565326476832" expanded="true" signature="2668:2757" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/WorkingProfilesController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="74" column="11" selection-start-line="74" selection-start-column="11" selection-end-line="74" selection-end-column="11" />
+          <folding>
+            <marker date="1565326604647" expanded="false" signature="6:247" ph="..." />
+            <marker date="1565326604647" expanded="true" signature="279:2751" ph="{...}" />
+            <marker date="1565326604647" expanded="true" signature="337:2749" ph="{...}" />
+            <marker date="1565326604647" expanded="true" signature="575:667" ph="{...}" />
+            <marker date="1565326604647" expanded="true" signature="727:808" ph="{...}" />
+            <marker date="1565326604647" expanded="true" signature="925:1568" ph="{...}" />
+            <marker date="1565326604647" expanded="true" signature="999:1062" ph="{...}" />
+            <marker date="1565326604647" expanded="true" signature="1454:1517" ph="{...}" />
+            <marker date="1565326604647" expanded="true" signature="1829:2594" ph="{...}" />
+            <marker date="1565326604647" expanded="true" signature="1889:1946" ph="{...}" />
+            <marker date="1565326604647" expanded="true" signature="1983:2559" ph="{...}" />
+            <marker date="1565326604647" expanded="true" signature="2017:2155" ph="{...}" />
+            <marker date="1565326604647" expanded="true" signature="2208:2500" ph="{...}" />
+            <marker date="1565326604647" expanded="true" signature="2301:2382" ph="{...}" />
+            <marker date="1565326604647" expanded="true" signature="2407:2482" ph="{...}" />
+            <marker date="1565326604647" expanded="true" signature="2648:2743" ph="{...}" />
           </folding>
         </state>
       </provider>

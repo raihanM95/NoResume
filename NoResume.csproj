@@ -29,4 +29,13 @@
       <Folder Include="wwwroot\lib\materialize" />
     </ItemGroup>
 
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Audits\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Audits\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Audits\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Audits\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Audits\Index.cshtml" />
+    </ItemGroup>
+
 </Project>
