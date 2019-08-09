@@ -64,14 +64,14 @@ namespace NoResume.Controllers
                 _objectList.Add(workingProfile);
                 return Json(_objectList);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return Json(null);
             }
         }
         
         [HttpGet("Home/Dev/{username}")]
-        public async Task<IActionResult> Dev(string username)
+        public IActionResult Dev(string username)
         {
             var developerId = _userManager.FindByNameAsync(username).Result.Id;
             var shortBios = _context.ShortBios.FindAsync(developerId);

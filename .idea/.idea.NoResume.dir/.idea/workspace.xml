@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10a3dff2-0221-43cc-95cb-872dadd9e1b8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.NoResume.dir/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NoResume.dir/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.NoResume.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.NoResume.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NoResume.db" beforeDir="false" afterPath="$PROJECT_DIR$/NoResume.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/Shared/_initHome.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Shared/_initHome.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/netcoreapp2.2/NoResume.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/NoResume.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/NoResume.csproj.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/NoResume.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/NoResume.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,38 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Controllers/HomeController.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="64" column="16" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="16" />
-              <folding>
-                <marker date="1565367833467" expanded="false" signature="6:293" ph="..." />
-                <marker date="1565367833467" expanded="true" signature="325:3956" ph="{...}" />
-                <marker date="1565367833467" expanded="true" signature="372:3954" ph="{...}" />
-                <marker date="1565367833467" expanded="true" signature="653:794" ph="{...}" />
-                <marker date="1565367833467" expanded="true" signature="844:898" ph="{...}" />
-                <marker date="1565367833467" expanded="true" signature="944:1085" ph="{...}" />
-                <marker date="1565367833467" expanded="true" signature="1131:1178" ph="{...}" />
-                <marker date="1565367833467" expanded="true" signature="1293:2423" ph="{...}" />
-                <marker date="1565367833467" expanded="true" signature="1441:2318" ph="{...}" />
-                <marker date="1565367833467" expanded="true" signature="2350:2413" ph="{...}" />
-                <marker date="1565367833467" expanded="true" signature="2535:3599" ph="{...}" />
-                <marker date="1565367833467" expanded="true" signature="2961:3555" ph="{...}" />
-                <marker date="1565367833467" expanded="true" signature="3075:3262" ph="{...}" />
-                <marker date="1565367833467" expanded="true" signature="3365:3541" ph="{...}" />
-                <marker date="1565367833467" expanded="true" signature="3639:3686" ph="{...}" />
-                <marker date="1565367833467" expanded="true" signature="3817:3948" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Views/Shared/_initHome.cshtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="449" column="51" selection-start-line="449" selection-start-column="51" selection-end-line="449" selection-end-column="51" />
+            <state relative-caret-position="233">
+              <caret line="457" column="51" selection-start-line="457" selection-start-column="51" selection-end-line="457" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -151,6 +123,26 @@
     </navigator>
     <panes>
       <pane id="SolutionExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="NoResume" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="NoResume" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Views" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="NoResume" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Views" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Shared" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
         <option name="show-all-files" value="false" />
       </pane>
       <pane id="AssemblyExplorer" />
@@ -238,12 +230,12 @@
       <workItem from="1565326175888" duration="2381000" />
       <workItem from="1565367152054" duration="50000" />
       <workItem from="1565367412711" duration="452000" />
-      <workItem from="1565370750699" duration="264000" />
+      <workItem from="1565370750699" duration="638000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58758000" />
+    <option name="totallyTimeSpent" value="59132000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -262,7 +254,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32899022" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.18566775" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.18566775" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -573,18 +565,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Views/Home/Index.cshtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="112" selection-start-line="112" selection-end-line="112" />
-          <folding>
-            <marker date="1564976130031" expanded="true" signature="0:71" ph="@..." />
-            <marker date="1564976130031" expanded="true" signature="6233:6316" ph="@{...}" />
-            <marker date="1564976130031" expanded="true" signature="6256:6314" ph="@..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -715,10 +695,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Views/Home/Index.cshtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="112" selection-start-line="112" selection-end-line="112" />
+          <folding>
+            <marker date="1565240898016" expanded="true" signature="0:71" ph="@..." />
+            <marker date="1565240898016" expanded="true" signature="6233:6316" ph="@{...}" />
+            <marker date="1565240898016" expanded="true" signature="6256:6314" ph="@..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Views/Shared/_initHome.cshtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="449" column="51" selection-start-line="449" selection-start-column="51" selection-end-line="449" selection-end-column="51" />
+        <state relative-caret-position="233">
+          <caret line="457" column="51" selection-start-line="457" selection-start-column="51" selection-end-line="457" selection-end-column="51" />
         </state>
       </provider>
     </entry>
