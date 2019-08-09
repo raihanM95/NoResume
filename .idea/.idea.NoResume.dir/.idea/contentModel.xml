@@ -6,7 +6,6 @@
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Controllers" t="Include">
         <e p="AccountController.cs" t="Include" />
-        <e p="AuditsController.cs" t="Include" />
         <e p="HomeController.cs" t="Include" />
         <e p="ShortBiosController.cs" t="Include" />
         <e p="SocialProfilesController.cs" t="Include" />
@@ -45,13 +44,6 @@
           <e p="Login.cshtml" t="Include" />
           <e p="Register.cshtml" t="Include" />
         </e>
-        <e p="Audits" t="Include">
-          <e p="Create.cshtml" t="Include" />
-          <e p="Delete.cshtml" t="Include" />
-          <e p="Details.cshtml" t="Include" />
-          <e p="Edit.cshtml" t="Include" />
-          <e p="Index.cshtml" t="Include" />
-        </e>
         <e p="Home" t="Include">
           <e p="Index.cshtml" t="Include" />
           <e p="Privacy.cshtml" t="Include" />
@@ -69,25 +61,13 @@
           <e p="_initHome.cshtml" t="Include" />
         </e>
         <e p="ShortBios" t="Include">
-          <e p="Create.cshtml" t="Include" />
-          <e p="Delete.cshtml" t="Include" />
-          <e p="Details.cshtml" t="Include" />
           <e p="Edit.cshtml" t="Include" />
-          <e p="Index.cshtml" t="Include" />
         </e>
         <e p="SocialProfiles" t="Include">
-          <e p="Create.cshtml" t="Include" />
-          <e p="Delete.cshtml" t="Include" />
-          <e p="Details.cshtml" t="Include" />
           <e p="Edit.cshtml" t="Include" />
-          <e p="Index.cshtml" t="Include" />
         </e>
         <e p="WorkingProfiles" t="Include">
-          <e p="Create.cshtml" t="Include" />
-          <e p="Delete.cshtml" t="Include" />
-          <e p="Details.cshtml" t="Include" />
           <e p="Edit.cshtml" t="Include" />
-          <e p="Index.cshtml" t="Include" />
         </e>
         <e p="_ViewImports.cshtml" t="Include" />
         <e p="_ViewStart.cshtml" t="Include" />

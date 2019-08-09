@@ -15,52 +15,6 @@ namespace NoResume.Controllers
             _context = context;
         }
 
-        // GET: SocialProfiles
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.SocialProfiles.ToListAsync());
-        }
-
-        // GET: SocialProfiles/Details/5
-        public async Task<IActionResult> Details(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var socialProfile = await _context.SocialProfiles
-                .FirstOrDefaultAsync(m => m.DeveloperId == id);
-            if (socialProfile == null)
-            {
-                return NotFound();
-            }
-
-            return View(socialProfile);
-        }
-
-        // GET: SocialProfiles/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: SocialProfiles/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DeveloperId,LinkedInUsername,FacebookUsername,TwitterUsername")] SocialProfile socialProfile)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(socialProfile);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(socialProfile);
-        }
-
         // GET: SocialProfiles/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
@@ -107,38 +61,9 @@ namespace NoResume.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Edit));
             }
             return View(socialProfile);
-        }
-
-        // GET: SocialProfiles/Delete/5
-        public async Task<IActionResult> Delete(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var socialProfile = await _context.SocialProfiles
-                .FirstOrDefaultAsync(m => m.DeveloperId == id);
-            if (socialProfile == null)
-            {
-                return NotFound();
-            }
-
-            return View(socialProfile);
-        }
-
-        // POST: SocialProfiles/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
-        {
-            var socialProfile = await _context.SocialProfiles.FindAsync(id);
-            _context.SocialProfiles.Remove(socialProfile);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
         }
 
         private bool SocialProfileExists(string id)

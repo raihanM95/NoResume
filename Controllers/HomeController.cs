@@ -52,20 +52,26 @@ namespace NoResume.Controllers
             try
             {
                 developerId = _userManager.FindByNameAsync(formFields["developerUsername"]).Result.Id;
+                
                 shortBios = _context.ShortBios.Single(x => x.DeveloperId == developerId);
+                
                 workingProfile = _context.WorkingProfiles.Single(x => x.DeveloperId == developerId);
+                workingProfile.CodeforcesUsername = workingProfile.PrivacyForCodeforces ? null : workingProfile.CodeforcesUsername;
+                workingProfile.GithubUsername = workingProfile.PrivacyForGithub ? null : workingProfile.GithubUsername;
+                workingProfile.UhuntUsername = workingProfile.PrivacyForUhunt ? null : workingProfile.UhuntUsername;
+                
                 _objectList.Add(shortBios);
                 _objectList.Add(workingProfile);
                 return Json(_objectList);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return Json(null);
             }
         }
         
         [HttpGet("Home/Dev/{username}")]
-        public async Task<IActionResult> Dev(string username)
+        public IActionResult Dev(string username)
         {
             var developerId = _userManager.FindByNameAsync(username).Result.Id;
             var shortBios = _context.ShortBios.FindAsync(developerId);
