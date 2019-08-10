@@ -17,12 +17,8 @@ and (orientation: portrait) {
   #mainContainer{
     padding-bottom: 10px;
   }
-
-  .chart-container {
-    position: relative;
-    margin: auto;
-    height: 80vh;
-    width: 80vw;
+  .chartCanvas {
+    height: 500%;
   }
 }
 
@@ -68,5 +64,4 @@ main {
 #resume {
   display: none;
 }
-
 
