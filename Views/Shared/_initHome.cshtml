@@ -2,10 +2,11 @@
     <script src="~/chartjs/chart.min.js" asp-append-version="true"></script>
     
     <script type="text/javascript">
-    var colorArray=["#00bfa5","#0288d1","#00695c","#ffcc80","#ec407a","#4a148c","#f4511e","#6d4c41","#424242","#ef5350","#66bb6a","#ffe082", "#f44336","#E91E63","#9C27B0","#673AB7","#2196F3","#009688","#8BC34A","#CDDC39","#FFC107","#FF9800","#FF5722","#795548","#607D8B","#E65100","#827717","#004D40","#1A237E","#6200EA","#3F51B5","#F50057","#304FFE","#b71c1c"];
-    Chart.defaults.global.defaultFontColor = "#fff";
-    Chart.defaults.global.defaultFontFamily = "'Quicksand'";
-    
+    var colorArray=["#4527A0", "#AD1457", "#2E7D32", "#558B2F", "#F9A825", "#FF7043", "#8D6E63", "#424242", "#455A64", "#283593", "#1565C0", "#0277BD", "#00838F",  
+    "#ec407a","#4a148c","#f4511e","#ffcc80","#424242","#6d4c41","#00bfa5","#0288d1","#ef5350",
+    "#66bb6a","#ffe082", "#f44336","#E91E63","#9C27B0","#673AB7","#2196F3","#009688","#8BC34A",
+    "#CDDC39","#FFC107","#FF9800","#FF5722","#795548","#607D8B","#E65100","#827717","#004D40",
+    "#1A237E","#6200EA","#3F51B5","#F50057","#304FFE","#b71c1c"];
     
     var requestToCodeForces;
     var cf_api_url = 'https://codeforces.com/api/';
@@ -127,6 +128,7 @@
                 }
             });        
         });
+
      
      function CodeForcesDataProcessor(data){
          
@@ -252,7 +254,10 @@
                display: true,
                text: titleText,
                fontSize: 25
-             } 
+             },
+             responsive: true,
+             responsiveAnimationDuration: 500,
+             mainAspectRatio : false
            }
        });
      }
@@ -276,6 +281,7 @@
                fontSize: 25
              },  
             responsive: true,
+            responsiveAnimationDuration: 500,
             scales: {
               xAxes: [{
                 ticks: {
