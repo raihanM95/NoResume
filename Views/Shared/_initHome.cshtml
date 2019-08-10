@@ -291,11 +291,12 @@
      }
      
      function CodeForcesCreateBarCharts(keys, dataArray, context, titleText) {
-        var myChart = new Chart(context, {
+          var myChart = new Chart(context, {
           type: 'bar',
           data: {
             labels: keys,
             datasets: [{
+              label: titleText,
               data: dataArray,
               backgroundColor: colorArray,
               borderColor: colorArray,
@@ -304,7 +305,7 @@
           },
           options: {
             title: {
-               display: true,
+               display: false,
                text: titleText,
                fontSize: 25
              },  
