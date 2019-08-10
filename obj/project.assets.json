@@ -10536,17 +10536,17 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/shunjid/Documents/Project/Version2/NoResume/NoResume.csproj",
+      "projectUniqueName": "/home/shunjid/Documents/WebApps/DotnetCore/NoResume/NoResume.csproj",
       "projectName": "NoResume",
-      "projectPath": "/home/shunjid/Documents/Project/Version2/NoResume/NoResume.csproj",
+      "projectPath": "/home/shunjid/Documents/WebApps/DotnetCore/NoResume/NoResume.csproj",
       "packagesPath": "/home/shunjid/.nuget/packages/",
-      "outputPath": "/home/shunjid/Documents/Project/Version2/NoResume/obj/",
+      "outputPath": "/home/shunjid/Documents/WebApps/DotnetCore/NoResume/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/home/shunjid/.config/NuGet/NuGet.Config"
+        "/home/shunjid/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.2"

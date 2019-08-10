@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/shunjid/Documents/Project/Version2/NoResume/NoResume.csproj": {}
+    "/home/shunjid/Documents/WebApps/DotnetCore/NoResume/NoResume.csproj": {}
   },
   "projects": {
-    "/home/shunjid/Documents/Project/Version2/NoResume/NoResume.csproj": {
+    "/home/shunjid/Documents/WebApps/DotnetCore/NoResume/NoResume.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/shunjid/Documents/Project/Version2/NoResume/NoResume.csproj",
+        "projectUniqueName": "/home/shunjid/Documents/WebApps/DotnetCore/NoResume/NoResume.csproj",
         "projectName": "NoResume",
-        "projectPath": "/home/shunjid/Documents/Project/Version2/NoResume/NoResume.csproj",
+        "projectPath": "/home/shunjid/Documents/WebApps/DotnetCore/NoResume/NoResume.csproj",
         "packagesPath": "/home/shunjid/.nuget/packages/",
-        "outputPath": "/home/shunjid/Documents/Project/Version2/NoResume/obj/",
+        "outputPath": "/home/shunjid/Documents/WebApps/DotnetCore/NoResume/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/share/dotnet/sdk/NuGetFallbackFolder"
