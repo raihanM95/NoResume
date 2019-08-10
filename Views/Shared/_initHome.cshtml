@@ -2,11 +2,7 @@
     <script src="~/chartjs/chart.min.js" asp-append-version="true"></script>
     
     <script type="text/javascript">
-    var colorArray=["#4527A0", "#AD1457", "#2E7D32", "#558B2F", "#F9A825", "#FF7043", "#8D6E63", "#424242", "#455A64", "#283593", "#1565C0", "#0277BD", "#00838F",  
-    "#ec407a","#4a148c","#f4511e","#ffcc80","#424242","#6d4c41","#00bfa5","#0288d1","#ef5350",
-    "#66bb6a","#ffe082", "#f44336","#E91E63","#9C27B0","#673AB7","#2196F3","#009688","#8BC34A",
-    "#CDDC39","#FFC107","#FF9800","#FF5722","#795548","#607D8B","#E65100","#827717","#004D40",
-    "#1A237E","#6200EA","#3F51B5","#F50057","#304FFE","#b71c1c"];
+    var colorArray=["#003f5c","#2f4b7c","#665191","#a05195","#d45087","#f95d6a","#ff7c43","#ffa600","#00876c","#439880","#69a995","#8bbaab","#accbc0","#cdddd7","#eeeeee","#efd2d2","#eeb7b6","#ea9b9c","#e57e82","#dd6069","#d43d51","#004c6d","#255e7e","#3d708f","#5383a1","#6996b3","#7faac6","#94bed9","#abd2ec","#c1e7ff"];
     
     var requestToCodeForces;
     var cf_api_url = 'https://codeforces.com/api/';
@@ -104,6 +100,7 @@
                               })
                           } else{
                             cfPreload.hide();
+                            cfDIV.hide();
                             showUserDefinedToast("CodeForces is Private", "indigo darken-2 rounded");
                           }
                           
