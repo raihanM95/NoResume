@@ -14,6 +14,12 @@
     var cf_tags = {};
     var cf_attempt_level_quality = {};
     var cf_attempt_rating_quality = {};
+
+    // Uhunt Initiative
+    var requestToUhunt;
+    var requestToUhunt2;
+    var uva_api_url = 'https://uhunt.onlinejudge.org/api/';
+    var uvaHandle;
     
     
         $(document).ready(function(){
@@ -26,6 +32,9 @@
             
             var cfPreload = $('#CForcesPreloader');
             cfPreload.hide();
+
+            var uhuntPreload = $('#UhuntPreloader');
+            uhuntPreload.hide();
             /*
             ** Initially hide div #resume
             ** Show when controller response successfully
@@ -105,16 +114,35 @@
                             cfDIV.hide();
                             showUserDefinedToast("CodeForces is Private", "indigo darken-2 rounded");
                           }
+
+                          // UVA Resume Maker
+                          uhuntPreload.show();
+                          
+                          if(WorkingProfile.uhuntUsername != null){
+                            uvaHandle = WorkingProfile.uhuntUsername;
+                            requestToUhunt = $.get(uva_api_url + 'uname2uid/' + uvaHandle, function(data, status) {
+                              if(data === 0){
+                                showErrorToast("Invalid Username");
+                              }else{
+                                requestToUhunt2 = $.get(uva_api_url + 'subs-user/' + data, function(Submission, SubmissionStatus) {
+                                  console.log(Submission);
+                                });
+                                uhDIV.show();
+                              }
+                            });
+                            uhuntPreload.hide();      
+                          } else{
+                            uhuntPreload.hide();
+                            uhDIV.hide();
+                            showUserDefinedToast("UVA is Private", "amber darken-2 rounded");
+                          }
                           
                           // GitHub Resume Maker
                           if(WorkingProfile.githubUsername != null){
                                 
                           }
                           
-                          // UVA Resume Maker
-                          if(WorkingProfile.uhuntUsername != null){
-                                  
-                          }
+                          
                          
                         }
                         
