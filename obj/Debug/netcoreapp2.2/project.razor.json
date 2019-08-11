@@ -2894,11 +2894,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views/Shared/_LayoutPublic.cshtml",
-      "TargetPath": "Views/Shared/_LayoutPublic.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "Views/ShortBios/Edit.cshtml",
       "TargetPath": "Views/ShortBios/Edit.cshtml",
       "FileKind": "mvc"
