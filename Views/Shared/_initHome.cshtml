@@ -20,6 +20,21 @@
     var requestToUhunt2;
     var uva_api_url = 'https://uhunt.onlinejudge.org/api/';
     var uvaHandle;
+    var uvaAllSubmissions = [];
+    var uvaVerdicts = {
+      "SubmissionError" : 0,
+      "CantBeJudged" : 0,
+      "InQueue" : 0,
+      "CompileError" : 0,
+      "RestrictedFunction" : 0,
+      "RuntimeError" : 0,
+      "OutputLimit" : 0,
+      "TimeLimit" : 0,
+      "MemoryLimit" : 0,
+      "WrongAnswer" : 0,
+      "PresentationError" : 0,
+      "Accepted" : 0
+    }
     
     
         $(document).ready(function(){
@@ -125,9 +140,16 @@
                                 showErrorToast("Invalid Username");
                               }else{
                                 requestToUhunt2 = $.get(uva_api_url + 'subs-user/' + data, function(Submission, SubmissionStatus) {
-                                  console.log(Submission);
+                                  uvaAllSubmissions = Submission.subs;
+
+                                  // Check number of submissions
+                                  if(uvaAllSubmissions.length < 1){
+                                    showErrorToast("Sorry, No Submission on UVA");
+                                  }else{
+                                    UvaSubmissionProcessor(uvaAllSubmissions);
+                                    uhDIV.show();
+                                  }
                                 });
-                                uhDIV.show();
                               }
                             });
                             uhuntPreload.hide();      
@@ -141,9 +163,6 @@
                           if(WorkingProfile.githubUsername != null){
                                 
                           }
-                          
-                          
-                         
                         }
                         
                         $("#intLoader").hide();
@@ -184,6 +203,30 @@
           }
           return newObject;
       }
+
+     function UvaSubmissionProcessor(data){
+        var tempSubmission = [];
+        for(var i=0; i<data.length; i++){
+          tempSubmission = data[i];
+          incrementVerdict(tempSubmission[2]);
+        }
+        console.log(uvaVerdicts);
+     }
+
+     function incrementVerdict(verdictNumber){
+       if(verdictNumber === 10){ uvaVerdicts["SubmissionError"]++; }
+       if(verdictNumber === 15){ uvaVerdicts["CantBeJudged"]++; }
+       if(verdictNumber === 20){ uvaVerdicts["InQueue"]++; }
+       if(verdictNumber === 30){ uvaVerdicts["CompileError"]++; }
+       if(verdictNumber === 35){ uvaVerdicts["RestrictedFunction"]++; }
+       if(verdictNumber === 40){ uvaVerdicts["RuntimeError"]++; }
+       if(verdictNumber === 45){ uvaVerdicts["OutputLimit"]++; }
+       if(verdictNumber === 50){ uvaVerdicts["TimeLimit"]++; }
+       if(verdictNumber === 60){ uvaVerdicts["MemoryLimit"]++; }
+       if(verdictNumber === 70){ uvaVerdicts["WrongAnswer"]++; }
+       if(verdictNumber === 80){ uvaVerdicts["PresentationError"]++; }
+       if(verdictNumber === 90){ uvaVerdicts["Accepted"]++; }
+     }
 
      
      function CodeForcesDataProcessor(data){
