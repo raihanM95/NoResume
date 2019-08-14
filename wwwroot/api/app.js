@@ -30,10 +30,12 @@ var uvaVerdicts = {
     "WrongAnswer": 0,
     "PresentationError": 0,
     "Accepted": 0
-}
+};
+var uvaSubmissionTimestamp = {};
 
 
 $(document).ready(function () {
+    Chart.defaults.global.defaultFontColor = "#fff";
     var cfDIV = $("#CForcesResume");
     var gitDIV = $("#GithubResume");
     var uhDIV = $("#UHuntResume");
@@ -142,6 +144,7 @@ $(document).ready(function () {
                                     if (uvaAllSubmissions.length < 1) {
                                         showErrorToast("Sorry, No Submission on UVA");
                                     } else {
+                                        console.log(uvaAllSubmissions);
                                         UvaSubmissionProcessor(uvaAllSubmissions);
                                         uhDIV.show();
                                     }
