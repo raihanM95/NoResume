@@ -31,7 +31,17 @@ var uvaVerdicts = {
     "PresentationError": 0,
     "Accepted": 0
 };
-var uvaSubmissionTimestamp = {};
+var uvaLanguages = {
+    "ANSI_C" : 0,
+    "Java" : 0,
+    "C++" : 0,
+    "Pascal" : 0,
+    "C++11" : 0,
+    "Python" : 0
+};
+var uvaSubmissionRank = {};
+var maxKeySubmissionRank = 0;
+var minKeySubmissionRank = 0;
 
 
 $(document).ready(function () {
@@ -146,7 +156,9 @@ $(document).ready(function () {
                                     } else {
                                         console.log(uvaAllSubmissions);
                                         UvaSubmissionProcessor(uvaAllSubmissions);
+                                        
                                         uhDIV.show();
+                                        wordCounter();
                                     }
                                 });
                             }
@@ -202,12 +214,14 @@ function sortObjects(objects) {
 }
 
 function UvaSubmissionProcessor(data) {
-    var tempSubmission = [];
     for (var i = 0; i < data.length; i++) {
-        tempSubmission = data[i];
-        incrementVerdict(tempSubmission[2]);
+        incrementVerdict(data[i][2]);
+        incrementLanguages(data[i][5]);
+        submissionRank(data[i][6]);
     }
-    console.log(uvaVerdicts);
+    $('#_uvaTotalSubmissions').text(data.length);
+    $('#_uvaAcceptedSubmissionNumber').text(uvaVerdicts["Accepted"]);
+    $('#_uvaTotalWrongSubmissions').text(uvaVerdicts["WrongAnswer"]);
 }
 
 function incrementVerdict(verdictNumber) {
@@ -223,6 +237,30 @@ function incrementVerdict(verdictNumber) {
     if (verdictNumber === 70) { uvaVerdicts["WrongAnswer"]++; }
     if (verdictNumber === 80) { uvaVerdicts["PresentationError"]++; }
     if (verdictNumber === 90) { uvaVerdicts["Accepted"]++; }
+}
+
+function incrementLanguages(languageNumber) {
+    if (languageNumber === 1) { uvaLanguages["ANSI_C"]++; }
+    else if (languageNumber === 2) { uvaLanguages["Java"]++; }
+    else if (languageNumber === 3) { uvaLanguages["C++"]++; }
+    else if (languageNumber === 4) { uvaLanguages["Pascal"]++; }
+    else if (languageNumber === 5) { uvaLanguages["C++11"]++; }
+    else { uvaLanguages["Python"]++; }
+}
+
+function submissionRank(rankNumber) {
+    if(uvaSubmissionRank[rankNumber] === undefined){
+        uvaSubmissionRank[rankNumber] = 1;
+    }else{
+        uvaSubmissionRank[rankNumber] += 1;
+    }
+    
+    if(rankNumber > maxKeySubmissionRank){
+        maxKeySubmissionRank = rankNumber;
+    }
+    if(rankNumber <minKeySubmissionRank){
+        minKeySubmissionRank = rankNumber;
+    }
 }
 
 
@@ -492,4 +530,18 @@ function toTitleCase(str) {
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
         }
     );
+}
+
+function wordCounter(){
+    $('.count').each(function () {
+        $(this).prop('Counter',0).animate({
+            Counter: $(this).text()
+        }, {
+            duration: 8000,
+            easing: 'swing',
+            step: function (now) {
+                $(this).text(Math.ceil(now));
+            }
+        });
+    });
 }

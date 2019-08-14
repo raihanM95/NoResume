@@ -6,7 +6,7 @@
   <h4 class="display-4 white-text">Find Developer With</h4>
     
   <div class="row">
-    <form id="formDevUname" class="col s12" asp-action="Index" asp-controller="Home">
+    <form id="formDevUname" autocomplete="off" class="col s12" asp-action="Index" asp-controller="Home">
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">account_circle</i>
@@ -258,60 +258,47 @@
       <hr/>
       
       <div class="row" id="gradient-Analytics">
-        <div class="col s12 m6 l3 card-width">
-              <div class="card gradient-45deg-deep-orange-orange white-text padding-4 mt-5">
-                    <div class="col s7 m7">
-                          <i class="material-icons background-round mt-5 mb-5">add_shopping_cart</i>
-                          <p>Orders</p>
-                    </div>
-                    <div class="col s5 m5 right-align">
-                          <h5 class="mb-0 white-text">690</h5>
-                          <p class="no-margin">New</p>
-                          <p>6,00,00</p>
-                    </div>
-              </div>
-        </div>
-        <div class="col s12 m6 l3 card-width">
+        <div class="col s12 m6 l4 card-width">
           <div class="card gradient-45deg-blue-indigo white-text padding-4 mt-5">
             <div class="col s7 m7">
-              <i class="material-icons background-round mt-5 mb-5">perm_identity</i>
-              <p>Clients</p>
+              <i class="material-icons background-round mt-5 mb-5">send</i>
+              <p>Total Submissions</p>
             </div>
             <div class="col s5 m5 right-align">
-              <h5 class="mb-0 white-text">1885</h5>
-              <p class="no-margin">New</p>
-              <p>1,12,900</p>
+              <h5 class="mb-0 white-text">01</h5>
+              <br/>
+              <h5 class="count white-text" id="_uvaTotalSubmissions"></h5>
             </div>
           </div>
         </div>
-        <div class="col s12 m6 l3 card-width">
-              <div class="card teal white-text padding-4 mt-5">
-                    <div class="col s7 m7">
-                          <i class="material-icons background-round mt-5 mb-5">add_shopping_cart</i>
-                          <p>Orders</p>
-                    </div>
-                    <div class="col s5 m5 right-align">
-                          <h5 class="mb-0 white-text">690</h5>
-                          <p class="no-margin">New</p>
-                          <p>6,00,00</p>
-                    </div>
-              </div>
+        <div class="col s12 m6 l4 card-width">
+          <div class="card teal darken-1 white-text padding-4 mt-5">
+            <div class="col s7 m7">
+              <i class="material-icons background-round mt-5 mb-5">sentiment_very_satisfied</i>
+              <p>Total Accepted</p>
+            </div>
+            <div class="col s5 m5 right-align">
+              <h5 class="mb-0 white-text">02</h5>
+              <br/>
+              <h5 class="count white-text" id="_uvaAcceptedSubmissionNumber"></h5>
+            </div>
+          </div>
         </div>
-        <div class="col s12 m6 l3 card-width">
-              <div class="card gradient-45deg-deep-purple-blue white-text padding-4 mt-5">
-                    <div class="col s7 m7">
-                          <i class="material-icons background-round mt-5 mb-5">perm_identity</i>
-                          <p>Clients</p>
-                    </div>
-                    <div class="col s5 m5 right-align">
-                          <h5 class="mb-0 white-text">1885</h5>
-                          <p class="no-margin">New</p>
-                          <p>1,12,900</p>
-                    </div>
-              </div>
+        <div class="col s12 m6 l4 card-width">
+          <div class="card red lighten-1  white-text padding-4 mt-5">
+            <div class="col s7 m7">
+              <i class="material-icons background-round mt-5 mb-5">sentiment_very_dissatisfied</i>
+              <p>Wrong Answers</p>
+            </div>
+            <div class="col s5 m5 right-align">
+              <h5 class="mb-0 white-text">03</h5>
+              <br/>
+              <h5 class="count white-text" id="_uvaTotalWrongSubmissions"></h5>
+            </div>
+          </div>
         </div>
+
       </div>
-      
       
     </div>
     
