@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="" asp-action="Login" asp-controller="Account">Login</a>
+                    <a class="" asp-action="Login" asp-controller="Account"><i class="fas fa-sign-in-alt white-text left"></i> SignIn</a>
                 </li>
             </ul>
         </div>
@@ -49,10 +49,15 @@
                 <i class="white-text fab fa-github"></i> GitHub
             </a>
         </li>
+        <li>
+            <a target="_blank" class="btn gradient-45deg-grey-grey white-text" asp-action="Login" asp-controller="Account">
+               <i class="fas fa-sign-in-alt white-text right"></i> SignIn 
+            </a>
+        </li>
     </ul>
 </header>
-    <div id="intLoader" class="progress">
-      <div class="indeterminate"></div>
+    <div id="intLoader" class="progress gradient-45deg-amber-amber">
+      <div class="indeterminate gradient-45deg-red-pink"></div>
     </div>
     <div class="section grey darken-4 white-text">
         <main role="main" class="main">

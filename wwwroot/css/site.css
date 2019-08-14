@@ -74,6 +74,7 @@ main {
 
 #intLoader{
   display: none;
+  margin-top: -1px;
 }
 
 #resume {
