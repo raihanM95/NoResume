@@ -1,32 +1,34 @@
 @model InitDevelopers
 
-<p>Already have account? <a asp-action="Login" asp-controller="Account" asp-route-returnUrl="@ViewBag.returnUrl">Let's Dig In</a></p>
-<div class="row">
-    <form method="post" class="col s12">
-        <div asp-validation-summary="All" class="red-text text-darken-1"></div>
-        <div class="row">
-            <div class="input-field col s12">
-                <input required="" aria-required="true" asp-for="DevEmail" class="validate">
-                <label asp-for="DevEmail">Email</label>
-                <span class="red-text text-darken-1" asp-validation-for="DevEmail"></span>
+<div class="row center-align">
+    <div class="col s12 m12 l12 z-depth-4  border-radius-6 login-card">
+        <p>Already have account? <a asp-action="Login" asp-controller="Account" asp-route-returnUrl="@ViewBag.returnUrl">Let's Dig In</a></p>
+        <form method="post" class="col s12">
+            <div asp-validation-summary="All" class="red-text text-darken-1"></div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input required="" aria-required="true" asp-for="DevEmail" class="validate">
+                    <label asp-for="DevEmail">Email</label>
+                    <span class="red-text text-darken-1" asp-validation-for="DevEmail"></span>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <input required="" aria-required="true" asp-for="DevPassword" class="validate">
-                <label asp-for="DevPassword">Password</label>
-                <span class="red-text text-darken-1" asp-validation-for="DevPassword"></span>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input required="" aria-required="true" asp-for="DevPassword" class="validate">
+                    <label asp-for="DevPassword">Password</label>
+                    <span class="red-text text-darken-1" asp-validation-for="DevPassword"></span>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <input required="" aria-required="true" asp-for="DevConfirmPassword" class="validate">
-                <label asp-for="DevConfirmPassword">Confirm Password</label>
-                <span class="red-text text-darken-1" asp-validation-for="DevConfirmPassword"></span>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input required="" aria-required="true" asp-for="DevConfirmPassword" class="validate">
+                    <label asp-for="DevConfirmPassword">Confirm Password</label>
+                    <span class="red-text text-darken-1" asp-validation-for="DevConfirmPassword"></span>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <button type="submit" class="btn teal">getInitiated( );</button>
-        </div>
-    </form>
+            <div class="row">
+                <button type="submit" class="btn teal">getInitiated( );</button>
+            </div>
+        </form>
+    </div>
 </div>
