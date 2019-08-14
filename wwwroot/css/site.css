@@ -44,6 +44,21 @@ and (-webkit-min-device-pixel-ratio: 1) {
   }
 }
 
+/* iphone 5/SE */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 568px)
+and (-webkit-min-device-pixel-ratio: 1) {
+  #page-logo{
+    font-family: 'Poiret One', cursive;
+    font-weight: bold;
+    padding-left: 15px;
+    font-size: 20px;
+  }  
+}
+
+
+
 body {
   display: flex;
   min-height: 100vh;
@@ -65,3 +80,12 @@ main {
   display: none;
 }
 
+.count {
+  color: white;
+}
+
+.gradient-45deg-grey-grey {
+  background: #DBE6F6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #212121, #263238);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #212121, #263238); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

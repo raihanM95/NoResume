@@ -14,6 +14,11 @@ var cf_attempt_rating_quality = {};
 // Uhunt Initiative
 var requestToUhunt;
 var requestToUhunt2;
+var requestToUhunt3;
+var requestToUhunt4;
+var requestToUHunt5;
+var requestToUHunt6;
+
 var uva_api_url = 'https://uhunt.onlinejudge.org/api/';
 var uvaHandle;
 var uvaAllSubmissions = [];
@@ -30,10 +35,52 @@ var uvaVerdicts = {
     "WrongAnswer": 0,
     "PresentationError": 0,
     "Accepted": 0
-}
+};
+var uvaVerdictsAbove = {
+    "SubmissionError": 0,
+    "CantBeJudged": 0,
+    "InQueue": 0,
+    "CompileError": 0,
+    "RestrictedFunction": 0,
+    "RuntimeError": 0,
+    "OutputLimit": 0,
+    "TimeLimit": 0,
+    "MemoryLimit": 0,
+    "WrongAnswer": 0,
+    "PresentationError": 0,
+    "Accepted": 0
+};
+var uvaVerdictsBelow = {
+    "SubmissionError": 0,
+    "CantBeJudged": 0,
+    "InQueue": 0,
+    "CompileError": 0,
+    "RestrictedFunction": 0,
+    "RuntimeError": 0,
+    "OutputLimit": 0,
+    "TimeLimit": 0,
+    "MemoryLimit": 0,
+    "WrongAnswer": 0,
+    "PresentationError": 0,
+    "Accepted": 0
+};
+
+
+var uvaLanguages = {
+    "ANSI_C" : 0,
+    "Java" : 0,
+    "C++" : 0,
+    "Pascal" : 0,
+    "C++11" : 0,
+    "Python" : 0
+};
+var uvaSubmissionRank = {};
+var maxKeySubmissionRank = 0;
+var minKeySubmissionRank = 0;
 
 
 $(document).ready(function () {
+    Chart.defaults.global.defaultFontColor = "#fff";
     var cfDIV = $("#CForcesResume");
     var gitDIV = $("#GithubResume");
     var uhDIV = $("#UHuntResume");
@@ -142,8 +189,23 @@ $(document).ready(function () {
                                     if (uvaAllSubmissions.length < 1) {
                                         showErrorToast("Sorry, No Submission on UVA");
                                     } else {
+                                        console.log(uvaAllSubmissions);
                                         UvaSubmissionProcessor(uvaAllSubmissions);
+                                        
+                                        // Regression
+                                        requestToUhunt3 = $.get(uva_api_url + 'ranklist/' + data + '/1/1', function (ranksInfo, StatusRank) {
+                                            requestToUhunt4 = $.get(uva_api_url + 'subs-user/' + ranksInfo[0].userid, function (SubmissionAbove, StatusAbove) {
+                                                UvaAboveSubmissionProcessor(SubmissionAbove.subs);
+                                            });
+                                            requestToUHunt5 = $.get(uva_api_url + 'subs-user/' + ranksInfo[2].userid, function (SubmissionBelow, StatusBelow) {
+                                                UvaBelowSubmissionProcessor(SubmissionBelow.subs);
+                                            });
+                                        });
+                                        console.log(uvaVerdictsAbove);
+                                        console.log(uvaVerdictsBelow);
+                                        
                                         uhDIV.show();
+                                        wordCounter();
                                     }
                                 });
                             }
@@ -199,12 +261,14 @@ function sortObjects(objects) {
 }
 
 function UvaSubmissionProcessor(data) {
-    var tempSubmission = [];
     for (var i = 0; i < data.length; i++) {
-        tempSubmission = data[i];
-        incrementVerdict(tempSubmission[2]);
+        incrementVerdict(data[i][2]);
+        incrementLanguages(data[i][5]);
+        submissionRank(data[i][6]);
     }
-    console.log(uvaVerdicts);
+    $('#_uvaTotalSubmissions').text(data.length);
+    $('#_uvaAcceptedSubmissionNumber').text(uvaVerdicts["Accepted"]);
+    $('#_uvaTotalWrongSubmissions').text(uvaVerdicts["WrongAnswer"]);
 }
 
 function incrementVerdict(verdictNumber) {
@@ -220,6 +284,78 @@ function incrementVerdict(verdictNumber) {
     if (verdictNumber === 70) { uvaVerdicts["WrongAnswer"]++; }
     if (verdictNumber === 80) { uvaVerdicts["PresentationError"]++; }
     if (verdictNumber === 90) { uvaVerdicts["Accepted"]++; }
+}
+
+
+// Rank Superior Profile
+function UvaAboveSubmissionProcessor(data) {
+    for (var i = 0; i < data.length; i++) {
+        incrementAboveVerdict(data[i][2]);
+    }
+}
+
+function incrementAboveVerdict(verdictNumber) {
+    if (verdictNumber === 10) { uvaVerdictsAbove["SubmissionError"]++; }
+    if (verdictNumber === 15) { uvaVerdictsAbove["CantBeJudged"]++; }
+    if (verdictNumber === 20) { uvaVerdictsAbove["InQueue"]++; }
+    if (verdictNumber === 30) { uvaVerdictsAbove["CompileError"]++; }
+    if (verdictNumber === 35) { uvaVerdictsAbove["RestrictedFunction"]++; }
+    if (verdictNumber === 40) { uvaVerdictsAbove["RuntimeError"]++; }
+    if (verdictNumber === 45) { uvaVerdictsAbove["OutputLimit"]++; }
+    if (verdictNumber === 50) { uvaVerdictsAbove["TimeLimit"]++; }
+    if (verdictNumber === 60) { uvaVerdictsAbove["MemoryLimit"]++; }
+    if (verdictNumber === 70) { uvaVerdictsAbove["WrongAnswer"]++; }
+    if (verdictNumber === 80) { uvaVerdictsAbove["PresentationError"]++; }
+    if (verdictNumber === 90) { uvaVerdictsAbove["Accepted"]++; }
+}
+
+// Rank Inferior Profile
+function UvaBelowSubmissionProcessor(data) {
+    for (var i = 0; i < data.length; i++) {
+        incrementBelowVerdict(data[i][2]);
+    }
+}
+
+function incrementBelowVerdict(verdictNumber) {
+    if (verdictNumber === 10) { uvaVerdictsBelow["SubmissionError"]++; }
+    if (verdictNumber === 15) { uvaVerdictsBelow["CantBeJudged"]++; }
+    if (verdictNumber === 20) { uvaVerdictsBelow["InQueue"]++; }
+    if (verdictNumber === 30) { uvaVerdictsBelow["CompileError"]++; }
+    if (verdictNumber === 35) { uvaVerdictsBelow["RestrictedFunction"]++; }
+    if (verdictNumber === 40) { uvaVerdictsBelow["RuntimeError"]++; }
+    if (verdictNumber === 45) { uvaVerdictsBelow["OutputLimit"]++; }
+    if (verdictNumber === 50) { uvaVerdictsBelow["TimeLimit"]++; }
+    if (verdictNumber === 60) { uvaVerdictsBelow["MemoryLimit"]++; }
+    if (verdictNumber === 70) { uvaVerdictsBelow["WrongAnswer"]++; }
+    if (verdictNumber === 80) { uvaVerdictsBelow["PresentationError"]++; }
+    if (verdictNumber === 90) { uvaVerdictsBelow["Accepted"]++; }
+}
+
+
+
+
+function incrementLanguages(languageNumber) {
+    if (languageNumber === 1) { uvaLanguages["ANSI_C"]++; }
+    else if (languageNumber === 2) { uvaLanguages["Java"]++; }
+    else if (languageNumber === 3) { uvaLanguages["C++"]++; }
+    else if (languageNumber === 4) { uvaLanguages["Pascal"]++; }
+    else if (languageNumber === 5) { uvaLanguages["C++11"]++; }
+    else { uvaLanguages["Python"]++; }
+}
+
+function submissionRank(rankNumber) {
+    if(uvaSubmissionRank[rankNumber] === undefined){
+        uvaSubmissionRank[rankNumber] = 1;
+    }else{
+        uvaSubmissionRank[rankNumber] += 1;
+    }
+    
+    if(rankNumber > maxKeySubmissionRank){
+        maxKeySubmissionRank = rankNumber;
+    }
+    if(rankNumber <minKeySubmissionRank){
+        minKeySubmissionRank = rankNumber;
+    }
 }
 
 
@@ -489,4 +625,18 @@ function toTitleCase(str) {
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
         }
     );
+}
+
+function wordCounter(){
+    $('.count').each(function () {
+        $(this).prop('Counter',0).animate({
+            Counter: $(this).text()
+        }, {
+            duration: 8000,
+            easing: 'swing',
+            step: function (now) {
+                $(this).text(Math.ceil(now));
+            }
+        });
+    });
 }
