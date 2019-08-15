@@ -144,6 +144,7 @@ $(document).ready(function () {
                 }
                 else {
                     _initClearDumpValuesUVA();
+                    _initClearDumpValuesCF();
                     _initBioCardDev(response[0]);
                     $("#resume").fadeIn();
                     cfPreload.show();
@@ -792,4 +793,13 @@ function _initClearDumpValuesUVA(){
     maxKeySubmissionRank = 0;
     minKeySubmissionRank = 0;
     regressionDataArray = [];
+}
+
+function _initClearDumpValuesCF(){
+    cf_problems_attempt_solved = {};
+    cf_verdicts = {};
+    cf_languages = {};
+    cf_tags = {};
+    cf_attempt_level_quality = {};
+    cf_attempt_rating_quality = {};
 }
