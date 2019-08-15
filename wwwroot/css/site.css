@@ -90,3 +90,89 @@ main {
   background: -webkit-linear-gradient(to right, #212121, #263238);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #212121, #263238); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+.gradient-45deg-blue-blue {
+  background: #0d47a1;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1565c0, #0d47a1);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #1565c0, #0d47a1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.gradient-45deg-ind-digo {
+  background: #283593;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #3949ab, #283593);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #3949ab, #283593); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.gradient-45deg-green-infy {
+  background: #43a047;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #66bb6a, #43a047);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #66bb6a, #43a047); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/** custom loader **/
+
+.load-bar {
+  position: relative;
+  margin-top: 20px;
+  width: 100%;
+  height: 6px;
+  background-color: #fdba2c;
+}
+.bar {
+  content: "";
+  display: inline;
+  position: absolute;
+  width: 0;
+  height: 100%;
+  left: 50%;
+  text-align: center;
+}
+.bar:nth-child(1) {
+  background-color: #da4733;
+  animation: loading 3s linear infinite;
+}
+.bar:nth-child(2) {
+  background-color: #3b78e7;
+  animation: loading 3s linear 1s infinite;
+}
+.bar:nth-child(3) {
+  background-color: #fdba2c;
+  animation: loading 3s linear 2s infinite;
+}
+@keyframes loading {
+  from {left: 50%; width: 0;z-index:100;}
+  33.3333% {left: 0; width: 100%;z-index: 10;}
+  to {left: 0; width: 100%;}
+}
+
+/* input color change */
+/* label color */
+.input-field label {
+  color: #ffffff;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: #1565c0;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #1565c0;
+  box-shadow: 0 1px 0 0 #1565c0;
+}
+/* valid color */
+.input-field input[type=text].valid {
+  border-bottom: 1px solid #1565c0;
+  box-shadow: 0 1px 0 0 #1565c0;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+  border-bottom: 1px solid #1565c0;
+  box-shadow: 0 1px 0 0 #1565c0;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: #1565c0;
+}
+.input-field {
+  color:white;
+}  
