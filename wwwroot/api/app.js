@@ -64,6 +64,11 @@ var uvaVerdictsBelow = {
     "PresentationError": 0,
     "Accepted": 0
 };
+var rankingInfo = {
+    "rankingOfQueried" : 0,
+    "rankingOfAboveOfQueried" : 0,
+    "rankingOfBelowOfQueried" : 0
+};
 
 
 var uvaLanguages = {
@@ -77,6 +82,8 @@ var uvaLanguages = {
 var uvaSubmissionRank = {};
 var maxKeySubmissionRank = 0;
 var minKeySubmissionRank = 0;
+
+var regressionDataArray = [];
 
 
 $(document).ready(function () {
@@ -199,8 +206,12 @@ $(document).ready(function () {
                                             });
                                             requestToUHunt5 = $.get(uva_api_url + 'subs-user/' + ranksInfo[2].userid, function (SubmissionBelow, StatusBelow) {
                                                 UvaBelowSubmissionProcessor(SubmissionBelow.subs);
+                                                UVARankingProcessor(ranksInfo);
+                                                console.log(regressionDataArray);
                                             });
                                         });
+                                        
+                                        console.log(uvaVerdicts);
                                         console.log(uvaVerdictsAbove);
                                         console.log(uvaVerdictsBelow);
                                         
@@ -232,6 +243,7 @@ $(document).ready(function () {
         }
     });
 });
+
 
 function sortProperties(obj) {
     // convert object into array
@@ -288,6 +300,28 @@ function incrementVerdict(verdictNumber) {
 
 
 // Rank Superior Profile
+function UVARankingProcessor(ranksInfo) {
+    rankingInfo["rankingOfAboveOfQueried"] = ranksInfo[0].rank;
+    rankingInfo["rankingOfQueried"] = ranksInfo[1].rank;
+    rankingInfo["rankingOfBelowOfQueried"] = ranksInfo[2].rank;
+    regressionDataConstructor(ranksInfo);
+}
+
+function regressionDataConstructor(ranksInfo){
+    regressionDataArray.push({
+        "ranking" : ranksInfo[0].rank,
+        "verdict" : uvaVerdictsAbove
+    });
+    regressionDataArray.push({
+        "ranking" : ranksInfo[1].rank,
+        "verdict" : uvaVerdicts
+    });
+    regressionDataArray.push({
+        "ranking" : ranksInfo[2].rank,
+        "verdict" : uvaVerdictsBelow
+    });
+}
+
 function UvaAboveSubmissionProcessor(data) {
     for (var i = 0; i < data.length; i++) {
         incrementAboveVerdict(data[i][2]);
@@ -330,8 +364,6 @@ function incrementBelowVerdict(verdictNumber) {
     if (verdictNumber === 80) { uvaVerdictsBelow["PresentationError"]++; }
     if (verdictNumber === 90) { uvaVerdictsBelow["Accepted"]++; }
 }
-
-
 
 
 function incrementLanguages(languageNumber) {
