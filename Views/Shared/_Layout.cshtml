@@ -21,7 +21,7 @@
 </head>
 <body class="grey darken-4 white-text">
 <header>
-    <nav id="navbarMaterialize" class="gradient-45deg-blue-berry">
+    <nav id="navbarMaterialize" class="gradient-45deg-blue-blue">
         <div class="nav-wrapper">
             <a asp-area="" asp-controller="Home" asp-action="Index" class="brand-logo" id="page-logo">
                 <i class="material-icons" id="page-logo-icon">layers_clear</i> noResume
@@ -56,9 +56,11 @@
         </li>
     </ul>
 </header>
-    <div id="intLoader" class="progress blue">
-      <div class="indeterminate amber"></div>
-    </div>
+    <div id="intLoader" class="load-bar">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
     <div class="section grey darken-4 white-text">
         <main role="main" class="main">
             @RenderBody()

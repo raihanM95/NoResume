@@ -64,6 +64,11 @@ var uvaVerdictsBelow = {
     "PresentationError": 0,
     "Accepted": 0
 };
+var rankingInfo = {
+    "rankingOfQueried" : 0,
+    "rankingOfAboveOfQueried" : 0,
+    "rankingOfBelowOfQueried" : 0
+};
 
 
 var uvaLanguages = {
@@ -78,6 +83,10 @@ var uvaSubmissionRank = {};
 var maxKeySubmissionRank = 0;
 var minKeySubmissionRank = 0;
 
+var regressionDataArray = [];
+var uhDIVRegression;
+var uhDivRegressionLoader;
+
 
 $(document).ready(function () {
     Chart.defaults.global.defaultFontColor = "#fff";
@@ -87,12 +96,20 @@ $(document).ready(function () {
     cfDIV.hide();
     gitDIV.hide();
     uhDIV.hide();
-
+    
     var cfPreload = $('#CForcesPreloader');
     cfPreload.hide();
 
     var uhuntPreload = $('#UhuntPreloader');
     uhuntPreload.hide();
+
+    /* Sub-Divisions Hidden */
+    uhDIVRegression = $("#_regressionAnalytics");
+    uhDivRegressionLoader = $("#customLoaderRegression");
+    uhDIV.hide();
+    uhDIVRegression.hide();
+    
+    
     /*
     ** Initially hide div #resume
     ** Show when controller response successfully
@@ -126,6 +143,8 @@ $(document).ready(function () {
                     showErrorToast("Invalid Username");
                 }
                 else {
+                    _initClearDumpValuesUVA();
+                    _initClearDumpValuesCF();
                     _initBioCardDev(response[0]);
                     $("#resume").fadeIn();
                     cfPreload.show();
@@ -199,8 +218,15 @@ $(document).ready(function () {
                                             });
                                             requestToUHunt5 = $.get(uva_api_url + 'subs-user/' + ranksInfo[2].userid, function (SubmissionBelow, StatusBelow) {
                                                 UvaBelowSubmissionProcessor(SubmissionBelow.subs);
+                                                UVARankingProcessor(ranksInfo);
+                                                
+                                                // Regression
+                                                uhDivRegressionLoader.show();
+                                                regressionDatasetTableConstructor();
                                             });
                                         });
+                                        
+                                        console.log(uvaVerdicts);
                                         console.log(uvaVerdictsAbove);
                                         console.log(uvaVerdictsBelow);
                                         
@@ -233,6 +259,7 @@ $(document).ready(function () {
     });
 });
 
+
 function sortProperties(obj) {
     // convert object into array
     var sortable = [];
@@ -253,9 +280,7 @@ function sortObjects(objects) {
     var sortedArray = sortProperties(objects);
     for (var i = 0; i < sortedArray.length; i++) {
         var key = sortedArray[i][0];
-        var value = sortedArray[i][1];
-        newObject[key] = value;
-
+        newObject[key] = sortedArray[i][1];
     }
     return newObject;
 }
@@ -288,6 +313,74 @@ function incrementVerdict(verdictNumber) {
 
 
 // Rank Superior Profile
+function UVARankingProcessor(ranksInfo) {
+    rankingInfo["rankingOfAboveOfQueried"] = ranksInfo[0].rank;
+    rankingInfo["rankingOfQueried"] = ranksInfo[1].rank;
+    rankingInfo["rankingOfBelowOfQueried"] = ranksInfo[2].rank;
+    regressionDataConstructor(ranksInfo);
+}
+
+function regressionDataConstructor(ranksInfo){
+    regressionDataArray.push({
+        "name" : ranksInfo[0].name,
+        "ranking" : ranksInfo[0].rank,
+        "verdict" : uvaVerdictsAbove
+    });
+    regressionDataArray.push({
+        "name" : ranksInfo[1].name,
+        "ranking" : ranksInfo[1].rank,
+        "verdict" : uvaVerdicts
+    });
+    regressionDataArray.push({
+        "name" : ranksInfo[2].name,
+        "ranking" : ranksInfo[2].rank,
+        "verdict" : uvaVerdictsBelow
+    });
+}
+
+function regressionDatasetTableConstructor(){
+    // Regression Table Construction
+    var _aboveRow = document.getElementById("_rankAboveRow");
+    var _subjectRow = document.getElementById("_subjectRow");
+    var _belowRow = document.getElementById("_rankBelowRow");
+    _aboveRow.innerHTML = ''; _subjectRow.innerHTML = ''; _belowRow.innerHTML = '';
+    
+    var x = _aboveRow.insertCell(0);
+    x.innerHTML = regressionDataArray[0].name;
+    x = _aboveRow.insertCell(1);
+    x.innerHTML = regressionDataArray[0].ranking;
+    
+    x= _subjectRow.insertCell(0);
+    x.innerHTML = regressionDataArray[1].name;
+    x = _subjectRow.insertCell(1);
+    x.innerHTML = regressionDataArray[1].ranking;
+
+    x= _belowRow.insertCell(0);
+    x.innerHTML = regressionDataArray[2].name;
+    x = _belowRow.insertCell(1);
+    x.innerHTML = regressionDataArray[2].ranking;
+    
+    for(var i=0; i<regressionDataArray.length; i++){
+        var tempVerdictArray = $.map(regressionDataArray[i].verdict, function (v) { return v; });
+        for(var j=0; j<tempVerdictArray.length; j++){
+            if(i === 0){
+                x = _aboveRow.insertCell(j+2);
+                x.innerHTML = tempVerdictArray[j];
+            }
+            if(i === 1){
+                x = _subjectRow.insertCell(j+2);
+                x.innerHTML = tempVerdictArray[j];
+            }
+            if(i === 2){
+                x = _belowRow.insertCell(j+2);
+                x.innerHTML = tempVerdictArray[j];
+            }
+        }
+    }
+    uhDivRegressionLoader.hide();
+    uhDIVRegression.show();
+}
+
 function UvaAboveSubmissionProcessor(data) {
     for (var i = 0; i < data.length; i++) {
         incrementAboveVerdict(data[i][2]);
@@ -330,8 +423,6 @@ function incrementBelowVerdict(verdictNumber) {
     if (verdictNumber === 80) { uvaVerdictsBelow["PresentationError"]++; }
     if (verdictNumber === 90) { uvaVerdictsBelow["Accepted"]++; }
 }
-
-
 
 
 function incrementLanguages(languageNumber) {
@@ -639,4 +730,76 @@ function wordCounter(){
             }
         });
     });
+}
+
+function _initClearDumpValuesUVA(){
+    uvaAllSubmissions = [];
+    uvaVerdicts = {
+        "SubmissionError": 0,
+        "CantBeJudged": 0,
+        "InQueue": 0,
+        "CompileError": 0,
+        "RestrictedFunction": 0,
+        "RuntimeError": 0,
+        "OutputLimit": 0,
+        "TimeLimit": 0,
+        "MemoryLimit": 0,
+        "WrongAnswer": 0,
+        "PresentationError": 0,
+        "Accepted": 0
+    };
+    uvaVerdictsAbove = {
+        "SubmissionError": 0,
+        "CantBeJudged": 0,
+        "InQueue": 0,
+        "CompileError": 0,
+        "RestrictedFunction": 0,
+        "RuntimeError": 0,
+        "OutputLimit": 0,
+        "TimeLimit": 0,
+        "MemoryLimit": 0,
+        "WrongAnswer": 0,
+        "PresentationError": 0,
+        "Accepted": 0
+    };
+    uvaVerdictsBelow = {
+        "SubmissionError": 0,
+        "CantBeJudged": 0,
+        "InQueue": 0,
+        "CompileError": 0,
+        "RestrictedFunction": 0,
+        "RuntimeError": 0,
+        "OutputLimit": 0,
+        "TimeLimit": 0,
+        "MemoryLimit": 0,
+        "WrongAnswer": 0,
+        "PresentationError": 0,
+        "Accepted": 0
+    };
+    rankingInfo = {
+        "rankingOfQueried" : 0,
+        "rankingOfAboveOfQueried" : 0,
+        "rankingOfBelowOfQueried" : 0
+    };
+    uvaLanguages = {
+        "ANSI_C" : 0,
+        "Java" : 0,
+        "C++" : 0,
+        "Pascal" : 0,
+        "C++11" : 0,
+        "Python" : 0
+    };
+    uvaSubmissionRank = {};
+    maxKeySubmissionRank = 0;
+    minKeySubmissionRank = 0;
+    regressionDataArray = [];
+}
+
+function _initClearDumpValuesCF(){
+    cf_problems_attempt_solved = {};
+    cf_verdicts = {};
+    cf_languages = {};
+    cf_tags = {};
+    cf_attempt_level_quality = {};
+    cf_attempt_rating_quality = {};
 }
