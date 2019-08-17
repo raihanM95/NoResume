@@ -1,5 +1,30 @@
 # NoResume
 
+<p align="left">
+  <a href="https://shunjid.github.io/NoResume/"><strong>-- Browse the docs --</strong></a>
+  <br>
+  <br>
+  <a href="https://cloud.docker.com/repository/docker/shunjid/no-resume/builds">
+    <img src="https://img.shields.io/docker/cloud/automated/shunjid/no-resume" alt="docker-automated">
+  </a>
+  <a href="https://cloud.docker.com/repository/docker/shunjid/no-resume/builds">
+    <img src="https://img.shields.io/docker/cloud/build/shunjid/no-resume" alt="build-pass">
+  </a>
+  <a href="https://github.com/shunjid/NoResume">
+    <img src="https://img.shields.io/github/languages/code-size/shunjid/NoResume" alt="code-size">
+  </a>
+  <a> 
+    <img src="https://img.shields.io/github/downloads/shunjid/NoResume/total" alt="total-downloads">
+  </a>
+  <a>
+   <img src="https://img.shields.io/github/languages/count/shunjid/NoResume" alt="languages">
+  </a>
+  <a>
+   <img src="https://img.shields.io/github/release/shunjid/NoResume" alt="release">
+  </a>	
+</p>
+
+
 <img src="wwwroot/Screens.png" alt="Screen"/>
 
 Today, what is happening around the world in the tradition of ‘Job application’ is that job applicants are submitting CV (Curriculum Vitae) to the companies which are offering some sort of job post for vacancy. This tradition is okay when the company is only concerned about Grades only. But in Engineering fields this tradition has no beneficial concern. 
