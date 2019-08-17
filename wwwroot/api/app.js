@@ -1,6 +1,7 @@
 var colorArray = ["#003f5c", "#2f4b7c", "#665191", "#a05195", "#d45087", "#f95d6a", "#ff7c43", "#ffa600", "#00876c", "#439880", "#69a995", "#8bbaab", "#accbc0", "#cdddd7", "#eeeeee", "#efd2d2", "#eeb7b6", "#ea9b9c", "#e57e82", "#dd6069", "#d43d51", "#004c6d", "#255e7e", "#3d708f", "#5383a1", "#6996b3", "#7faac6", "#94bed9", "#abd2ec", "#c1e7ff",
     "#003f5c", "#2f4b7c", "#665191", "#a05195", "#d45087", "#f95d6a", "#ff7c43", "#ffa600", "#00876c", "#439880", "#69a995", "#8bbaab", "#accbc0", "#cdddd7", "#eeeeee", "#efd2d2", "#eeb7b6", "#ea9b9c", "#e57e82", "#dd6069", "#d43d51", "#004c6d", "#255e7e", "#3d708f", "#5383a1", "#6996b3", "#7faac6", "#94bed9", "#abd2ec", "#c1e7ff"];
 
+// CodeForces Initiative
 var requestToCodeForces;
 var cf_api_url = 'https://codeforces.com/api/';
 var cf_handle;
@@ -87,12 +88,33 @@ var regressionDataArray = [];
 var uhDIVRegression;
 var uhDivRegressionLoader;
 
+// GitHub initiative
+var requestToGH1;
+var requestToGH2;
+var requestToGH3;
+var requestToGH4;
+var requestToGH5;
+var requestToGH6;
+var requestToGH7;
+var requestToGH8;
+
+var gitHubApiURL = "https://api.github.com/users/";
+var githubUsername = "";
+var gitHubShortProfile = {};
+var languagesOfRepositories = {};
+var optimizedLanguages = {};
+var pieChartGitHub;
+
 
 $(document).ready(function () {
     Chart.defaults.global.defaultFontColor = "#fff";
     var cfDIV = $("#CForcesResume");
     var gitDIV = $("#GithubResume");
     var uhDIV = $("#UHuntResume");
+    /*
+    ** Initially hide 
+    ** CodeForces, UVA and GitHub divisions and their preloaders
+     */
     cfDIV.hide();
     gitDIV.hide();
     uhDIV.hide();
@@ -102,6 +124,9 @@ $(document).ready(function () {
 
     var uhuntPreload = $('#UhuntPreloader');
     uhuntPreload.hide();
+    
+    var ghPreload = $('#GitHubPreloader');
+    ghPreload.hide();
 
     /* Sub-Divisions Hidden */
     uhDIVRegression = $("#_regressionAnalytics");
@@ -143,15 +168,38 @@ $(document).ready(function () {
                     showErrorToast("Invalid Username");
                 }
                 else {
+                    /*
+                    ** Clear all previous values of CodeForces, UVA and GitHub
+                    ** Actually, for resubmission of a form for cleaning of dump data 
+                     */
                     _initClearDumpValuesUVA();
                     _initClearDumpValuesCF();
+                    _initClearDumpGH();
+
+                    /**
+                     ** Initiate the biography card
+                     ** passing the JSONResult coming from /Home/Index
+                     ** Effects : fade in and fade out
+                     */
                     _initBioCardDev(response[0]);
                     $("#resume").fadeIn();
+                    
+                    /*
+                    ** When biography card is being loaded,
+                    ** Start showing the CodeForces Preloader
+                     */
                     cfPreload.show();
-
+                    /*
+                    ** WorkingProfile Contains
+                    ** Username of : CodeForces, UVA and GitHub coming from /Home/Index
+                    ** Privacy has been checked before passing from controller
+                     */
                     var WorkingProfile = response[1];
 
-                    // CodeForces Resume Maker
+                    /*
+                    ** CodeForces Resume Maker starts
+                    ** working based on codeForces username
+                    */
                     if (WorkingProfile.codeforcesUsername != null) {
                         cf_handle = WorkingProfile.codeforcesUsername;
                         requestToCodeForces = $.get(cf_api_url + 'user.status', { handle: cf_handle }, function (data, status) {
@@ -187,17 +235,28 @@ $(document).ready(function () {
                             cfPreload.hide();
                         })
                     } else {
+                        /*
+                        ** This works when CodeForces username is being returned null from controller
+                        ** Possible reason : User removed or, never provided/User made it private
+                         */
                         cfPreload.hide();
                         cfDIV.hide();
                         showUserDefinedToast("CodeForces is Private", "indigo darken-2 rounded");
                     }
 
-                    // UVA Resume Maker
+                    /*
+                    ** When CodeForces Resume Maker Is Ready
+                    ** Start showing UVA preloader
+                     */
                     uhuntPreload.show();
 
                     if (WorkingProfile.uhuntUsername != null) {
                         uvaHandle = WorkingProfile.uhuntUsername;
                         requestToUhunt = $.get(uva_api_url + 'uname2uid/' + uvaHandle, function (data, status) {
+                            /*
+                            ** UVA username needs to be converted to user id first
+                            ** If UVA returns 0, that means the username is invalid
+                             */
                             if (data === 0) {
                                 showErrorToast("Invalid Username");
                             } else {
@@ -226,10 +285,6 @@ $(document).ready(function () {
                                             });
                                         });
                                         
-                                        console.log(uvaVerdicts);
-                                        console.log(uvaVerdictsAbove);
-                                        console.log(uvaVerdictsBelow);
-                                        
                                         uhDIV.show();
                                         wordCounter();
                                     }
@@ -243,9 +298,71 @@ $(document).ready(function () {
                         showUserDefinedToast("UVA is Private", "amber darken-2 rounded");
                     }
 
+
+                    /*
+                    ** When UVA Resume Maker Is Ready
+                    ** Start showing GitHUb preloader
+                     */
+                    ghPreload.show();
+                    
+                    
                     // GitHub Resume Maker
                     if (WorkingProfile.githubUsername != null) {
-
+                        githubUsername = WorkingProfile.githubUsername;
+                        requestToGH1 = $.get(gitHubApiURL + githubUsername, function (userInformation, userStatus) {
+                            if(userStatus === "success"){
+                                gitHubShortProfile = userInformation;
+                                
+                                // Card Initiator
+                                $("#_githubAvatar").attr("src",gitHubShortProfile.avatar_url);
+                                $("#_githubDevName").text(gitHubShortProfile.name);
+                                if(gitHubShortProfile.location === null || gitHubShortProfile.location === ""){
+                                    $("#_githubDevLocation").text("CodeStaGram");
+                                }else{
+                                    $("#_githubDevLocation").text(gitHubShortProfile.location);
+                                }
+                                
+                                if(gitHubShortProfile.bio === null || gitHubShortProfile.bio === ""){
+                                    $("#_githubDevBio").text("Hey, there. I am focusing on coding </>");
+                                }else{
+                                    $("#_githubDevBio").text(gitHubShortProfile.bio);
+                                }
+                                
+                                $('#_githubDevFollowers').text(gitHubShortProfile.followers);
+                                $('#_githubDevFollowing').text(gitHubShortProfile.following);
+                                $("#_gitHubDevURL").attr("href", gitHubShortProfile.html_url);
+                                if(gitHubShortProfile.blog === null || gitHubShortProfile.blog === ""){
+                                    $("#_gitHubDevPortfolioLink").attr("href", "");
+                                }else{
+                                    $("#_gitHubDevPortfolioLink").attr("href", gitHubShortProfile.blog);
+                                }
+                                
+                                $('#_githubDevPublicRepos').text(gitHubShortProfile.public_repos);
+                                $('#_githubDevPublicGists').text(gitHubShortProfile.public_gists);
+                                
+                                $('#_githubDevAccCreated').text(days_between(new Date(gitHubShortProfile.created_at), new Date()) + ' Days ago');
+                                $('#_githubDevLastActive').text(days_between(new Date(gitHubShortProfile.updated_at), new Date()) + ' Days ago');
+                                
+                                // Card Initiator End
+                                
+                                // Repository Findings
+                                requestToGH2 = $.get(gitHubApiURL + githubUsername + '/repos?page=1&per_page=10&sort=updated', function (repositories, status) {
+                                    if(repositories.length < 1){
+                                        showUserDefinedToast('Sorry, No Repositories on GitHub', "pink darken-2 rounded");
+                                    }else{
+                                        _initiateLanguages(repositories);
+                                    }
+                                });
+                                gitDIV.show();
+                            }else{
+                                showUserDefinedToast("Failed to retrieve GitHub data", "red darken-1 rounded");
+                            }
+                        });
+                        ghPreload.hide();
+                    }else{
+                        ghPreload.hide();
+                        gitDIV.hide();
+                        showUserDefinedToast("GitHub is Private", "amber darken-2 rounded");
                     }
                 }
 
@@ -258,7 +375,6 @@ $(document).ready(function () {
         }
     });
 });
-
 
 function sortProperties(obj) {
     // convert object into array
@@ -284,6 +400,32 @@ function sortObjects(objects) {
     }
     return newObject;
 }
+
+function sortPropertiesByAsc(obj) {
+    // convert object into array
+    var sortable = [];
+    for (var key in obj)
+        if (obj.hasOwnProperty(key))
+            sortable.push([key, obj[key]]); // each item is an array in format [key, value]
+
+    // sort items by value
+    sortable.sort(function (a, b) {
+        return b[1] - a[1];
+    });
+    return sortable; 
+}
+
+function sortObjectsByAsc(objects) {
+    var newObject = {};
+
+    var sortedArray = sortPropertiesByAsc(objects);
+    for (var i = 0; i < sortedArray.length; i++) {
+        var key = sortedArray[i][0];
+        newObject[key] = sortedArray[i][1];
+    }
+    return newObject;
+}
+
 
 function UvaSubmissionProcessor(data) {
     for (var i = 0; i < data.length; i++) {
@@ -449,7 +591,57 @@ function submissionRank(rankNumber) {
     }
 }
 
+// GitHub
 
+function _initiateLanguages(repositories) {
+    for (var i = 0; i <repositories.length; i++) {
+        requestToGH3 = $.get(repositories[i].languages_url, function (languages, status) {
+            var tempKeys = Object.keys(languages);
+            
+            for(var k=0; k<tempKeys.length; k++){
+                if(languagesOfRepositories[tempKeys[k]] === undefined){
+                    languagesOfRepositories[tempKeys[k]] = languages[tempKeys[k]];
+                }else{
+                    languagesOfRepositories[tempKeys[k]] += languages[tempKeys[k]];
+                }
+
+                if(k === tempKeys.length - 1){ pieChartGitHub = null; _demonstrateLanguagesGitHub($('#languages_github'), 'doughnut', '');}
+            }
+        });
+    }
+}
+
+function _demonstrateLanguagesGitHub(gitHubLanguageChart, chartType, titleText) {
+    var tempLang = {};
+    tempLang = sortObjectsByAsc(languagesOfRepositories);
+    
+    pieChartGitHub = new Chart(gitHubLanguageChart, {
+        type: chartType,
+        data: {
+            labels: Object.keys(tempLang),
+            datasets: [{
+                label: 'Value',
+                data: $.map(tempLang, function (v) { return v; }),
+                backgroundColor: colorArray,
+                borderColor: colorArray,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: titleText,
+                fontSize: 25
+            },
+            responsive: true,
+            responsiveAnimationDuration: 500,
+            mainAspectRatio: false
+        }
+    });
+}
+
+
+// CodeForces
 function CodeForcesDataProcessor(data) {
 
     for (var i = data.result.length - 1; i >= 0; i--) {
@@ -802,4 +994,29 @@ function _initClearDumpValuesCF(){
     cf_tags = {};
     cf_attempt_level_quality = {};
     cf_attempt_rating_quality = {};
+}
+
+function _initClearDumpGH(){
+    gitHubApiURL = "https://api.github.com/users/";
+    githubUsername = "";
+    gitHubShortProfile = {};
+    languagesOfRepositories = {};
+    optimizedLanguages = {};
+}
+
+function days_between(date1, date2) {
+
+    // The number of milliseconds in one day
+    var ONE_DAY = 1000 * 60 * 60 * 24;
+
+    // Convert both dates to milliseconds
+    var date1_ms = date1.getTime();
+    var date2_ms = date2.getTime();
+
+    // Calculate the difference in milliseconds
+    var difference_ms = Math.abs(date1_ms - date2_ms);
+
+    // Convert back to days and return
+    return Math.round(difference_ms/ONE_DAY);
+
 }

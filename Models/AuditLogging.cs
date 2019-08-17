@@ -6,7 +6,6 @@ namespace NoResume.Models
     public class AuditLogging
     {
         [Key]
-        [Required]
         public string AuditId { get; set; }
         
         [Required]
