@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using NoResume.Models;
 
 namespace NoResume.Controllers
@@ -36,11 +39,30 @@ namespace NoResume.Controllers
             return caseTitle.ToTitleCase(str);
         }
         
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var jsonFetch = new WebClient().DownloadString("https://geoip-db.com/json/");
+            JObject jObject = JObject.Parse(jsonFetch);
+            
+            var audit = new AuditLogging
+            {
+                AuditDescription = "/Home/Index",
+                IsExceptionThrown = false,
+                TimeOfAction = new DateTime(),
+                InternetProtocol = (string)jObject["IPv4"],
+                DeveloperOrAnonymous = "anonymous",
+                Country = (string)jObject["country_name"],
+                CountryCode = (string)jObject["country_code"],
+                Latitude = (string)jObject["latitude"],
+                Longitude = (string)jObject["longitude"],
+            };
+            _context.Add(audit);
+            await _context.SaveChangesAsync();
+            
+            ViewBag.audit = _context.Audits.ToList().Count;
             return View();
         }
-
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public JsonResult Index(IFormCollection formFields)
