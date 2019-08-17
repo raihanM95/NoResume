@@ -86,6 +86,7 @@
       <e p="wwwroot" t="Include">
         <e p="api" t="Include">
           <e p="app.js" t="Include" />
+          <e p="app.min.js" t="Include" />
         </e>
         <e p="chartjs" t="Include">
           <e p="chart.min.css" t="Include" />
