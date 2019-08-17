@@ -3,135 +3,114 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - NoResume</title>
-
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/materialize/css/materialize.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="~/lib/materialize/css/materialize.min.css"/>
-    </environment>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
-    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css'
-            integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
-    <link rel="stylesheet" href="~/css/site.css">
-    <link rel="stylesheet" href="~/editor/editor.css">
-</head>
-<body>
-<header>
-    <nav id="navbarMaterialize" class="grey darken-4">
-        <div class="nav-wrapper">
-            <a asp-area="" asp-controller="Home" asp-action="Index" class="brand-logo" id="page-logo">
-                <i class="material-icons" id="page-logo-icon">layers_clear</i> noResume
-            </a>
-    
-            <a href="#" class="sidenav-trigger" data-target="mobile-nav">
-                <i class="material-icons">menu</i>
-            </a>
-            <ul class="right hide-on-med-and-down ">
-                <li>
-                    @if (SignInManager.IsSignedIn(User))
-                    {
-                        <!-- Dropdown Trigger -->
-                        <a class='dropdown-trigger btn blue darken-3' href='#' data-target='dropdown1'>
-                            <i class="material-icons right">keyboard_arrow_down</i>
-                            Trigger
-                        </a>
-                            
-                        <form id="logoutform" method="post" asp-action="Logout" asp-controller="Account"></form>
-                            
-                        <!-- Dropdown Structure -->
-                        <ul id='dropdown1' class='dropdown-content'>
-                            <li>
-                                <a id="logoutbtn" class="grey-text text-darken-4"><i class="material-icons purple-text">remove_circle_outline</i>Logout</a>
-                            </li>
-                            <li><a class="grey-text text-darken-4" asp-action="Edit" asp-controller="WorkingProfiles" asp-route-id="@ViewBag.loggedInUserId"><i class="material-icons red-text">code</i>Working Profile</a></li>
-                            <li><a class="grey-text text-darken-4" asp-action="Edit" asp-controller="ShortBios" asp-route-id="@ViewBag.loggedInUserId"><i class="material-icons orange-text">face</i>Biography</a></li>
-                        </ul>
-                    }
-                </li>
-                <li>
-                    <a class="tooltipped" data-position="bottom" data-tooltip="GitHub" target="_blank"
-                       href="https://github.com/shunjid/NoResume.git">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <ul class="sidenav" id="mobile-nav">
-        <li>
-            <a target="_blank" class="title" href="https://github.com/shunjid/NoResume.git">
-                <i class="grey-text text-darken-4 fab fa-github"></i> GitHub
-            </a>
-        </li>
-        @if (SignInManager.IsSignedIn(User))
-        {
-            <li>
-                <div class="row">
-                    <div class="center-align">
-                        <form method="post" asp-action="Logout" asp-controller="Account">
-                            <button class="btn btn-small blue" type="submit"><b>Logout </b> @User.Identity.Name </button>
-                        </form>
-                    </div>
-                </div>
-            </li>    
-        }
-    </ul>
-</header>
-    <div id="intLoader" class="progress">
-      <div class="indeterminate"></div>
-    </div>
-    <div id="mainContainer" class="container">
-        <main role="main" class="section">
-            @RenderBody()
-        </main>
-    </div>
-    
-<footer class="page-footer grey darken-3">
-    <div class="page-footer grey darken-3">
-        <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#">Link 4</a></li>
-                </ul>
-              </div>
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>@ViewData["Title"] - NoResume</title>
+      <environment include="Development">
+         <link rel="stylesheet" href="~/lib/materialize/css/materialize.css" />
+      </environment>
+      <environment exclude="Development">
+         <link rel="stylesheet" href="~/lib/materialize/css/materialize.min.css"/>
+      </environment>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
+      <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css'
+         integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+      <link rel="stylesheet" href="~/css/site.css">
+      <link rel="stylesheet" href="~/editor/editor.css">
+   </head>
+   <body>
+      <header>
+         <nav id="navbarMaterialize" class="grey darken-4">
+            <div class="nav-wrapper">
+               <a asp-area="" asp-controller="Home" asp-action="Index" class="brand-logo" id="page-logo"><i class="material-icons" id="page-logo-icon">layers_clear</i> noResume</a>
+               <a href="#" class="sidenav-trigger" data-target="mobile-nav"><i class="material-icons">menu</i></a>
+               <ul class="right hide-on-med-and-down ">
+                  <li>
+                     @if (SignInManager.IsSignedIn(User))
+                     {
+                     <!-- Dropdown Trigger -->
+                     <a class='dropdown-trigger btn blue darken-3' href='#' data-target='dropdown1'><i class="material-icons right">keyboard_arrow_down</i>Trigger</a>
+                     <form id="logoutform" method="post" asp-action="Logout" asp-controller="Account"></form>
+                     <!-- Dropdown Structure -->
+                     <ul id='dropdown1' class='dropdown-content'>
+                        <li><a id="logoutbtn" class="grey-text text-darken-4"><i class="material-icons purple-text">remove_circle_outline</i>Logout</a></li>
+                        <li><a class="grey-text text-darken-4" asp-action="Edit" asp-controller="WorkingProfiles" asp-route-id="@ViewBag.loggedInUserId"><i class="material-icons red-text">code</i>Working Profile</a></li>
+                        <li><a class="grey-text text-darken-4" asp-action="Edit" asp-controller="ShortBios" asp-route-id="@ViewBag.loggedInUserId"><i class="material-icons orange-text">face</i>Biography</a></li>
+                     </ul>
+                     }
+                  </li>
+                  <li>
+                     <a class="tooltipped" data-position="bottom" data-tooltip="GitHub" target="_blank" href="https://github.com/shunjid/NoResume.git"><i class="fab fa-github"></i></a>
+                  </li>
+               </ul>
             </div>
-          </div>
-    </div>
-    <div class="footer-copyright grey darken-4">
-        <div class="container">
-            © 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#">More Links</a>
-        </div>
-    </div>
-</footer>
-
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/materialize/js/materialize.js"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/materialize/js/materialize.min.js"></script>
-    </environment>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/_privateLayout.js" asp-append-version="true"></script>
-    <script src="~/editor/editor.min.js" asp-append-version="true"></script>
-
-    @RenderSection("Scripts", required: false)
-</body>
+         </nav>
+         <ul class="sidenav" id="mobile-nav">
+            <li>
+               <a target="_blank" class="title" href="https://github.com/shunjid/NoResume.git"><i class="grey-text text-darken-4 fab fa-github"></i> GitHub</a>
+            </li>
+            @if (SignInManager.IsSignedIn(User))
+            {
+            <li>
+               <div class="row">
+                  <div class="center-align">
+                     <form method="post" asp-action="Logout" asp-controller="Account">
+                        <button class="btn btn-small blue" type="submit"><b>Logout </b> @User.Identity.Name </button>
+                     </form>
+                  </div>
+               </div>
+            </li>
+            }
+         </ul>
+         <div id="postLoader" class="progress">
+            <div class="indeterminate"></div>
+         </div>
+      </header>
+      <div id="mainContainer" class="container">
+         <main role="main" class="section">
+            @RenderBody()
+         </main>
+      </div>
+      <footer class="page-footer grey darken-3">
+         <div class="page-footer grey darken-3">
+            <div class="container">
+               <div class="row">
+                  <div class="col l6 s12">
+                     <h5 class="white-text">Footer Content</h5>
+                     <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                  </div>
+                  <div class="col l4 offset-l2 s12">
+                     <h5 class="white-text">Links</h5>
+                     <ul>
+                        <li><a class="grey-text text-lighten-3" href="#">Link 1</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#">Link 2</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#">Link 3</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#">Link 4</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="footer-copyright grey darken-4">
+            <div class="container">
+               © 2014 Copyright Text
+               <a class="grey-text text-lighten-4 right" href="#">More Links</a>
+            </div>
+         </div>
+      </footer>
+      <environment include="Development">
+         <script src="~/lib/jquery/dist/jquery.js"></script>
+         <script src="~/lib/materialize/js/materialize.js"></script>
+      </environment>
+      <environment exclude="Development">
+         <script src="~/lib/jquery/dist/jquery.min.js"></script>
+         <script src="~/lib/materialize/js/materialize.min.js"></script>
+      </environment>
+      <script src="~/js/site.js" asp-append-version="true"></script>
+      <script src="~/js/_privateLayout.js" asp-append-version="true"></script>
+      <script src="~/editor/editor.min.js" asp-append-version="true"></script>
+      @RenderSection("Scripts", required: false)
+   </body>
 </html>
