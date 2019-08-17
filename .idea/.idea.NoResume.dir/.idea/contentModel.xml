@@ -11,6 +11,7 @@
         <e p="SocialProfilesController.cs" t="Include" />
         <e p="WorkingProfilesController.cs" t="Include" />
       </e>
+      <e p="DockerFile" t="Include" />
       <e p="Making.md" t="Include" />
       <e p="Migrations" t="Include">
         <e p="20190730181910_InitialAuth.Designer.cs" t="Include" />
@@ -84,7 +85,7 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="wwwroot" t="Include">
-        <e p="Screens.svg" t="Include" />
+        <e p="Screens.png" t="Include" />
         <e p="api" t="Include">
           <e p="app.js" t="Include" />
           <e p="app.min.js" t="Include" />
