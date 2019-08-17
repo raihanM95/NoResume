@@ -1,5 +1,7 @@
 # NoResume
 
+<img src="wwwroot/Screens.png" alt="Screen"/>
+
 Today, what is happening around the world in the tradition of ‘Job application’ is that job applicants are submitting CV (Curriculum Vitae) to the companies which are offering some sort of job post for vacancy. This tradition is okay when the company is only concerned about Grades only. But in Engineering fields this tradition has no beneficial concern. 
 Because companies want to hire Engineers who are skilled in their fields. Especially in the field of  Computer Science & Engineering or Software Engineering ‘Skill/Expertise” of an Engineer is preferred more than their grades. So, to submitting a traditional resume isn’t beneficial to find out the quality programmers/developers. This project has come with some innovative ideas to solve this problem.
 
