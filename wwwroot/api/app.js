@@ -330,7 +330,19 @@ $(document).ready(function () {
                                 
                                 $('#_githubDevFollowers').text(gitHubShortProfile.followers);
                                 $('#_githubDevFollowing').text(gitHubShortProfile.following);
-                                $("_gitHubDevURL").attr("href", gitHubShortProfile.html_url);
+                                $("#_gitHubDevURL").attr("href", gitHubShortProfile.html_url);
+                                if(gitHubShortProfile.blog === null || gitHubShortProfile.blog === ""){
+                                    $("#_gitHubDevPortfolioLink").attr("href", "");
+                                }else{
+                                    $("#_gitHubDevPortfolioLink").attr("href", gitHubShortProfile.blog);
+                                }
+                                
+                                $('#_githubDevPublicRepos').text(gitHubShortProfile.public_repos);
+                                $('#_githubDevPublicGists').text(gitHubShortProfile.public_gists);
+                                
+                                $('#_githubDevAccCreated').text(days_between(new Date(gitHubShortProfile.created_at), new Date()) + ' Days ago');
+                                $('#_githubDevLastActive').text(days_between(new Date(gitHubShortProfile.updated_at), new Date()) + ' Days ago');
+                                
                                 // Card Initiator End
                                 
                                 // Repository Findings
@@ -593,7 +605,7 @@ function _initiateLanguages(repositories) {
                     languagesOfRepositories[tempKeys[k]] += languages[tempKeys[k]];
                 }
 
-                if(k === tempKeys.length - 1){ pieChartGitHub = null; _demonstrateLanguagesGitHub($('#languages_github'), 'doughnut', 'Languages Used');}
+                if(k === tempKeys.length - 1){ pieChartGitHub = null; _demonstrateLanguagesGitHub($('#languages_github'), 'doughnut', '');}
             }
         });
     }
@@ -990,4 +1002,21 @@ function _initClearDumpGH(){
     gitHubShortProfile = {};
     languagesOfRepositories = {};
     optimizedLanguages = {};
+}
+
+function days_between(date1, date2) {
+
+    // The number of milliseconds in one day
+    var ONE_DAY = 1000 * 60 * 60 * 24;
+
+    // Convert both dates to milliseconds
+    var date1_ms = date1.getTime();
+    var date2_ms = date2.getTime();
+
+    // Calculate the difference in milliseconds
+    var difference_ms = Math.abs(date1_ms - date2_ms);
+
+    // Convert back to days and return
+    return Math.round(difference_ms/ONE_DAY);
+
 }
