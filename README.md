@@ -1,8 +1,6 @@
 # NoResume
 
 <p align="left">
-  <a href="https://shunjid.github.io/NoResume/"><strong>-- Browse the docs --</strong></a>
-  <br>
   <br>
   <a href="https://cloud.docker.com/repository/docker/shunjid/no-resume/builds">
     <img src="https://img.shields.io/docker/cloud/automated/shunjid/no-resume" alt="docker-automated">
