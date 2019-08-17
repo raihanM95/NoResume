@@ -101,7 +101,9 @@ var requestToGH8;
 var gitHubApiURL = "https://api.github.com/users/";
 var githubUsername = "";
 var gitHubShortProfile = {};
-
+var languagesOfRepositories = {};
+var optimizedLanguages = {};
+var pieChartGitHub;
 
 
 $(document).ready(function () {
@@ -283,10 +285,6 @@ $(document).ready(function () {
                                             });
                                         });
                                         
-                                        console.log(uvaVerdicts);
-                                        console.log(uvaVerdictsAbove);
-                                        console.log(uvaVerdictsBelow);
-                                        
                                         uhDIV.show();
                                         wordCounter();
                                     }
@@ -333,10 +331,16 @@ $(document).ready(function () {
                                 $('#_githubDevFollowers').text(gitHubShortProfile.followers);
                                 $('#_githubDevFollowing').text(gitHubShortProfile.following);
                                 $("_gitHubDevURL").attr("href", gitHubShortProfile.html_url);
+                                // Card Initiator End
                                 
-                                
-                                
-                                
+                                // Repository Findings
+                                requestToGH2 = $.get(gitHubApiURL + githubUsername + '/repos?page=1&per_page=10&sort=updated', function (repositories, status) {
+                                    if(repositories.length < 1){
+                                        showUserDefinedToast('Sorry, No Repositories on GitHub', "pink darken-2 rounded");
+                                    }else{
+                                        _initiateLanguages(repositories);
+                                    }
+                                });
                                 gitDIV.show();
                             }else{
                                 showUserDefinedToast("Failed to retrieve GitHub data", "red darken-1 rounded");
@@ -359,7 +363,6 @@ $(document).ready(function () {
         }
     });
 });
-
 
 function sortProperties(obj) {
     // convert object into array
@@ -385,6 +388,32 @@ function sortObjects(objects) {
     }
     return newObject;
 }
+
+function sortPropertiesByAsc(obj) {
+    // convert object into array
+    var sortable = [];
+    for (var key in obj)
+        if (obj.hasOwnProperty(key))
+            sortable.push([key, obj[key]]); // each item is an array in format [key, value]
+
+    // sort items by value
+    sortable.sort(function (a, b) {
+        return b[1] - a[1];
+    });
+    return sortable; 
+}
+
+function sortObjectsByAsc(objects) {
+    var newObject = {};
+
+    var sortedArray = sortPropertiesByAsc(objects);
+    for (var i = 0; i < sortedArray.length; i++) {
+        var key = sortedArray[i][0];
+        newObject[key] = sortedArray[i][1];
+    }
+    return newObject;
+}
+
 
 function UvaSubmissionProcessor(data) {
     for (var i = 0; i < data.length; i++) {
@@ -550,7 +579,57 @@ function submissionRank(rankNumber) {
     }
 }
 
+// GitHub
 
+function _initiateLanguages(repositories) {
+    for (var i = 0; i <repositories.length; i++) {
+        requestToGH3 = $.get(repositories[i].languages_url, function (languages, status) {
+            var tempKeys = Object.keys(languages);
+            
+            for(var k=0; k<tempKeys.length; k++){
+                if(languagesOfRepositories[tempKeys[k]] === undefined){
+                    languagesOfRepositories[tempKeys[k]] = languages[tempKeys[k]];
+                }else{
+                    languagesOfRepositories[tempKeys[k]] += languages[tempKeys[k]];
+                }
+
+                if(k === tempKeys.length - 1){ pieChartGitHub = null; _demonstrateLanguagesGitHub($('#languages_github'), 'doughnut', 'Languages Used');}
+            }
+        });
+    }
+}
+
+function _demonstrateLanguagesGitHub(gitHubLanguageChart, chartType, titleText) {
+    var tempLang = {};
+    tempLang = sortObjectsByAsc(languagesOfRepositories);
+    
+    pieChartGitHub = new Chart(gitHubLanguageChart, {
+        type: chartType,
+        data: {
+            labels: Object.keys(tempLang),
+            datasets: [{
+                label: 'Value',
+                data: $.map(tempLang, function (v) { return v; }),
+                backgroundColor: colorArray,
+                borderColor: colorArray,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: titleText,
+                fontSize: 25
+            },
+            responsive: true,
+            responsiveAnimationDuration: 500,
+            mainAspectRatio: false
+        }
+    });
+}
+
+
+// CodeForces
 function CodeForcesDataProcessor(data) {
 
     for (var i = data.result.length - 1; i >= 0; i--) {
@@ -909,4 +988,6 @@ function _initClearDumpGH(){
     gitHubApiURL = "https://api.github.com/users/";
     githubUsername = "";
     gitHubShortProfile = {};
+    languagesOfRepositories = {};
+    optimizedLanguages = {};
 }

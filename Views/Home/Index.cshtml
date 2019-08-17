@@ -123,7 +123,7 @@
           </div>
         </div>
       
-         <div id="chartjs-pie-chart" class="card grey darken-4 white-text">
+         <div class="card grey darken-4 white-text">
           <div class="card-content">
               <h4 class="card-title white-text">Pie charts</h4>
               <div class="row">
@@ -396,38 +396,77 @@
   <br/> <br/>
   <!-- GitHub Resume -->
     <div id="GithubResume" class="row">
-      
-        <div class="row">
-          <div class="col s12 m6 l4 card-width">
-            <div class="card card-border center-align gradient-45deg-indigo-purple">
-              <div class="card-content white-text">
-                <div class="col s12"><i class="fab fa-github right white-text"></i></div>
-                <img id="_githubAvatar" class="responsive-img circle z-depth-4" width="100" src="" alt="" />
-                <h5 class="white-text mb-1" id="_githubDevName"></h5>
-                <p class="m-0" id="_githubDevLocation"></p>
-                <p class="mt-8" id="_githubDevBio"></p>
-                
-                <a href="" target="_blank" id="_gitHubDevURL" class="waves-effect waves-light btn gradient-45deg-deep-orange-orange border-round mt-7 z-depth-4"><i class="fas fa-rss white-text"></i> Follow</a>
-                <div class="row mt-6">
-                  <a href="#" class="col s6">
-                    <p class="white-text"><b id="_githubDevFollowers"></b></p>
-                    <p class="white-text">Followers</p>
-                  </a>
-                  <a href="#" class="col s6">
-                    <p class="white-text"><b id="_githubDevFollowing"></b></p>
-                    <p class="white-text">Following</p>
-                  </a>
+      <div class="card grey darken-4 white-text">
+        <div class="card-content">
+          <h3 class="card-title white-text">GitHub Summary</h3>
+          <hr/>
+          
+           <div class="row">
+            <div class="col s12 m6 l8">
+                <div class="card grey darken-4 white-text">
+                  <div class="card-content">
+                      <h4 class="card-title white-text">Pie charts</h4>
+                      <div class="row">
+                        <div class="col s12">
+                            <div class="row">
+                              <div class="col s12 m12 l12">
+                                  <div class="sample-chart-wrapper">
+                                    <canvas id="languages_github" height="250"></canvas>
+                                  </div>
+                                  <p class="header center white-text">Doughnut Charts</p>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+            
+            <div class="col s12 m6 l4 card-width">
+              <div class="card card-border center-align gradient-45deg-indigo-purple">
+                <div class="card-content white-text">
+                  <div class="col s12"><i class="fab fa-github right white-text"></i></div>
+                  <img id="_githubAvatar" class="responsive-img circle z-depth-4" width="100" src="" alt=""/>
+                  <h5 class="white-text mb-1" id="_githubDevName"></h5>
+                  <p class="m-0" id="_githubDevLocation"></p>
+                  <p class="mt-8" id="_githubDevBio"></p>
+    
+                  <a href="" target="_blank" id="_gitHubDevURL" class="waves-effect waves-light btn gradient-45deg-deep-orange-orange border-round mt-7 z-depth-4"><i class="fas fa-rss white-text"></i> Follow</a>
+                  <div class="row mt-6">
+                    <a href="#" class="col s6">
+                      <p class="white-text"><b id="_githubDevFollowers"></b></p>
+                      <p class="white-text">Followers</p>
+                    </a>
+                    <a href="#" class="col s6">
+                      <p class="white-text"><b id="_githubDevFollowing"></b></p>
+                      <p class="white-text">Following</p>
+                    </a>
+                  </div>
+                  
+                  <div class="row mt-6">
+                    <a href="#" class="col s6">
+                      <p class="white-text"><b id="_githubDevAccCreated"></b></p>
+                      <p class="white-text">Created</p>
+                    </a>
+                    <a href="#" class="col s6">
+                      <p class="white-text"><b id="_githubDevLastActive"></b></p>
+                      <p class="white-text">Last Active</p>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-         </div>
-      
-      
+          
+          
+        </div>
+      </div>
     </div>
+
+
+       
+     </div>
   </div>
-            
-</div>
 
 @section Scripts {
     @{
