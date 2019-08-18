@@ -1,16 +1,7 @@
 <environment include="Development">
     <script type="text/javascript">
-        $(document).ready(function () {
-            var numberOfUser = @ViewBag.audit;
-            showUserDefinedToast("Welcome, " + numberOfUser + "th Developer", "pink darken-2 rounded");
-         });
-        
-        function showUserDefinedToast(message, style) {
-            M.toast({
-                html: message,
-                classes: style
-            });
-        }
+        var numberOfUser = @ViewBag.audit;
+        function showUserDefinedToast(e,n){M.toast({html:e,classes:n})}$(document).ready(function(){showUserDefinedToast("Welcome back","green darken-1 rounded"),setTimeout(function(){showUserDefinedToast("Total visited : "+numberOfUser,"deep-purple darken-1 rounded")},6e3)});
     </script>
     <script src="~/chartjs/chart.min.js" asp-append-version="true"></script>
     <script src="~/api/app.js" asp-append-version="true"></script>
@@ -19,7 +10,7 @@
 <environment exclude="Development">
     <script type="text/javascript">
         var numberOfUser = @ViewBag.audit;
-        function showUserDefinedToast(e,n){M.toast({html:e,classes:n})}$(document).ready(function(){showUserDefinedToast("Welcome, "+numberOfUser+"th Developer","pink darken-2 rounded")});
+        function showUserDefinedToast(e,n){M.toast({html:e,classes:n})}$(document).ready(function(){showUserDefinedToast("Welcome back","green darken-1 rounded"),setTimeout(function(){showUserDefinedToast("Total visited : "+numberOfUser,"deep-purple darken-1 rounded")},6e3)});
     </script>
     <script src="~/chartjs/chart.min.js" asp-append-version="true"></script>
     <script src="~/api/app.min.js" asp-append-version="true"></script>
