@@ -1,8 +1,12 @@
 <environment include="Development">
     <script type="text/javascript">
         $(document).ready(function(){
+            var postLoader = $('#postLoader');
+            postLoader.hide();
+            
             $("#BioEditorForm").submit(function(e){
                 e.preventDefault();
+                postLoader.show();
                 
                 $.post('', $('#BioEditorForm').serialize(), function (response) {
                     if(response != null || response !== "" || response !== "null"){
@@ -19,6 +23,7 @@
                         classes: 'red darken-4 rounded'
                         }); 
                     }
+                    postLoader.hide();
                 });
             });
         });

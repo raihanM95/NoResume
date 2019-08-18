@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NoResume.Models;
 
@@ -27,18 +24,7 @@ namespace NoResume.Controllers
             _userManager = userManager;
             _objectList = new HashSet<object>();
         }
-        
-        private void AddJson(Object obj)
-        {
-            _objectList.Add(obj);
-        }
 
-        private string TitleCase(string str)
-        {
-            TextInfo caseTitle = new CultureInfo("en-US",false).TextInfo;
-            return caseTitle.ToTitleCase(str);
-        }
-        
         public async Task<IActionResult> Index()
         {
             var jsonFetch = new WebClient().DownloadString("https://geoip-db.com/json/");
@@ -97,22 +83,6 @@ namespace NoResume.Controllers
         {
             var developerId = _userManager.FindByNameAsync(username).Result.Id;
             var shortBios = _context.ShortBios.FindAsync(developerId);
-            var workingProfile = _context.WorkingProfiles.Single(x => x.DeveloperId == developerId);
-            
-            var uHuntAPI = "";
-            var codeForcesAPI = "";
-            
-            using (WebClient webClient = new WebClient())
-            {
-                if (workingProfile.CodeforcesUsername != null && workingProfile.CodeforcesUsername.Trim() != "")
-                {
-                    codeForcesAPI = new WebClient().DownloadString("https://codeforces.com/api/user.info?handles="+workingProfile.CodeforcesUsername);
-                }
-                if (workingProfile.UhuntUsername != null && workingProfile.UhuntUsername.Trim() != "")
-                {
-                    uHuntAPI = new WebClient().DownloadString("https://uhunt.onlinejudge.org/api/uname2uid/"+workingProfile.UhuntUsername);
-                }
-            }
             return Ok(shortBios);
         }
 

@@ -51,6 +51,9 @@
             <li>
                <a target="_blank" class="title" href="https://github.com/shunjid/NoResume.git"><i class="grey-text text-darken-4 fab fa-github"></i> GitHub</a>
             </li>
+            <li><a class="grey-text text-darken-4" asp-action="Edit" asp-controller="WorkingProfiles" asp-route-id="@ViewBag.loggedInUserId"><i class="material-icons red-text">code</i>Working Profile</a></li>
+            <li><a class="grey-text text-darken-4" asp-action="Edit" asp-controller="ShortBios" asp-route-id="@ViewBag.loggedInUserId"><i class="material-icons orange-text">face</i>Biography</a></li>
+            
             @if (SignInManager.IsSignedIn(User))
             {
             <li>
