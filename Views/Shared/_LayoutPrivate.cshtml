@@ -31,13 +31,13 @@
                      @if (SignInManager.IsSignedIn(User))
                      {
                      <!-- Dropdown Trigger -->
-                     <a class='dropdown-trigger btn blue darken-3' href='#' data-target='dropdown1'><i class="material-icons right">keyboard_arrow_down</i>Trigger</a>
+                     <a class='dropdown-trigger btn blue darken-3' href='#' data-target='dropdown1'><i class="material-icons right">keyboard_arrow_down</i>Navigation</a>
                      <form id="logoutform" method="post" asp-action="Logout" asp-controller="Account"></form>
                      <!-- Dropdown Structure -->
                      <ul id='dropdown1' class='dropdown-content'>
-                        <li><a id="logoutbtn" class="grey-text text-darken-4"><i class="material-icons purple-text">remove_circle_outline</i>Logout</a></li>
                         <li><a class="grey-text text-darken-4" asp-action="Edit" asp-controller="WorkingProfiles" asp-route-id="@ViewBag.loggedInUserId"><i class="material-icons red-text">code</i>Working Profile</a></li>
                         <li><a class="grey-text text-darken-4" asp-action="Edit" asp-controller="ShortBios" asp-route-id="@ViewBag.loggedInUserId"><i class="material-icons orange-text">face</i>Biography</a></li>
+                        <li><a id="logoutbtn" class="grey-text text-darken-4"><i class="material-icons purple-text">remove_circle_outline</i>Logout</a></li>
                      </ul>
                      }
                   </li>
@@ -81,16 +81,15 @@
             <div class="container">
                <div class="row">
                   <div class="col l6 s12">
-                     <h5 class="white-text">Footer Content</h5>
-                     <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                     <h5 class="white-text">NoResume</h5>
+                     <p class="grey-text text-lighten-4">You can contribute in this project in GitHub</p>
                   </div>
                   <div class="col l4 offset-l2 s12">
-                     <h5 class="white-text">Links</h5>
+                     <h5 class="white-text">Important Links</h5>
                      <ul>
-                        <li><a class="grey-text text-lighten-3" href="#">Link 1</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#">Link 2</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#">Link 3</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#">Link 4</a></li>
+                        <li><a class="grey-text text-lighten-3" target="_blank" href="https://shunjid.github.io/NoResume/">Documentation</a></li>
+                        <li><a class="grey-text text-lighten-3" target="_blank" href="https://github.com/shunjid/NoResume">GitHub</a></li>
+                        <li><a class="grey-text text-lighten-3" target="_blank" href="https://cloud.docker.com/repository/docker/shunjid/no-resume/builds">Docker</a></li>
                      </ul>
                   </div>
                </div>
@@ -98,8 +97,8 @@
          </div>
          <div class="footer-copyright grey darken-4">
             <div class="container">
-               © 2014 Copyright Text
-               <a class="grey-text text-lighten-4 right" href="#">More Links</a>
+               © <script>document.write(new Date().getFullYear())</script> Copyright
+               <a class="grey-text text-lighten-4 right" href="">Made with <i class="material-icons">favorite</i> by Shunjid Rahman Showrov</a>
             </div>
          </div>
       </footer>
