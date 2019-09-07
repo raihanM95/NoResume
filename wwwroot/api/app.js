@@ -282,6 +282,7 @@ $(document).ready(function () {
                                                 // Regression
                                                 uhDivRegressionLoader.show();
                                                 regressionDatasetTableConstructor();
+                                                
                                             });
                                         });
                                         
