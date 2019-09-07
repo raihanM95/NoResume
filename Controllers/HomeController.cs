@@ -48,22 +48,19 @@ namespace NoResume.Controllers
             ViewBag.audit = _context.Audits.ToList().Count;
             return View();
         }
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public JsonResult Index(IFormCollection formFields)
         {
             var developerId = "";
-            ShortBio shortBios;
-            WorkingProfile workingProfile;
-            
             try
             {
                 developerId = _userManager.FindByNameAsync(formFields["developerUsername"]).Result.Id;
                 
-                shortBios = _context.ShortBios.Single(x => x.DeveloperId == developerId);
+                var shortBios = _context.ShortBios.Single(x => x.DeveloperId == developerId);
                 
-                workingProfile = _context.WorkingProfiles.Single(x => x.DeveloperId == developerId);
+                var workingProfile = _context.WorkingProfiles.Single(x => x.DeveloperId == developerId);
                 workingProfile.CodeforcesUsername = workingProfile.PrivacyForCodeforces ? null : workingProfile.CodeforcesUsername;
                 workingProfile.GithubUsername = workingProfile.PrivacyForGithub ? null : workingProfile.GithubUsername;
                 workingProfile.UhuntUsername = workingProfile.PrivacyForUhunt ? null : workingProfile.UhuntUsername;
