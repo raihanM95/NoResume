@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/github/languages/code-size/shunjid/NoResume" alt="code-size">
   </a>
   <a> 
-    <img src="https://img.shields.io/github/downloads/shunjid/NoResume/total" alt="total-downloads">
+    [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fshunjid%2FNoResume%2Fbadge&style=flat)](https://actions-badge.atrox.dev/shunjid/NoResume/goto)
   </a>
   <a>
    <img src="https://img.shields.io/github/languages/count/shunjid/NoResume" alt="languages">
