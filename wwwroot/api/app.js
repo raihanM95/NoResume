@@ -605,7 +605,12 @@ function _initiateLanguages(repositories) {
                     languagesOfRepositories[tempKeys[k]] += languages[tempKeys[k]];
                 }
 
-                if(k === tempKeys.length - 1){ pieChartGitHub = null; _demonstrateLanguagesGitHub($('#languages_github'), 'doughnut', '');}
+                if(k === tempKeys.length - 1){
+                    if(pieChartGitHub != null){
+                        pieChartGitHub.destroy();
+                    }
+                    _demonstrateLanguagesGitHub($('#languages_github'), 'doughnut', '');
+                }
             }
         });
     }
