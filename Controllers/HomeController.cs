@@ -25,26 +25,8 @@ namespace NoResume.Controllers
             _objectList = new HashSet<object>();
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            var jsonFetch = new WebClient().DownloadString("https://geoip-db.com/json/");
-            JObject jObject = JObject.Parse(jsonFetch);
-            
-            var audit = new AuditLogging
-            {
-                AuditDescription = "/Home/Index",
-                IsExceptionThrown = false,
-                TimeOfAction = new DateTime(),
-                InternetProtocol = (string)jObject["IPv4"],
-                DeveloperOrAnonymous = "anonymous",
-                Country = (string)jObject["country_name"],
-                CountryCode = (string)jObject["country_code"],
-                Latitude = (string)jObject["latitude"],
-                Longitude = (string)jObject["longitude"],
-            };
-            _context.Add(audit);
-            await _context.SaveChangesAsync();
-            
             ViewBag.audit = _context.Audits.ToList().Count;
             return View();
         }
@@ -86,6 +68,24 @@ namespace NoResume.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+        
+        [HttpPost("Home/Audit")]
+        public async Task<JsonResult> Audit(AuditLogging jObject)
+        {
+            if (jObject != null)
+            {
+                _context.Add(jObject);
+                await _context.SaveChangesAsync();
+            }
+            var audit = _context.Set<AuditLogging>().Select(x => new
+            {
+                x.Country,
+                x.CountryCode,
+                x.TimeOfAction
+            });
+                
+            return Json(audit);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
