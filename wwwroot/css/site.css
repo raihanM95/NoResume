@@ -1,113 +1,99 @@
-﻿*{
+﻿* {
   font-family: "Quicksand Light", sans-serif;
 }
 
-#page-logo{
+#page-logo {
   font-family: 'Poiret One', cursive;
   font-weight: bold;
   padding-left: 15px;
 }
 
-#mainContainer{
+#mainContainer {
   padding-bottom: 10px;
 }
 
+
 /* ipad pro */
-@media screen
-and (device-width: 768px)
-and (device-height: 1024px)
-and (-webkit-device-pixel-ratio: 3)
-and (orientation: portrait) {
-  #languages_github{
-     height : 400px;
+
+@media screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
+  #languages_github {
+    height: 400px;
   }
 }
 
 
 /* Galaxy S5 */
-@media screen
-and (device-width: 320px)
-and (device-height: 640px)
-and (-webkit-device-pixel-ratio: 3)
-and (orientation: portrait) {
-  #mainContainer{
+
+@media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
+  #mainContainer {
     padding-bottom: 10px;
   }
   .chartCanvas {
     height: 500%;
   }
-  .l1{
-    display: none;
-  }
-  .m1{
+  #_space01 #_space02 #_space03 #_space04 #_space05 #_space06 #_space07 #_space08 {
+    visibility: hidden;
+    clear: both;
     display: none;
   }
 }
+
 
 /* Pixel */
-@media screen
-and (device-width: 411px)
-and (device-height: 731px)
-and (-webkit-device-pixel-ratio: 3)
-and (orientation: portrait) {
-  #mainContainer{
+
+@media screen and (device-width: 411px) and (device-height: 731px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {
+  #mainContainer {
     padding-bottom: 10px;
   }
-  .l1{
-    display: none;
-  }
-  .m1{
+  #_space01 #_space02 #_space03 #_space04 #_space05 #_space06 #_space07 #_space08 {
+    visibility: hidden;
+    clear: both;
     display: none;
   }
 }
 
+
 /* iPad Pro */
-@media only screen
-and (min-device-width: 768px)
-and (max-device-width: 1024px)
-and (-webkit-min-device-pixel-ratio: 1) {
-  #mainContainer{
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  #mainContainer {
     padding-top: 30px;
     padding-bottom: 150px;
   }
-  
 }
 
+
 /* iphone 5/SE */
-@media only screen
-and (min-device-width: 320px)
-and (max-device-width: 568px)
-and (-webkit-min-device-pixel-ratio: 1) {
-  #page-logo{
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 1) {
+  #page-logo {
     font-family: 'Poiret One', cursive;
     font-weight: bold;
     padding-left: 15px;
     font-size: 20px;
   }
-  .l1{
-    display: none;
-  }
-  .m1{
+  #_space01 #_space02 #_space03 #_space04 #_space05 #_space06 #_space07 #_space08 {
+    visibility: hidden;
+    clear: both;
     display: none;
   }
 }
-
-
 
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
+
 main {
   flex: 1 0 auto;
 }
 
-#dropdown1{
+#dropdown1 {
   width: 200px !important;
 }
 
-#intLoader{
+#intLoader {
   display: none;
   margin-top: -1px;
 }
@@ -121,67 +107,119 @@ main {
 }
 
 .gradient-45deg-grey-grey {
-  background: #DBE6F6;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #212121, #263238);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #212121, #263238); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #DBE6F6;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #212121, #263238);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #212121, #263238);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .gradient-45deg-blue-blue {
-  background: #0d47a1;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #1565c0, #0d47a1);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #1565c0, #0d47a1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #0d47a1;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1565c0, #0d47a1);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #1565c0, #0d47a1);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .gradient-45deg-ind-digo {
-  background: #283593;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #3949ab, #283593);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #3949ab, #283593); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #283593;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #3949ab, #283593);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #3949ab, #283593);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .gradient-45deg-green-infy {
-  background: #43a047;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #66bb6a, #43a047);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #66bb6a, #43a047); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #43a047;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #66bb6a, #43a047);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #66bb6a, #43a047);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 @keyframes loading {
-  from {left: 50%; width: 0;z-index:100;}
-  33.3333% {left: 0; width: 100%;z-index: 10;}
-  to {left: 0; width: 100%;}
+  from {
+    left: 50%;
+    width: 0;
+    z-index: 100;
+  }
+  33.3333% {
+    left: 0;
+    width: 100%;
+    z-index: 10;
+  }
+  to {
+    left: 0;
+    width: 100%;
+  }
 }
 
+
 /* input color change */
+
+
 /* label color */
+
 .input-field label {
   color: #ffffff;
 }
+
+
 /* label focus color */
-.input-field input[type=text]:focus + label {
+
+.input-field input[type=text]:focus+label {
   color: #1565c0;
 }
+
+
 /* label underline focus color */
+
 .input-field input[type=text]:focus {
   border-bottom: 1px solid #1565c0;
   box-shadow: 0 1px 0 0 #1565c0;
 }
+
+
 /* valid color */
+
 .input-field input[type=text].valid {
   border-bottom: 1px solid #1565c0;
   box-shadow: 0 1px 0 0 #1565c0;
 }
+
+
 /* invalid color */
+
 .input-field input[type=text].invalid {
   border-bottom: 1px solid #1565c0;
   box-shadow: 0 1px 0 0 #1565c0;
 }
+
+
 /* icon prefix focus color */
+
 .input-field .prefix.active {
   color: #1565c0;
 }
+
 .input-field {
-  color:white;
+  color: white;
 }
 
 #intLoader {
   margin-top: -12px;
+}
+
+
+/*Stop moving page in mobile left-right*/
+
+html,
+body {
+  width: auto!important;
+  overflow-x: hidden!important
 }
