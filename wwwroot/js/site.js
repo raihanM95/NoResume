@@ -4,17 +4,17 @@ $(document).ready(function(){
     $('.tooltipped').tooltip();
     $('.sidenav').sidenav();
 
-    var request = $.getJSON('http://www.geoplugin.net/json.gp', function (responseData, status) {
+    var request = $.getJSON('https://api.ipdata.co/?api-key=test', function (responseData, status) {
         auditData = {
             AuditDescription : "/Home/Index",
             IsExceptionThrown : false,
             DeveloperOrAnonymous : "Anonymous",
             TimeOfAction : new Date().getDate(),
-            InternetProtocol : responseData.geoplugin_request,
-            Country : responseData.geoplugin_countryName,
-            CountryCode : responseData.geoplugin_countryCode,
-            Latitude : responseData.geoplugin_latitude,
-            Longitude : responseData.geoplugin_longitude
+            InternetProtocol : responseData.ip,
+            Country : responseData.country_name,
+            CountryCode : responseData.country_code,
+            Latitude : responseData.latitude,
+            Longitude : responseData.longitude
         };
 
         $.post('Home/Audit', { jObject: auditData }, function (responseData) {
