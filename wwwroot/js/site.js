@@ -9,7 +9,7 @@ $(document).ready(function(){
             AuditDescription : "/Home/Index",
             IsExceptionThrown : false,
             DeveloperOrAnonymous : "Anonymous",
-            TimeOfAction : new Date(),
+            TimeOfAction : new Date().getDate(),
             InternetProtocol : responseData.geoplugin_request,
             Country : responseData.geoplugin_countryName,
             CountryCode : responseData.geoplugin_countryCode,
@@ -18,7 +18,9 @@ $(document).ready(function(){
         };
 
         $.post('Home/Audit', { jObject: auditData }, function (responseData) {
-            console.log(responseData);
+            var auditMessage = $('#_auditMessage');
+            auditMessage.html("<i class=\"fa fa-map-marker orange-text\" aria-hidden=\"true\"></i> "+responseData[responseData.length -1].country 
+            + ' : Total visited :' + responseData.length);
         }, "json");
     });
 });

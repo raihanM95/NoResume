@@ -27,7 +27,6 @@ namespace NoResume.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.audit = _context.Audits.ToList().Count;
             return View();
         }
 
