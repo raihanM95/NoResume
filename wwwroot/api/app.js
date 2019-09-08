@@ -108,6 +108,11 @@ var pieChartGitHub;
 
 $(document).ready(function () {
     Chart.defaults.global.defaultFontColor = "#fff";
+    Chart.defaults.global.defaultFontFamily = "'Quicksand'";
+    Chart.defaults.global.defaultFontSize = 16;
+    Chart.defaults.global.animation.duration = 1500;
+    var intLoader = $('#intLoader');
+
     var cfDIV = $("#CForcesResume");
     var gitDIV = $("#GithubResume");
     var uhDIV = $("#UHuntResume");
@@ -118,13 +123,13 @@ $(document).ready(function () {
     cfDIV.hide();
     gitDIV.hide();
     uhDIV.hide();
-    
+
     var cfPreload = $('#CForcesPreloader');
     cfPreload.hide();
 
     var uhuntPreload = $('#UhuntPreloader');
     uhuntPreload.hide();
-    
+
     var ghPreload = $('#GitHubPreloader');
     ghPreload.hide();
 
@@ -133,8 +138,8 @@ $(document).ready(function () {
     uhDivRegressionLoader = $("#customLoaderRegression");
     uhDIV.hide();
     uhDIVRegression.hide();
-    
-    
+
+
     /*
     ** Initially hide div #resume
     ** Show when controller response successfully
@@ -146,7 +151,7 @@ $(document).ready(function () {
     ** Initially hide preloader #intLoader
     ** Show when user post a form and hide again after result arrives
      */
-    $("#intLoader").hide();
+    intLoader.hide();
 
 
     /*
@@ -160,7 +165,7 @@ $(document).ready(function () {
         // Hide resume div again after a form is re-submitted
         $("#resume").fadeOut();
         // Show preloader on form post
-        $("#intLoader").show();
+        intLoader.show();
 
         try {
             $.post('', $('#formDevUname').serialize(), function (response) {
@@ -183,7 +188,7 @@ $(document).ready(function () {
                      */
                     _initBioCardDev(response[0]);
                     $("#resume").fadeIn();
-                    
+
                     /*
                     ** When biography card is being loaded,
                     ** Start showing the CodeForces Preloader
@@ -200,6 +205,7 @@ $(document).ready(function () {
                     ** CodeForces Resume Maker starts
                     ** working based on codeForces username
                     */
+                    
                     if (WorkingProfile.codeforcesUsername != null) {
                         cf_handle = WorkingProfile.codeforcesUsername;
                         requestToCodeForces = $.get(cf_api_url + 'user.status', { handle: cf_handle }, function (data, status) {
@@ -210,24 +216,24 @@ $(document).ready(function () {
 
                                 // Set Pie Chart : VERDICT
                                 var verdictDataArray = $.map(cf_verdicts, function (v) { return v; });
-                                CodeForcesCreateCharts(Object.keys(cf_verdicts), verdictDataArray, 'pie', $('#verdicts_codeForces_pie'), 'Verdicts of ' + cf_handle);
+                                CodeForcesCreateCharts(Object.keys(cf_verdicts), verdictDataArray, 'pie', $('#verdicts_codeForces_pie'), '');
 
                                 // Set Pie Chart : Languages
                                 var languageDataArray = $.map(cf_languages, function (v) { return v; });
-                                CodeForcesCreateCharts(Object.keys(cf_languages), languageDataArray, 'pie', $('#languages_codeForces_pie'), 'Languages used by ' + cf_handle);
+                                CodeForcesCreateCharts(Object.keys(cf_languages), languageDataArray, 'pie', $('#languages_codeForces_pie'), '');
 
                                 // Set Doughnut Chart : Tags
                                 var tagsDataArray = $.map(cf_tags, function (v) { return v; });
-                                CodeForcesCreateCharts(Object.keys(cf_tags), tagsDataArray, 'doughnut', $('#tags_codeForces_doughnut'), 'Tags of problems solved by ' + cf_handle);
+                                CodeForcesCreateCharts(Object.keys(cf_tags), tagsDataArray, 'doughnut', $('#tags_codeForces_doughnut'), '');
 
                                 // Set Bar Chart : Levels
                                 cf_attempt_level_quality = sortObjects(cf_attempt_level_quality);
                                 var levelsDataArray = $.map(cf_attempt_level_quality, function (v) { return v; });
-                                CodeForcesCreateBarCharts(Object.keys(cf_attempt_level_quality), levelsDataArray, $('#levels_codeForces_bar'), 'Level of problems solved by ' + cf_handle);
+                                CodeForcesCreateBarCharts(Object.keys(cf_attempt_level_quality), levelsDataArray, $('#levels_codeForces_bar'), 'Levels of ' + cf_handle);
 
                                 // Set Bar Chart : Tags
                                 var ratingsDataArray = $.map(cf_attempt_rating_quality, function (v) { return v; });
-                                CodeForcesCreateBarCharts(Object.keys(cf_attempt_rating_quality), ratingsDataArray, $('#problem_rating_codeForces_bar'), 'Rating of problems solved by ' + cf_handle);
+                                CodeForcesCreateBarCharts(Object.keys(cf_attempt_rating_quality), ratingsDataArray, $('#problem_rating_codeForces_bar'), 'Ratings of ' + cf_handle);
 
                                 CodeForcesEffortSummary();
                                 cfDIV.show();
@@ -269,7 +275,7 @@ $(document).ready(function () {
                                     } else {
                                         console.log(uvaAllSubmissions);
                                         UvaSubmissionProcessor(uvaAllSubmissions);
-                                        
+
                                         // Regression
                                         requestToUhunt3 = $.get(uva_api_url + 'ranklist/' + data + '/1/1', function (ranksInfo, StatusRank) {
                                             requestToUhunt4 = $.get(uva_api_url + 'subs-user/' + ranksInfo[0].userid, function (SubmissionAbove, StatusAbove) {
@@ -278,14 +284,14 @@ $(document).ready(function () {
                                             requestToUHunt5 = $.get(uva_api_url + 'subs-user/' + ranksInfo[2].userid, function (SubmissionBelow, StatusBelow) {
                                                 UvaBelowSubmissionProcessor(SubmissionBelow.subs);
                                                 UVARankingProcessor(ranksInfo);
-                                                
+
                                                 // Regression
                                                 uhDivRegressionLoader.show();
                                                 regressionDatasetTableConstructor();
-                                                
+
                                             });
                                         });
-                                        
+
                                         uhDIV.show();
                                         wordCounter();
                                     }
@@ -305,15 +311,15 @@ $(document).ready(function () {
                     ** Start showing GitHUb preloader
                      */
                     ghPreload.show();
-                    
-                    
+
+
                     // GitHub Resume Maker
                     if (WorkingProfile.githubUsername != null) {
                         githubUsername = WorkingProfile.githubUsername;
                         requestToGH1 = $.get(gitHubApiURL + githubUsername, function (userInformation, userStatus) {
                             if(userStatus === "success"){
                                 gitHubShortProfile = userInformation;
-                                
+
                                 // Card Initiator
                                 $("#_githubAvatar").attr("src",gitHubShortProfile.avatar_url);
                                 $("#_githubDevName").text(gitHubShortProfile.name);
@@ -322,13 +328,13 @@ $(document).ready(function () {
                                 }else{
                                     $("#_githubDevLocation").text(gitHubShortProfile.location);
                                 }
-                                
+
                                 if(gitHubShortProfile.bio === null || gitHubShortProfile.bio === ""){
                                     $("#_githubDevBio").text("Hey, there. I am focusing on coding </>");
                                 }else{
                                     $("#_githubDevBio").text(gitHubShortProfile.bio);
                                 }
-                                
+
                                 $('#_githubDevFollowers').text(gitHubShortProfile.followers);
                                 $('#_githubDevFollowing').text(gitHubShortProfile.following);
                                 $("#_gitHubDevURL").attr("href", gitHubShortProfile.html_url);
@@ -337,15 +343,15 @@ $(document).ready(function () {
                                 }else{
                                     $("#_gitHubDevPortfolioLink").attr("href", gitHubShortProfile.blog);
                                 }
-                                
+
                                 $('#_githubDevPublicRepos').text(gitHubShortProfile.public_repos);
                                 $('#_githubDevPublicGists').text(gitHubShortProfile.public_gists);
-                                
+
                                 $('#_githubDevAccCreated').text(days_between(new Date(gitHubShortProfile.created_at), new Date()) + ' Days ago');
                                 $('#_githubDevLastActive').text(days_between(new Date(gitHubShortProfile.updated_at), new Date()) + ' Days ago');
-                                
+
                                 // Card Initiator End
-                                
+
                                 // Repository Findings
                                 requestToGH2 = $.get(gitHubApiURL + githubUsername + '/repos?page=1&per_page=10&sort=updated', function (repositories, status) {
                                     if(repositories.length < 1){
@@ -367,12 +373,16 @@ $(document).ready(function () {
                     }
                 }
 
-                $("#intLoader").hide();
+                intLoader.hide();
+                $.when($('#_description').fadeOut(800))
+                .then(function(){
+                    scrollToResumeDivision();
+                });
             });
         }
         catch (e) {
             showErrorToast("Invalid Username");
-            $("#intLoader").hide();
+            intLoader.hide();
         }
     });
 });
@@ -413,7 +423,7 @@ function sortPropertiesByAsc(obj) {
     sortable.sort(function (a, b) {
         return b[1] - a[1];
     });
-    return sortable; 
+    return sortable;
 }
 
 function sortObjectsByAsc(objects) {
@@ -487,12 +497,12 @@ function regressionDatasetTableConstructor(){
     var _subjectRow = document.getElementById("_subjectRow");
     var _belowRow = document.getElementById("_rankBelowRow");
     _aboveRow.innerHTML = ''; _subjectRow.innerHTML = ''; _belowRow.innerHTML = '';
-    
+
     var x = _aboveRow.insertCell(0);
     x.innerHTML = regressionDataArray[0].name;
     x = _aboveRow.insertCell(1);
     x.innerHTML = regressionDataArray[0].ranking;
-    
+
     x= _subjectRow.insertCell(0);
     x.innerHTML = regressionDataArray[1].name;
     x = _subjectRow.insertCell(1);
@@ -502,7 +512,7 @@ function regressionDatasetTableConstructor(){
     x.innerHTML = regressionDataArray[2].name;
     x = _belowRow.insertCell(1);
     x.innerHTML = regressionDataArray[2].ranking;
-    
+
     for(var i=0; i<regressionDataArray.length; i++){
         var tempVerdictArray = $.map(regressionDataArray[i].verdict, function (v) { return v; });
         for(var j=0; j<tempVerdictArray.length; j++){
@@ -583,7 +593,7 @@ function submissionRank(rankNumber) {
     }else{
         uvaSubmissionRank[rankNumber] += 1;
     }
-    
+
     if(rankNumber > maxKeySubmissionRank){
         maxKeySubmissionRank = rankNumber;
     }
@@ -598,7 +608,7 @@ function _initiateLanguages(repositories) {
     for (var i = 0; i <repositories.length; i++) {
         requestToGH3 = $.get(repositories[i].languages_url, function (languages, status) {
             var tempKeys = Object.keys(languages);
-            
+
             for(var k=0; k<tempKeys.length; k++){
                 if(languagesOfRepositories[tempKeys[k]] === undefined){
                     languagesOfRepositories[tempKeys[k]] = languages[tempKeys[k]];
@@ -620,7 +630,7 @@ function _initiateLanguages(repositories) {
 function _demonstrateLanguagesGitHub(gitHubLanguageChart, chartType, titleText) {
     var tempLang = {};
     tempLang = sortObjectsByAsc(languagesOfRepositories);
-    
+
     pieChartGitHub = new Chart(gitHubLanguageChart, {
         type: chartType,
         data: {
@@ -775,7 +785,10 @@ function CodeForcesCreateCharts(keys, dataArray, chartType, context, titleText) 
             },
             responsive: true,
             responsiveAnimationDuration: 500,
-            mainAspectRatio: false
+            mainAspectRatio: false,
+            legend: {
+                display: false
+            }
         }
     });
 }
@@ -798,6 +811,9 @@ function CodeForcesCreateBarCharts(keys, dataArray, context, titleText) {
                 display: false,
                 text: titleText,
                 fontSize: 25
+            },
+            legend: {
+                display : false
             },
             responsive: true,
             responsiveAnimationDuration: 500,
@@ -1025,4 +1041,10 @@ function days_between(date1, date2) {
     // Convert back to days and return
     return Math.round(difference_ms/ONE_DAY);
 
+}
+
+function scrollToResumeDivision(){
+    $('html, body').animate({
+        scrollTop: $("#resume").offset().top
+    }, 1300);
 }

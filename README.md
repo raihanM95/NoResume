@@ -18,7 +18,8 @@
    <img src="https://img.shields.io/github/release/shunjid/NoResume" alt="release">
   </a>	
 	
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fshunjid%2FNoResume%2Fbadge&style=for-the-badge)](https://actions-badge.atrox.dev/shunjid/NoResume/goto)
+<a href="https://actions-badge.atrox.dev/shunjid/NoResume/goto"><img alt="Build Status" src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fshunjid%2FNoResume%2Fbadge%3Fref%3Dmaster&style=flat" /></a>
+  </a>
 
 </p>
 
